@@ -1,0 +1,11 @@
+{
+  "name": "website-11ty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy"
+  },
+  "author": "Luke bonaccorsi",
+  "license": "MIT"
+}
