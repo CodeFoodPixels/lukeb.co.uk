@@ -296,10 +296,6 @@ a:hover {
   box-sizing: border-box;
 }
 
-.nav__item: {
-  border-right: none;
-}
-
 .nav__item:hover {
   background: linear-gradient(
       180deg,
