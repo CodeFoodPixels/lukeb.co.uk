@@ -1,0 +1,659 @@
+:root {
+  --content-margin: 0px;
+  --content-max-width: 960px;
+  --nav__item-flex-basis: 33%;
+  --highlight-color: #bb1b1b;
+  --highlight-color--lighter: #d53535;
+  --highlight-color--darker: #8e2323;
+  --highlight-color-hover: #ad1111;
+  --highlight-color-hover--lighter: #ad1111;
+  --highlight-color-hover--darker: #ad1111;
+  --header-direction: column;
+  --header-name-text-size: 2em;
+  --header-start-text-size: 1em;
+  --spaceship-height: 5em;
+  --spaceship-movement: 4px;
+  --header-background-size: 400px;
+  --header-line-width: 2px;
+  --header-line-spacing: 8px;
+  --spaceship-container-height: 80px;
+  --asteroid-position: 0px;
+}
+
+html {
+  height: 100%;
+  font-size: 100%;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: #000000;
+  color: #ffffff;
+  margin: 0;
+  font-family: "Press Start 2P", monospace;
+  font-size: 16px;
+  line-height: 1.75;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+p {margin-bottom: 1rem;}
+
+h1, h2, h3, h4, h5 {
+  margin: 3rem 0 1.38rem;
+  font-family: 'Press Start 2P', monospace;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2.488rem;
+}
+
+h2 {font-size: 2.074rem;}
+
+h3 {font-size: 1.728rem;}
+
+h4 {font-size: 1.44rem;}
+
+h5 {font-size: 1.2rem;}
+
+small, .text_small {font-size: 0.833rem;}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  color: #ffffff;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.header {
+  position: relative;
+  overflow: hidden;
+  line-height: 1.2;
+}
+
+.header--hero {
+  --header-direction: column;
+  --header-name-text-size: min(9vw, 10vh);
+  --header-start-text-size: min(4.5vw, 5vh);
+  --header-line-width: min(0.5625vw, 0.625vh);
+  --header-line-spacing: min(2.25vw, 2.5vh);
+
+  /*
+    Pixel art scaling 
+    1px = 0.1875vh
+  */
+  --spaceship-container-height: max(172px, 45vh);
+  --spaceship-height: max(80px, 15vh);
+  --spaceship-movement: max(16px, 3vh);
+  --asteroid-height: max(42px, 7.875vh);
+  --header-background-size: max(400px, 75vh);
+  --asteroid-position: calc(((50% - (var(--spaceship-height) / 2) - var(--asteroid-height)) / 2) - var(--spaceship-movement));
+}
+
+.header__background {
+  position: absolute;
+  width: calc(200vw + var(--header-background-size));
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background: url("/static/images/stars.gif"), #000000;
+  background-size: var(--header-background-size);
+  will-change: transform;
+  z-index: -1;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.header__content {
+  min-height: 200px;
+  width: calc(100vw - (var(--content-margin) * 2));
+  max-width: var(--content-max-width);
+  display: flex;
+  flex-direction: var(--header-direction);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+  padding: calc(var(--spaceship-movement) * 2) 0px;
+  box-sizing: border-box;
+}
+
+.header--hero .header__content {
+  min-height: calc(100vh - 38px);
+  width: 100%;
+  max-width: 100%;
+}
+
+.header__content::after {
+  content: " ";
+  flex: var(--header-flex);
+}
+
+.header__spaceship {
+  display: flex;
+  align-items: center;
+  flex: var(--header-flex);
+}
+
+.header--hero .header__spaceship {
+  justify-content: center;
+  width: 100%;
+  flex: 1 1 var(--spaceship-container-height);
+  position: relative;
+}
+
+.header--hero .header__asteroid {
+  position: absolute;
+  width: var(--asteroid-height);
+  height: var(--asteroid-height);
+  background-image: url("/static/images/asteroid.png");
+  background-size: cover;
+  left: max(100vw, var(--header-background-size));
+  will-change: transform, background-position-x;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.header--hero .header__asteroid--1,
+.header--hero .header__asteroid--2,
+.header--hero .header__asteroid--3 {
+  top: var(--asteroid-position);
+}
+
+.header--hero .header__asteroid--4,
+.header--hero .header__asteroid--5,
+.header--hero .header__asteroid--6 {
+  bottom: var(--asteroid-position);
+}
+
+.header__spaceship-image {
+  height: var(--spaceship-height);
+  will-change: transform;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.header__text {
+  font-family: "Press Start 2P", monospace;
+  color: #ffffff;
+  text-align: center;
+  width: min-content;
+  height: min-content;
+  user-select: none;
+  margin-top: 8px;
+  perspective: var(--header-name-text-size);
+}
+
+.header__name {
+  font-size: var(--header-name-text-size);
+  text-transform: uppercase;
+  transform: rotateX(5deg);
+  transform-origin: 100% 100%;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: #ffffff;
+  display: block;
+}
+
+.header__start {
+  display: flex;
+  font-size: var(--header-start-text-size);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  will-change: color;
+}
+
+.header__start:before,
+.header__start:after {
+  content: "";
+  flex: 1;
+  height: var(--header-line-width);
+  background: #ffffff;
+}
+
+.header__start:before {
+  margin-right: var(--header-line-spacing);
+}
+
+.header__start:after {
+  margin-left: var(--header-line-spacing);
+}
+
+.nav {
+  font-family: "Press Start 2P", monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  background: var(--highlight-color);
+  margin: 4px;
+}
+
+.nav__content {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  background: #000000;
+  padding: 2px;
+  box-sizing: border-box;
+  width: calc(100% - (var(--content-margin) * 2));
+  max-width: var(--content-max-width);
+}
+
+.nav__item {
+  height: 56px;
+  flex: 1 1 var(--nav__item-flex-basis);
+  text-align: center;
+  background: linear-gradient(
+      180deg,
+      var(--highlight-color--lighter) 0px,
+      var(--highlight-color--lighter) 4px,
+      transparent 4px,
+      transparent calc(100% - 4px),
+      var(--highlight-color--darker) calc(100% - 4px)
+    ),
+    linear-gradient(
+      90deg,
+      var(--highlight-color--lighter) 0px,
+      var(--highlight-color--lighter) 4px,
+      transparent 4px,
+      transparent calc(100% - 4px),
+      var(--highlight-color--darker) calc(100% - 4px)
+    ),
+    var(--highlight-color);
+  padding-top: 10px;
+  padding-bottom: 14px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #000000;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.nav__item: {
+  border-right: none;
+}
+
+.nav__item:hover {
+  background: linear-gradient(
+      180deg,
+      var(--highlight-color-hover--darker) 0px,
+      var(--highlight-color-hover--darker) 4px,
+      transparent 4px,
+      transparent calc(100% - 4px),
+      var(--highlight-color-hover--lighter) calc(100% - 4px)
+    ),
+    linear-gradient(
+      90deg,
+      var(--highlight-color-hover--darker) 0px,
+      var(--highlight-color-hover--darker) 4px,
+      transparent 4px,
+      transparent calc(100% - 4px),
+      var(--highlight-color-hover--lighter) calc(100% - 4px)
+    ),
+    var(--highlight-color-hover);
+  padding-top: 14px;
+  padding-bottom: 10px;
+}
+
+.content {
+  background: #ffffff;
+  padding: 16px;
+  position: relative;
+  margin: 0 auto 16px;
+  width: calc(100% - (var(--content-margin) * 2));
+  max-width: var(--content-max-width);
+  box-sizing: border-box;
+  flex: 1;
+  font-family: monospace;
+  color: #000000;
+}
+
+.content a,
+.content a:visited {
+  color: var(--highlight-color);
+}
+
+.content a:hover,
+.content a:active {
+  color: var(--highlight-color-hover);
+}
+
+.content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 50vh;
+}
+.footer {
+  font-family: "Press Start 2P", monospace;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.footer p {
+  margin-bottom: 5px;
+}
+
+.footer a {
+  color: #ffffff;
+}
+
+.easter {
+  overflow: hidden;
+}
+
+.easter .header__background,
+.easter .header--hero .header__asteroid,
+.easter .header--hero .header__spaceship-wrapper,
+.easter .header--hero .header__spaceship-image,
+.easter .header__spaceship-wrapper
+.easter .header__spaceship-image,
+.easter .header__start {
+  animation: none;
+}
+
+.easter__overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background: #000000;
+  opacity: 0.9;
+}
+
+.easter__close {
+  position: fixed;
+  top: 50%;
+  margin-top: -160px;
+  right: 50%;
+  font-family: 'Press Start 2P', monospace;
+  color: #ffffff;
+  border: none;
+  background: transparent;
+}
+
+.easter__canvas {
+  position: fixed;
+  top: 50%;
+  margin-top: -160px;
+  left: 50%;
+}
+
+@media screen and (min-width: 650px) {
+  :root {
+    --content-margin: 16px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  :root {
+    --header-direction: row;
+    --header-flex: 1 1 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --nav__item-flex-basis: 0px;
+    --header-direction: row;
+    --header-flex: 1 1 50%;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  :root {
+    --header-name-text-size: 3em;
+  }
+}
+
+@media screen and (min-width: 1172px) {
+  :root {
+    --content-max-width: 1140px;
+  }
+}
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("/static/fonts/pressstart2p.woff2") format("woff2"),
+    url("/static/fonts/pressstart2p.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@keyframes stars {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(calc(var(--header-background-size) * -1));
+  }
+}
+
+@keyframes asteroid-rotate {
+  from {
+    background-position-x: 0;
+  }
+
+  to {
+    background-position-x: calc(var(--asteroid-height) * -20);
+  }
+}
+
+@keyframes asteroid-move {
+  0% {
+    transform: translateX(0);
+  }
+
+  80% {
+    transform: translateX(calc((max(100vw, var(--header-background-size)) + var(--asteroid-height)) * -1));
+  }
+
+  100% {
+    transform: translateX(calc((max(100vw, var(--header-background-size)) + var(--asteroid-height)) * -1));
+  }
+}
+
+@keyframes spaceship {
+  from {
+    transform: translateY(calc(var(--spaceship-movement) * -1));
+  }
+
+  to {
+    transform: translateY(var(--spaceship-movement));
+  }
+}
+
+@keyframes spaceship--dodging {
+  /* 5% = 0.5 second */
+
+  0% {
+    transform: translateY(0);
+  }
+  
+  12.5% {
+    transform: translateY(0);
+  }
+
+  15% {
+    transform: translateY(calc(var(--spaceship-movement) * -1));
+  }
+
+  30% {
+    transform: translateY(calc(var(--spaceship-movement) * -1));
+  }
+
+  32.5% {
+    transform: translateY(0);
+  }
+  
+  37.5% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(calc(var(--spaceship-movement) * -1));
+  }
+
+  55% {
+    transform: translateY(calc(var(--spaceship-movement) * -1));
+  }
+
+  60% {
+    transform: translateY(var(--spaceship-movement));
+  }
+
+  80% {
+    transform: translateY(var(--spaceship-movement));
+  }
+
+  82.5% {
+    transform: translateY(0);
+  }
+
+  87.5% {
+    transform: translateY(0);
+  }
+
+  90% {
+    transform: translateY(var(--spaceship-movement));
+  }
+
+  97.5% {
+    transform: translateY(var(--spaceship-movement));
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes spaceship--accellerating {
+  /* 6.25% = 0.5 second */
+
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(0);
+  }
+
+  31.25% {
+    transform: translateX(calc(var(--spaceship-movement) * 2));
+  }
+
+  50% {
+    transform: translateX(calc(var(--spaceship-movement) * 2));
+  }
+
+  75% {
+    transform: translateX(calc(var(--spaceship-movement) * -2));
+  }
+
+  93.75% {
+    transform: translateX(calc(var(--spaceship-movement) * -2));
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+
+}
+
+@keyframes blink {
+  from {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  33% {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  to {
+    color: rgba(255, 255, 255, 0);
+  }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .header__background {
+    animation: 5s linear infinite stars;
+  }
+
+  .header__spaceship-image {
+    animation: 1s ease-in-out alternate infinite spaceship;
+  }
+
+  .header--hero .header__spaceship-wrapper {
+    animation: 16s cubic-bezier(.32,.01,.46,1) infinite spaceship--accellerating
+  }
+
+  .header--hero .header__spaceship-image {
+    animation: 10s ease-in-out infinite spaceship--dodging;
+  }
+
+  .header--hero .header__asteroid--1 {
+    animation: 3s steps(20) infinite asteroid-rotate, 6.875s linear infinite asteroid-move;
+    animation-delay: -0.12s
+  }
+
+  .header--hero .header__asteroid--2 {
+    animation: 3s steps(20) infinite asteroid-rotate, 6.875s linear infinite asteroid-move;
+    animation-delay: 1.55s;
+  }
+
+  .header--hero .header__asteroid--3 {
+    animation: 3s steps(20) infinite asteroid-rotate, 6.875s linear infinite asteroid-move;
+    animation-delay: 4.37s;
+  }
+
+  .header--hero .header__asteroid--4 {
+    animation: 3s steps(20) infinite asteroid-rotate, 5.625s linear infinite asteroid-move;
+    animation-delay: 0.85s;
+  }
+
+  .header--hero .header__asteroid--5 {
+    animation: 3s steps(20) infinite asteroid-rotate, 5.625s linear infinite asteroid-move;
+    animation-delay: 3.70s;
+  }
+  .header--hero .header__asteroid--6 {
+    animation: 3s steps(20) infinite asteroid-rotate, 5.625s linear infinite asteroid-move;
+    animation-delay: 4.78s;
+  }
+
+  .header__start {
+    animation: 1.5s linear alternate infinite blink;
+  }
+}

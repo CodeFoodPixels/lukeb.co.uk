@@ -4,8 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy"
+    "build": "eleventy",
+    "serve": "eleventy --serve"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeFoodPixels/website-11ty.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CodeFoodPixels/website-11ty/issues"
+  },
+  "browserslist": [
+    ">0.25%"
+  ],
+  "homepage": "https://github.com/CodeFoodPixels/website-11ty#readme",
   "author": "Luke bonaccorsi",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@11ty/eleventy-img": "^0.7.8",
+    "autoprefixer": "^10.2.3",
+    "markdown-it-link-attributes": "^3.0.0",
+    "postcss": "^8.2.4",
+    "prettier": "^2.2.1",
+    "purify-css": "^1.2.5"
+  }
 }
