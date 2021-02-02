@@ -1,6 +1,6 @@
 :root {
-  --content-margin: 0px;
-  --content-max-width: 960px;
+  --content-margin: 0rem;
+  --content-max-width: 60rem;
   --nav__item-flex-basis: 33%;
   --highlight-color: #bb1b1b;
   --highlight-color--lighter: #d53535;
@@ -9,15 +9,20 @@
   --highlight-color-hover--lighter: #ad1111;
   --highlight-color-hover--darker: #ad1111;
   --header-direction: column;
-  --header-name-text-size: 2em;
-  --header-start-text-size: 1em;
-  --spaceship-height: 5em;
-  --spaceship-movement: 4px;
-  --header-background-size: 400px;
-  --header-line-width: 2px;
-  --header-line-spacing: 8px;
-  --spaceship-container-height: 80px;
-  --asteroid-position: 0px;
+  --header-name-text-size: 2rem;
+  --header-start-text-size: 1rem;
+  --spaceship-height: 5rem;
+  --spaceship-movement: 0.25rem;
+  --header-background-size: 25rem;
+  --header-line-width: 0.125rem;
+  --header-line-spacing: 0.5rem;
+  --spaceship-container-height: 5rem;
+  --asteroid-position: 0rem;
+  --asteroid-time-multiplier: 1;
+  --asteroid-size: 0rem;
+  --laser-height: 0rem;
+  --laser-width: 0rem;
+  --laser-endstop: 0rem;
 }
 
 html {
@@ -50,29 +55,64 @@ p {
   padding: 0;
 }
 
-p {margin-bottom: 1rem;}
+p {
+  margin-bottom: 1rem;
+}
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 3rem 0 1.38rem;
-  font-family: 'Press Start 2P', monospace;
+  font-family: "Press Start 2P", monospace;
   font-weight: 400;
   line-height: 1.3;
 }
 
 h1 {
-  margin-top: 0;
+  margin: 0 0 1rem;
   font-size: 2.488rem;
 }
 
-h2 {font-size: 2.074rem;}
+h2 {
+  font-size: 2.074rem;
+}
 
-h3 {font-size: 1.728rem;}
+h3 {
+  font-size: 1.728rem;
+}
 
-h4 {font-size: 1.44rem;}
+h4 {
+  font-size: 1.44rem;
+}
 
-h5 {font-size: 1.2rem;}
+h5 {
+  font-size: 1.2rem;
+}
 
-small, .text_small {font-size: 0.833rem;}
+.content__header::after,
+h2::after,
+h3::after,
+h4::after,
+h5::after {
+  content: " ";
+  height: 0.25rem;
+  width: 100%;
+  display: block;
+  background: repeating-linear-gradient(
+    90deg,
+    #000000 0rem,
+    #000000 0.5rem,
+    #ffffff 0.5rem,
+    #ffffff 1rem
+  );
+}
+
+small,
+.text_small {
+  font-size: 0.833rem;
+}
 
 a,
 a:hover,
@@ -102,31 +142,36 @@ a:hover {
     Pixel art scaling 
     1px = 0.1875vh
   */
-  --spaceship-container-height: max(172px, 45vh);
-  --spaceship-height: max(80px, 15vh);
-  --spaceship-movement: max(16px, 3vh);
-  --asteroid-height: max(42px, 7.875vh);
-  --header-background-size: max(400px, 75vh);
-  --asteroid-position: calc(((50% - (var(--spaceship-height) / 2) - var(--asteroid-height)) / 2) - var(--spaceship-movement));
+  --spaceship-container-height: max(10.75rem, 45vh);
+  --spaceship-height: max(5rem, 15vh);
+  --spaceship-movement: max(1rem, 3vh);
+  --asteroid-size: max(2.625rem, 7.875vh);
+  --laser-height: max(0.375rem, 1.125vh);
+  --laser-width: max(2.375rem, 7.125vh);
+  --header-background-size: max(25rem, 75vh);
+  --asteroid-position: calc(
+    ((50% - (var(--spaceship-height) / 2) - var(--asteroid-size)) / 2) -
+      var(--spaceship-movement)
+  );
+  --laser-endstop: max(calc(50vw + (var(--laser-width) / 2)), calc(36.625rem));
 }
 
 .header__background {
   position: absolute;
   width: calc(200vw + var(--header-background-size));
   height: 100%;
-  top: 0px;
-  left: 0px;
-  background: url("/static/images/stars.gif"), #000000;
+  top: 0rem;
+  left: 0rem;
+  background: url("/static/images/stars.png"), #000000;
   background-size: var(--header-background-size);
   will-change: transform;
   z-index: -1;
   image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
 }
 
 .header__content {
-  min-height: 200px;
+  min-height: 12.5rem;
   width: calc(100vw - (var(--content-margin) * 2));
   max-width: var(--content-max-width);
   display: flex;
@@ -135,12 +180,12 @@ a:hover {
   align-items: center;
   position: relative;
   margin: 0 auto;
-  padding: calc(var(--spaceship-movement) * 2) 0px;
+  padding: calc(var(--spaceship-movement) * 2) 0rem;
   box-sizing: border-box;
 }
 
 .header--hero .header__content {
-  min-height: calc(100vh - 38px);
+  min-height: calc(100vh - 5rem);
   width: 100%;
   max-width: 100%;
 }
@@ -163,16 +208,39 @@ a:hover {
   position: relative;
 }
 
+.header--hero .header__laser {
+  position: absolute;
+  width: var(--laser-width);
+  height: var(--laser-height);
+  background-image: url("/static/images/laser.gif");
+  background-size: var(--laser-width);
+  left: calc(50% - (var(--laser-width) / 2));
+  top: calc(50% + (var(--laser-height) / 2));
+  will-change: transform, opacity;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  opacity: 0;
+}
+
 .header--hero .header__asteroid {
   position: absolute;
-  width: var(--asteroid-height);
-  height: var(--asteroid-height);
-  background-image: url("/static/images/asteroid.png");
-  background-size: cover;
+  width: var(--asteroid-size);
+  height: var(--asteroid-size);
   left: max(100vw, var(--header-background-size));
-  will-change: transform, background-position-x;
+  will-change: transform;
+
+  overflow: hidden;
+}
+
+.header--hero .header__asteroid::before {
+  content: " ";
+  display: block;
+  background-image: url("/static/images/asteroid.png");
+  background-size: auto var(--asteroid-size);
+  width: calc(var(--asteroid-size) * 20);
+  height: var(--asteroid-size);
+  will-change: transform;
   image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
 }
 
@@ -193,7 +261,6 @@ a:hover {
   will-change: transform;
   display: block;
   image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
 }
 
@@ -204,7 +271,7 @@ a:hover {
   width: min-content;
   height: min-content;
   user-select: none;
-  margin-top: 8px;
+  margin-top: 0.5rem;
   perspective: var(--header-name-text-size);
 }
 
@@ -213,7 +280,7 @@ a:hover {
   text-transform: uppercase;
   transform: rotateX(5deg);
   transform-origin: 100% 100%;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   text-decoration: none;
   color: #ffffff;
   display: block;
@@ -225,7 +292,11 @@ a:hover {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  will-change: color;
+}
+
+.header__start-text {
+  opacity: 1;
+  will-change: opacity;
 }
 
 .header__start:before,
@@ -250,9 +321,9 @@ a:hover {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 8px 12px;
+  padding: 0.5rem 0.75rem;
   background: var(--highlight-color);
-  margin: 4px;
+  margin: 0.25rem;
 }
 
 .nav__content {
@@ -260,38 +331,38 @@ a:hover {
   flex: 1;
   flex-wrap: wrap;
   background: #000000;
-  padding: 2px;
+  padding: 0.125rem;
   box-sizing: border-box;
   width: calc(100% - (var(--content-margin) * 2));
   max-width: var(--content-max-width);
 }
 
 .nav__item {
-  height: 56px;
+  height: 3.5rem;
   flex: 1 1 var(--nav__item-flex-basis);
   text-align: center;
   background: linear-gradient(
       180deg,
-      var(--highlight-color--lighter) 0px,
-      var(--highlight-color--lighter) 4px,
-      transparent 4px,
-      transparent calc(100% - 4px),
-      var(--highlight-color--darker) calc(100% - 4px)
+      var(--highlight-color--lighter) 0rem,
+      var(--highlight-color--lighter) 0.25rem,
+      transparent 0.25rem,
+      transparent calc(100% - 0.25rem),
+      var(--highlight-color--darker) calc(100% - 0.25rem)
     ),
     linear-gradient(
       90deg,
-      var(--highlight-color--lighter) 0px,
-      var(--highlight-color--lighter) 4px,
-      transparent 4px,
-      transparent calc(100% - 4px),
-      var(--highlight-color--darker) calc(100% - 4px)
+      var(--highlight-color--lighter) 0rem,
+      var(--highlight-color--lighter) 0.25rem,
+      transparent 0.25rem,
+      transparent calc(100% - 0.25rem),
+      var(--highlight-color--darker) calc(100% - 0.25rem)
     ),
     var(--highlight-color);
-  padding-top: 10px;
-  padding-bottom: 14px;
-  padding-left: 12px;
-  padding-right: 12px;
-  border: 2px solid #000000;
+  padding-top: 0.625rem;
+  padding-bottom: 0.875rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border: 0.125rem solid #000000;
   text-decoration: none;
   box-sizing: border-box;
 }
@@ -299,30 +370,30 @@ a:hover {
 .nav__item:hover {
   background: linear-gradient(
       180deg,
-      var(--highlight-color-hover--darker) 0px,
-      var(--highlight-color-hover--darker) 4px,
-      transparent 4px,
-      transparent calc(100% - 4px),
-      var(--highlight-color-hover--lighter) calc(100% - 4px)
+      var(--highlight-color-hover--darker) 0rem,
+      var(--highlight-color-hover--darker) 0.25rem,
+      transparent 0.25rem,
+      transparent calc(100% - 0.25rem),
+      var(--highlight-color-hover--lighter) calc(100% - 0.25rem)
     ),
     linear-gradient(
       90deg,
-      var(--highlight-color-hover--darker) 0px,
-      var(--highlight-color-hover--darker) 4px,
-      transparent 4px,
-      transparent calc(100% - 4px),
-      var(--highlight-color-hover--lighter) calc(100% - 4px)
+      var(--highlight-color-hover--darker) 0rem,
+      var(--highlight-color-hover--darker) 0.25rem,
+      transparent 0.25rem,
+      transparent calc(100% - 0.25rem),
+      var(--highlight-color-hover--lighter) calc(100% - 0.25rem)
     ),
     var(--highlight-color-hover);
-  padding-top: 14px;
-  padding-bottom: 10px;
+  padding-top: 0.875rem;
+  padding-bottom: 0.625rem;
 }
 
 .content {
   background: #ffffff;
-  padding: 16px;
+  padding: 1rem;
   position: relative;
-  margin: 0 auto 16px;
+  margin: 0 auto 1rem;
   width: calc(100% - (var(--content-margin) * 2));
   max-width: var(--content-max-width);
   box-sizing: border-box;
@@ -341,7 +412,8 @@ a:hover {
   color: var(--highlight-color-hover);
 }
 
-.content img {
+.content img,
+.content video {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -350,14 +422,19 @@ a:hover {
   max-width: 100%;
   max-height: 50vh;
 }
+
+.content__header {
+  margin: 0 0 1.38rem;
+}
+
 .footer {
   font-family: "Press Start 2P", monospace;
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .footer p {
-  margin-bottom: 5px;
+  margin-bottom: 0.3125rem;
 }
 
 .footer a {
@@ -369,21 +446,23 @@ a:hover {
 }
 
 .easter .header__background,
+.easter .header--hero .header__laser,
 .easter .header--hero .header__asteroid,
+.easter .header--hero .header__asteroid::before,
 .easter .header--hero .header__spaceship-wrapper,
 .easter .header--hero .header__spaceship-image,
-.easter .header__spaceship-wrapper
+.easter .header__spaceship-wrapper,
 .easter .header__spaceship-image,
-.easter .header__start {
+.easter .header__start-text {
   animation: none;
 }
 
 .easter__overlay {
   position: fixed;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
+  top: 0rem;
+  left: 0rem;
+  bottom: 0rem;
+  right: 0rem;
   background: #000000;
   opacity: 0.9;
 }
@@ -391,9 +470,9 @@ a:hover {
 .easter__close {
   position: fixed;
   top: 50%;
-  margin-top: -160px;
+  margin-top: -10rem;
   right: 50%;
-  font-family: 'Press Start 2P', monospace;
+  font-family: "Press Start 2P", monospace;
   color: #ffffff;
   border: none;
   background: transparent;
@@ -402,40 +481,43 @@ a:hover {
 .easter__canvas {
   position: fixed;
   top: 50%;
-  margin-top: -160px;
+  margin-top: -10rem;
   left: 50%;
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 40.625rem) {
   :root {
-    --content-margin: 16px;
+    --content-margin: 1rem;
+    --asteroid-time-multiplier: 1.5;
   }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 43.75rem) {
   :root {
     --header-direction: row;
     --header-flex: 1 1 50%;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48rem) {
   :root {
-    --nav__item-flex-basis: 0px;
+    --nav__item-flex-basis: 0rem;
     --header-direction: row;
     --header-flex: 1 1 50%;
   }
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 53.125rem) {
   :root {
-    --header-name-text-size: 3em;
+    --header-name-text-size: 3rem;
+    --asteroid-time-multiplier: 2;
   }
 }
 
-@media screen and (min-width: 1172px) {
+@media screen and (min-width: 73.25rem) {
   :root {
-    --content-max-width: 1140px;
+    --content-max-width: 71.25rem;
+    --asteroid-time-multiplier: 2.5;
   }
 }
 
@@ -450,7 +532,7 @@ a:hover {
 
 @keyframes stars {
   from {
-    transform: translateX(0px);
+    transform: translateX(0rem);
   }
 
   to {
@@ -460,11 +542,11 @@ a:hover {
 
 @keyframes asteroid-rotate {
   from {
-    background-position-x: 0;
+    transform: translateX(0);
   }
 
   to {
-    background-position-x: calc(var(--asteroid-height) * -20);
+    transform: translateX(calc(var(--asteroid-size) * -20));
   }
 }
 
@@ -474,11 +556,19 @@ a:hover {
   }
 
   80% {
-    transform: translateX(calc((max(100vw, var(--header-background-size)) + var(--asteroid-height)) * -1));
+    transform: translateX(
+      calc(
+        (max(100vw, var(--header-background-size)) + var(--asteroid-size)) * -1
+      )
+    );
   }
 
   100% {
-    transform: translateX(calc((max(100vw, var(--header-background-size)) + var(--asteroid-height)) * -1));
+    transform: translateX(
+      calc(
+        (max(100vw, var(--header-background-size)) + var(--asteroid-size)) * -1
+      )
+    );
   }
 }
 
@@ -498,7 +588,7 @@ a:hover {
   0% {
     transform: translateY(0);
   }
-  
+
   12.5% {
     transform: translateY(0);
   }
@@ -514,7 +604,7 @@ a:hover {
   32.5% {
     transform: translateY(0);
   }
-  
+
   37.5% {
     transform: translateY(0);
   }
@@ -556,7 +646,7 @@ a:hover {
   }
 }
 
-@keyframes spaceship--accellerating {
+@keyframes spaceship--accelerating {
   /* 6.25% = 0.5 second */
 
   0% {
@@ -586,20 +676,206 @@ a:hover {
   100% {
     transform: translateX(0);
   }
+}
 
+@keyframes laser {
+  /* 3.3333333333% = 1 second */
+
+  0% {
+    opacity: 1;
+  }
+
+  5% {
+    transform: translateY(0) translateX(var(--laser-endstop));
+    opacity: 1;
+  }
+  5.01% {
+    opacity: 0;
+  }
+
+  13.32% {
+    transform: translateY(calc(var(--spaceship-movement) * -1)) translateX(0);
+    opacity: 0;
+  }
+
+  13.33% {
+    opacity: 1;
+  }
+
+  18.33% {
+    transform: translateY(calc(var(--spaceship-movement) * -1))
+      translateX(var(--laser-endstop));
+    opacity: 1;
+  }
+
+  18.34% {
+    opacity: 0;
+  }
+
+  27.49% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  27.50% {
+    opacity: 1;
+  }
+
+  32.5% {
+    transform: translateY(0) translateX(var(--laser-endstop));
+    opacity: 1;
+  }
+
+  32.51% {
+    opacity: 0;
+  }
+
+  38.32% {
+    transform: translateY(calc(var(--spaceship-movement) * -1)) translateX(0);
+    opacity: 0;
+  }
+
+  38.33% {
+    opacity: 1;
+  }
+
+  43.33% {
+    transform: translateY(calc(var(--spaceship-movement) * -1))
+      translateX(var(--laser-endstop));
+    opacity: 1;
+  }
+
+  43.34% {
+    opacity: 0;
+  }
+
+  44.16% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  44.17% {
+    opacity: 1;
+  }
+
+  49.17% {
+    transform: translateY(0) translateX(var(--laser-endstop));
+    opacity: 1;
+  }
+
+  49.18% {
+    opacity: 0;
+  }
+
+  56.99% {
+    transform: translateY(var(--spaceship-movement)) translateX(0);
+    opacity: 0;
+  }
+  57% {
+    opacity: 1;
+  }
+
+  62% {
+    transform: translateY(var(--spaceship-movement))
+      translateX(var(--laser-endstop));
+    opacity: 1;
+  }
+
+  62.01% {
+    opacity: 0;
+  }
+
+  66.66% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  66.67% {
+    opacity: 1;
+  }
+
+  71.67% {
+    transform: translateY(0) translateX(var(--laser-endstop));
+    opacity: 1;
+  }
+
+  71.68% {
+    opacity: 0;
+  }
+
+  79.99% {
+    transform: translateY(calc(var(--spaceship-movement) * -1)) translateX(0);
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  85% {
+    transform: translateY(calc(var(--spaceship-movement) * -1))
+      translateX(var(--laser-endstop));
+    opacity: 1;
+  }
+
+  85.01% {
+    opacity: 0;
+  }
+
+  86.66% {
+    transform: translateY(var(--spaceship-movement)) translateX(0);
+    opacity: 0;
+  }
+
+  86.67% {
+    opacity: 1;
+  }
+
+  91.67% {
+    transform: translateY(var(--spaceship-movement))
+      translateX(var(--laser-endstop));
+    opacity: 1;
+  }
+
+  91.68% {
+    opacity: 0;
+  }
+
+  94.16% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  94.17% {
+    opacity: 1;
+  }
+
+  99.17% {
+    transform: translateY(0) translateX(var(--laser-endstop));
+    opacity: 1;
+  }
+
+  99.18% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
 }
 
 @keyframes blink {
   from {
-    color: rgba(255, 255, 255, 1);
+    opacity: 1;
   }
 
   33% {
-    color: rgba(255, 255, 255, 1);
+    opacity: 1;
   }
 
   to {
-    color: rgba(255, 255, 255, 0);
+    opacity: 0;
   }
 }
 
@@ -613,43 +889,64 @@ a:hover {
   }
 
   .header--hero .header__spaceship-wrapper {
-    animation: 16s cubic-bezier(.32,.01,.46,1) infinite spaceship--accellerating
+    animation: 16s cubic-bezier(0.32, 0.01, 0.46, 1) infinite
+      spaceship--accelerating;
   }
 
   .header--hero .header__spaceship-image {
     animation: 10s ease-in-out infinite spaceship--dodging;
   }
 
+  .header--hero .header__laser {
+    animation: 30s linear infinite laser;
+  }
+
+  .header__asteroid::before {
+    animation: 3s steps(20) infinite asteroid-rotate;
+  }
+
   .header--hero .header__asteroid--1 {
-    animation: 3s steps(20) infinite asteroid-rotate, 6.875s linear infinite asteroid-move;
-    animation-delay: -0.12s
+    animation: calc(3.4375s * var(--asteroid-time-multiplier)) linear infinite
+      asteroid-move;
+    animation-delay: calc(-0.12s - (2.1s * var(--asteroid-time-multiplier)));
   }
 
   .header--hero .header__asteroid--2 {
-    animation: 3s steps(20) infinite asteroid-rotate, 6.875s linear infinite asteroid-move;
-    animation-delay: 1.55s;
+    animation: calc(3.4375s * var(--asteroid-time-multiplier)) linear infinite
+      asteroid-move;
+    animation-delay: calc(1.55s - (2.1s * var(--asteroid-time-multiplier)));
   }
 
   .header--hero .header__asteroid--3 {
-    animation: 3s steps(20) infinite asteroid-rotate, 6.875s linear infinite asteroid-move;
-    animation-delay: 4.37s;
+    animation: calc(3.4375s * var(--asteroid-time-multiplier)) linear infinite
+      asteroid-move;
+    animation-delay: calc(4.37s - (2.1s * var(--asteroid-time-multiplier)));
   }
 
   .header--hero .header__asteroid--4 {
-    animation: 3s steps(20) infinite asteroid-rotate, 5.625s linear infinite asteroid-move;
-    animation-delay: 0.85s;
+    animation: calc(2.8125s * var(--asteroid-time-multiplier)) linear infinite
+      asteroid-move;
+    animation-delay: calc(0.85s - (2.1s * var(--asteroid-time-multiplier)));
   }
 
   .header--hero .header__asteroid--5 {
-    animation: 3s steps(20) infinite asteroid-rotate, 5.625s linear infinite asteroid-move;
-    animation-delay: 3.70s;
+    animation: calc(2.8125s * var(--asteroid-time-multiplier)) linear infinite
+      asteroid-move;
+    animation-delay: calc(3.7s - (2.1s * var(--asteroid-time-multiplier)));
   }
   .header--hero .header__asteroid--6 {
-    animation: 3s steps(20) infinite asteroid-rotate, 5.625s linear infinite asteroid-move;
-    animation-delay: 4.78s;
+    animation: calc(2.8125s * var(--asteroid-time-multiplier)) linear infinite
+      asteroid-move;
+    animation-delay: calc(4.78s - (2.1s * var(--asteroid-time-multiplier)));
   }
 
-  .header__start {
+  .header__start-text {
     animation: 1.5s linear alternate infinite blink;
   }
+}
+
+/* prismjs overrides */
+pre[class*="language-"],
+:not(pre) > code[class*="language-"] {
+  border-radius: 0;
 }

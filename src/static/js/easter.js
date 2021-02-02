@@ -1,12 +1,5 @@
 var startClicked = false;
 var startTimeout;
-var gameLoaded = false;
-
-document.querySelector(".js-start").addEventListener("click", function () {
-  if (gameLoaded === false) {
-    loadGame();
-  }
-});
 
 function loadGame() {
   var gameWidth = window.innerWidth < 640 ? window.innerWidth : 640;
@@ -76,7 +69,7 @@ function loadGame() {
     velocity: 3,
     image: new Image(),
   };
-  background.image.src = "/static/images/stars.gif";
+  background.image.src = "/static/images/stars.png";
 
   var state;
 

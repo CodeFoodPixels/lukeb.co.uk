@@ -23,8 +23,12 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-img": "^0.7.8",
+    "@11ty/eleventy-plugin-rss": "^1.1.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.6",
     "autoprefixer": "^10.2.3",
+    "eleventy-plugin-reading-time": "0.0.1",
     "markdown-it-link-attributes": "^3.0.0",
+    "nunjucks-date-filter": "^0.1.1",
     "postcss": "^8.2.4",
     "prettier": "^2.2.1",
     "purify-css": "^1.2.5"

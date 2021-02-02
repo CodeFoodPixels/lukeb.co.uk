@@ -1,0 +1,10 @@
+---
+layout: layouts/base.njk
+---
+<header class="content__header">
+  <h1>{{ title }}</h1>
+  <time>{{ date | date("YYYY-MM-DD") }}</time>
+  <span> // </span>
+  <span>About {{ content | readingTime({speed: 200, raw: true}) }} minute read</span>
+</header>
+{{ content | safe }}

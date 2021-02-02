@@ -1,16 +1,24 @@
 const Image = require("@11ty/eleventy-img");
+const rssPlugin = require("@11ty/eleventy-plugin-rss");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const readingTime = require("eleventy-plugin-reading-time");
+const nunjucksDate = require("nunjucks-date-filter");
+const slugify = require("slugify");
+
+const fs = require("fs");
+const path = require("path");
 const purifycss = require("purify-css");
 const autoprefixer = require("autoprefixer");
 const postcss = require("postcss");
-const fs = require("fs");
-const path = require("path");
 const markdownIt = require("markdown-it");
 const markdownItLinkAttributes = require("markdown-it-link-attributes");
+
+const site = require("./src/_data/site.json");
 
 async function imageShortcode(
   src,
   alt,
-  sizes = "(min-width: 1172px) 1000px, (min-width: 864px) 800px, (min-width: 664px) 600px, 250px"
+  sizes = "(min-width: 73.25rem) 62.5rem, (min-width: 54rem) 50rem, (min-width: 41.5rem) 37.5rem, 15.625rem"
 ) {
   let metadata = await Image(src, {
     widths: [1000, 800, 600, 250],
@@ -31,6 +39,23 @@ async function imageShortcode(
   });
 }
 
+async function videoShortcode(src, width, options) {
+  await fs.promises.mkdir(path.join(__dirname, "dist", "static", "videos"), {
+    recursive: true,
+  });
+  const filename = path.basename(src);
+  await fs.promises.copyFile(
+    src,
+    path.join(__dirname, "dist", "static", "videos", filename)
+  );
+
+  return `<video controls src="/static/videos/${filename}" width="${width}" ${
+    options.autoplay ? 'autoplay="true"' : ""
+  } ${options.loop ? 'loop="true"' : ""} ${
+    options.muted ? 'muted="true"' : ""
+  }></video>`;
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.setLibrary(
     "md",
@@ -44,11 +69,13 @@ module.exports = function (eleventyConfig) {
   );
 
   eleventyConfig.addPassthroughCopy("src/static");
+  eleventyConfig.addPassthroughCopy("src/.well-known");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
 
   eleventyConfig.addWatchTarget("src/static/css/");
 
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("video", videoShortcode);
 
   eleventyConfig.on("beforeBuild", async () => {
     const css = fs.readFileSync(
@@ -69,34 +96,6 @@ module.exports = function (eleventyConfig) {
     );
   });
 
-  eleventyConfig.addCollection("tagList", function (collection) {
-    let tagSet = new Set();
-
-    collection.getAll().forEach((item) => {
-      if ("tags" in item.data) {
-        let tags = item.data.tags;
-
-        tags
-          .filter((item) => {
-            switch (item) {
-              case "all":
-              case "nav":
-              case "post":
-              case "posts":
-                return false;
-            }
-
-            return true;
-          })
-          .forEach((tag) => {
-            tagSet.add(tag);
-          });
-      }
-    });
-
-    return [...tagSet];
-  });
-
   eleventyConfig.addTransform(
     "purifycss",
     async function (content, outputPath) {
@@ -104,7 +103,16 @@ module.exports = function (eleventyConfig) {
         return new Promise((resolve) => {
           purifycss(
             content,
-            [path.join(__dirname, "dist", "static", "css", "main.css")],
+            [
+              path.join(
+                __dirname,
+                "dist",
+                "static",
+                "css",
+                "prism-a11y-dark.css"
+              ),
+              path.join(__dirname, "dist", "static", "css", "main.css"),
+            ],
             {
               minify: true,
               whitelist: ["*easter*"],
@@ -125,7 +133,41 @@ module.exports = function (eleventyConfig) {
     }
   );
 
+  const now = new Date();
+  const livePosts = (post) => post.date <= now && !post.data.draft;
+  eleventyConfig.addCollection("posts", (collection) => {
+    return [
+      ...collection.getFilteredByGlob("./src/posts/*.md").filter(livePosts),
+    ].reverse();
+  });
+
+  eleventyConfig.addCollection("postFeed", (collection) => {
+    return [
+      ...collection.getFilteredByGlob("./src/posts/*.md").filter(livePosts),
+    ]
+      .reverse()
+      .slice(0, site.maxPostsPerPage);
+  });
+
+  eleventyConfig.addPlugin(readingTime);
+  eleventyConfig.addPlugin(rssPlugin);
+  eleventyConfig.addPlugin(syntaxHighlight);
+
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
+  eleventyConfig.addFilter("date", nunjucksDate);
+  eleventyConfig.addFilter("excerpt", (post) => {
+    const content = post.replace(/(<([^>]+)>)/gi, "");
+    return content.substr(0, content.lastIndexOf(" ", 200)) + "...";
+  });
+  eleventyConfig.addFilter("slug", (input) => {
+    const options = {
+      replacement: "-",
+      remove: /[&,+()$~%.'":*!?<>{}]/g,
+      lower: true,
+    };
+    return slugify(input, options);
+  });
 
   return {
     dir: {

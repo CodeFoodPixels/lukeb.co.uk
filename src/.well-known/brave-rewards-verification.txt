@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: lukeb.co.uk
+Token: 2f5363755fcbf57441b6f86631ae2f1992fdd8ebde16dd273a4365a97f7336fb
