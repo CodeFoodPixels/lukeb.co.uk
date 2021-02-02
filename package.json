@@ -30,6 +30,7 @@
     "markdown-it-link-attributes": "^3.0.0",
     "nunjucks-date-filter": "^0.1.1",
     "postcss": "^8.2.4",
+    "postcss-inline-svg": "^5.0.0",
     "prettier": "^2.2.1",
     "purify-css": "^1.2.5"
   }

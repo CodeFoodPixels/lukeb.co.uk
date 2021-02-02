@@ -162,12 +162,10 @@ a:hover {
   height: 100%;
   top: 0rem;
   left: 0rem;
-  background: url("/static/images/stars.png"), #000000;
+  background: svg-load("../images/stars.svg"), #000000;
   background-size: var(--header-background-size);
   will-change: transform;
   z-index: -1;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
 }
 
 .header__content {
@@ -212,13 +210,11 @@ a:hover {
   position: absolute;
   width: var(--laser-width);
   height: var(--laser-height);
-  background-image: url("/static/images/laser.gif");
+  background-image: svg-load("../images/laser.svg");
   background-size: var(--laser-width);
   left: calc(50% - (var(--laser-width) / 2));
   top: calc(50% + (var(--laser-height) / 2));
   will-change: transform, opacity;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
   opacity: 0;
 }
 
@@ -235,13 +231,11 @@ a:hover {
 .header--hero .header__asteroid::before {
   content: " ";
   display: block;
-  background-image: url("/static/images/asteroid.png");
+  background-image: svg-load("../images/asteroid.svg");
   background-size: auto var(--asteroid-size);
   width: calc(var(--asteroid-size) * 20);
   height: var(--asteroid-size);
   will-change: transform;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
 }
 
 .header--hero .header__asteroid--1,
@@ -256,12 +250,10 @@ a:hover {
   bottom: var(--asteroid-position);
 }
 
-.header__spaceship-image {
+.header__spaceship-wrapper svg {
   height: var(--spaceship-height);
   will-change: transform;
   display: block;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
 }
 
 .header__text {
@@ -450,9 +442,9 @@ a:hover {
 .easter .header--hero .header__asteroid,
 .easter .header--hero .header__asteroid::before,
 .easter .header--hero .header__spaceship-wrapper,
-.easter .header--hero .header__spaceship-image,
+.easter .header--hero .header__spaceship-wrapper svg,
 .easter .header__spaceship-wrapper,
-.easter .header__spaceship-image,
+.easter .header__spaceship-wrapper svg,
 .easter .header__start-text {
   animation: none;
 }
@@ -884,7 +876,7 @@ a:hover {
     animation: 5s linear infinite stars;
   }
 
-  .header__spaceship-image {
+  .header__spaceship-wrapper svg {
     animation: 1s ease-in-out alternate infinite spaceship;
   }
 
@@ -893,7 +885,7 @@ a:hover {
       spaceship--accelerating;
   }
 
-  .header--hero .header__spaceship-image {
+  .header--hero .header__spaceship-wrapper svg {
     animation: 10s ease-in-out infinite spaceship--dodging;
   }
 

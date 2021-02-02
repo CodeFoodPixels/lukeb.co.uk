@@ -8,6 +8,7 @@ const slugify = require("slugify");
 const fs = require("fs");
 const path = require("path");
 const purifycss = require("purify-css");
+const inlineSVG = require("postcss-inline-svg");
 const autoprefixer = require("autoprefixer");
 const postcss = require("postcss");
 const markdownIt = require("markdown-it");
@@ -82,16 +83,16 @@ module.exports = function (eleventyConfig) {
       path.join(__dirname, "src", "static", "css", "main.css")
     );
 
-    const result = await postcss([autoprefixer]).process(css, {
+    const result = await postcss([inlineSVG, autoprefixer]).process(css, {
       from: path.join(__dirname, "src", "static", "css", "main.css"),
-      to: path.join(__dirname, "dist", "static", "css", "main.css"),
+      to: path.join(__dirname, "dist", "static", "css", "dist.css"),
     });
 
     fs.mkdirSync(path.join(__dirname, "dist", "static", "css"), {
       recursive: true,
     });
     fs.writeFileSync(
-      path.join(__dirname, "dist", "static", "css", "main.css"),
+      path.join(__dirname, "dist", "static", "css", "dist.css"),
       result.css
     );
   });
@@ -111,7 +112,7 @@ module.exports = function (eleventyConfig) {
                 "css",
                 "prism-a11y-dark.css"
               ),
-              path.join(__dirname, "dist", "static", "css", "main.css"),
+              path.join(__dirname, "dist", "static", "css", "dist.css"),
             ],
             {
               minify: true,
@@ -120,7 +121,7 @@ module.exports = function (eleventyConfig) {
             (css) => {
               resolve(
                 content.replace(
-                  '<link rel="stylesheet" href="/static/css/main.css">',
+                  '<link rel="stylesheet" href="/static/css/dist.css">',
                   `<style>${css}</style>`
                 )
               );
