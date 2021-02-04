@@ -51,15 +51,15 @@
         </div>
       </div>
     </header>
-    <nav class="nav">
-      <div class="nav__content">
-        <a href="/" class="nav__item">Home</a>
-        <a href="/blog/" class="nav__item">Blog</a>
-        <a href="/speaking/" class="nav__item">Speaking</a>
-        <a href="https://github.com/CodeFoodPixels" class="nav__item" target="_blank" rel="external nofollow noopener noreferrer">GitHub</a>
-        <a href="https://twitter.com/CodeFoodPixels" class="nav__item" target="_blank" rel="external nofollow noopener noreferrer">Twitter</a>
-        <a href="/rss.xml" class="nav__item">RSS</a>
-      </div>
+    <nav class="nav" role="navigation" aria-label="Site Navigation">
+      <ul class="nav__content">
+        <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="/blog/" class="nav__link">Blog</a></li>
+        <li class="nav__item"><a href="/speaking/" class="nav__link">Speaking</a></li>
+        <li class="nav__item"><a href="https://github.com/CodeFoodPixels" class="nav__link" target="_blank" rel="external nofollow noopener noreferrer">GitHub</a></li>
+        <li class="nav__item"><a href="https://twitter.com/CodeFoodPixels" class="nav__link" target="_blank" rel="external nofollow noopener noreferrer">Twitter</a></li>
+        <li class="nav__item"><a href="/rss.xml" class="nav__link">RSS</a></li>
+      </ul>
     </nav>
     <main class="content">
       {{ content | safe }}

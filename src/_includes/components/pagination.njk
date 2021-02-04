@@ -1,21 +1,29 @@
 {% if pagination.pages.length > 1 %}
-  <nav class="content__pagination">
-    {% if pagination.href.previous %}
-      <a href="{{ pagination.href.previous }}" class="content__pagination-page" data-direction="backwards">
-        &laquo; Previous
-      </a>
-    {% endif %}
-    {% for href in pagination.hrefs %}
-      {% if loop.index0 !== pagination.pageNumber %}
-        <a href="{{ href }}">{{ loop.index }}</a>
-      {% else %}
-        {{ loop.index }}
+  <nav class="content__pagination" role="navigation" aria-label="Pagination Navigation">
+    <ol class="content__pagination-content">
+      {% if pagination.href.previous %}
+        <li class="content__pagination-item">
+          <a href="{{ pagination.href.previous }}" class="content__pagination-page" data-direction="backwards">
+            &laquo; Previous
+          </a>
+        </li>
       {% endif %}
-    {% endfor %}
-    {% if pagination.href.next %}
-      <a href="{{ pagination.href.next }}" class="content__pagination-page" data-direction="forwards">
-        Next &raquo;
-      </a>
-    {% endif %}
+      {% for href in pagination.hrefs %}
+        <li class="content__pagination-item">
+          {% if loop.index0 !== pagination.pageNumber %}
+            <a href="{{ href }}" aria-label="Go to page {{loop.index}}">{{ loop.index }}</a>
+          {% else %}
+            <span aria-label="Current page, page {{loop.index}}" aria-current="true">{{ loop.index }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+      {% if pagination.href.next %}
+        <li class="content__pagination-item">
+          <a href="{{ pagination.href.next }}" class="content__pagination-page" data-direction="forwards">
+            Next &raquo;
+          </a>
+        </li>
+      {% endif %}
+    </ol>
   </nav>
 {% endif %}
