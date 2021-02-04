@@ -7,7 +7,7 @@ My previous site hadn't been touched since late 2014 and was running using a cus
 
 As my focus is no longer on PHP, I wanted to move towards something JavaScript based. I didn't want to use a client side framework to do this, as the content is pretty static and I feel it would be needless to require JavaScript to present static content.
 
-<!-- more -->
+<!-- excerpt -->
 
 ## Static Site Generator
 

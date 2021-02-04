@@ -10,7 +10,7 @@ tags:
 Some of you will be aware that while I'm not necessarily great at it, I enjoy playing around with hardware. One of the talks that I've been fortunate enough to travel the world to give is about using JavaScript to do bits of home automation, including automating my curtains and making my own thermostat.
 
 So it may come as no real surprise that when I heard there was going to be a Christmas jumper competition at work last year, I decided add LEDs to my jumper and connect it to the Internet.
-<!-- more -->
+<!-- excerpt -->
 ## Step 1 - The jumper
 I didn't want to start with an off-the-shelf Christmas jumper, that feels a little like cheating. Instead, I decided to get a plain jumper and add my own stuff to it. I went with a dark red jumper with a chunky knit from Primark that cost £8.
 

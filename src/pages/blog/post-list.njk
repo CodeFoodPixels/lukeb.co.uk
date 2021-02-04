@@ -1,0 +1,13 @@
+---
+title: Blog
+layout: layouts/page.njk
+pagination:
+  data: collections.posts
+  size: 10
+  alias: posts
+permalink: /blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}
+---
+
+{% set postListItems = posts %}
+{% include "components/post-list.njk" %}
+{% include "components/pagination.njk" %}

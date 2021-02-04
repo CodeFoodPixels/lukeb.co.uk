@@ -8,7 +8,7 @@ tags:
 ---
 While GitHub pages supports HTTPS for sites using the github.io domain, it doesn't support it for custom domains. I've had a few people ask how I've achieved HTTPS with a custom domain on GitHub pages, so I felt I should write a post on it.
 
-<!-- more -->
+<!-- excerpt -->
 
 ## Setting Up GitHub Pages
 

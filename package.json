@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
-    "serve": "eleventy --serve"
+    "serve": "netlify dev"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "autoprefixer": "^10.2.3",
     "eleventy-plugin-reading-time": "0.0.1",
     "markdown-it-link-attributes": "^3.0.0",
+    "netlify-cli": "^3.4.7",
     "nunjucks-date-filter": "^0.1.1",
     "postcss": "^8.2.4",
     "postcss-inline-svg": "^5.0.0",

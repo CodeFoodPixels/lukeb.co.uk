@@ -1,10 +1,23 @@
 ---
 layout: layouts/base.njk
 ---
-<header class="content__header">
-  <h1>{{ title }}</h1>
-  <time>{{ date | date("YYYY-MM-DD") }}</time>
-  <span> // </span>
-  <span>About {{ content | readingTime({speed: 200, raw: true}) }} minute read</span>
-</header>
-{{ content | safe }}
+<article class="content__article">
+  <header class="content__header">
+    <h1>{{ title }}</h1>
+    <div class="content__meta">
+      <time datetime="{{ date | w3DateFilter }}">{{ date | date("YYYY-MM-DD") }}</time>
+      <span>
+        //
+      </span>
+      <span>About
+        {{ content | readingTime({speed: 200, raw: true}) }}
+        minute read</span>
+      <div>
+        {% for tag in tags %}
+          <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">#{{ tag }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </header>
+  {{ content | safe }}
+</article>

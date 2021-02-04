@@ -1,0 +1,36 @@
+{% if postListItems.length %}
+  {% for item in postListItems %}
+    <article class="content__article">
+      <header class="content__header">
+        <h2>
+          <a href="{{ item.url }}">{{ item.data.title }}</a>
+        </h2>
+        <div class="content__meta">
+          <time datetime="{{ item.date | w3DateFilter }}">{{ item.date | date("YYYY-MM-DD") }}</time>
+          <span>
+            //
+          </span>
+          <span>About
+            {{ item.templateContent | readingTime({speed: 200, raw: true}) }}
+            minute read</span>
+          <div class="content__tags">
+            {% for tag in item.data.tags %}
+              <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">#{{ tag }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </header>
+      {% if item.data.page.excerpt %}
+        {{ item.data.page.excerpt | md | safe}}
+      {% else %}
+        {{ item.templateContent | safe }}
+      {% endif %}
+
+      <footer>
+        <p>
+          <a href="{{ item.url }}" aria-label="Read {{ item.data.title }}">Read More</a>
+        </p>
+      </footer>
+    </article>
+  {% endfor %}
+{% endif %}

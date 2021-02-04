@@ -8,7 +8,7 @@ tags:
 ---
 When we were looking for a new venue for [LeedsJS](https://leedsjs.com) a few years ago, one of the criteria I set was "not a pub". Initially this seems like an arbitrary decision, but I had a number of reasons for doing so.
 
-<!-- more -->
+<!-- excerpt -->
 
 At the time, we were based in a pub but our the diversity in our audience was little to none. After doing a little research, I realised that the venue was a big contributing factor to this and we were unintentionally excluding people by holding it there.
 

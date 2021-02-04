@@ -7,7 +7,7 @@ tags:
 ---
 Today marks 4 years since I crashed and wrote off my car while driving to work one morning due to being burnt out. At the time I didn't really realise I was burnt out or even what burnout was.
 
-<!-- more -->
+<!-- excerpt -->
 
 The company I was working for at the time had a huge industry show at the end of January every year. This was a chance to show off new features and demo versions of future features and led to working a lot of overtime on evenings and weekends in the run up to it.
 

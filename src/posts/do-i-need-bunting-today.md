@@ -7,10 +7,9 @@ tags:
  - announcements
 ---
 A couple of weeks ago an idea popped into my head, I built it in a few hours and today, as it's a bank holiday, I'm launching it into the world!
+<!-- excerpt -->
 
 Introducing [Do I need bunting today?](https://doineedbuntingtoday.com)!
-
-<!-- more -->
 
 ## What is it?
 [Do I need bunting today?](https://doineedbuntingtoday.com) is a site that tells you whether bunting is appropriate, based on if it's a bank holiday in England, Wales, Scotland or Northern Ireland.

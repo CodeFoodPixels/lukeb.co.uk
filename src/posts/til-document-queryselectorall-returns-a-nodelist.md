@@ -7,7 +7,7 @@ tags:
 ---
 Modern browsers have the native selector engine `document.querySelectorAll` which is really useful for easily finding elements. I had assumed that it returned an Array but I've just found out that I was wrong and it returns a NodeList.
 
-<!-- more -->
+<!-- excerpt -->
 
 A NodeList is still a collection, but it doesn't have the Array prototype methods such as `.filter` or `.map`. You can convert the NodeList to an array using `Array.from()` or you can use items from the Array prototype using `.call` like this:
 

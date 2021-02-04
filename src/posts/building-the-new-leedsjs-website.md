@@ -8,9 +8,9 @@ tags:
 ---
 At the end of 2018, I announced that I was setting a 6 month deadline for LeedsJS to move away from Meetup. At the time they charged $90 for 6 months as an organiser, which I was paying out of my own pocket. At the time of writing, this has been raised to $98.94.
 
-<!-- more -->
+<!-- excerpt -->
 
-![I've just made the last payment I'm going to make to @Meetup. They charge $90 for 6 months. I've been paying this myself ever since I took @leedsjs over. Charging community run groups this amount of money is bizarre to me, and I'm not going to pay it anymore.](leaving-tweet.png)
+{% image "./src/posts/building-the-new-leedsjs-website/leaving-tweet.png", "I've just made the last payment I'm going to make to @Meetup. They charge $90 for 6 months. I've been paying this myself ever since I took @leedsjs over. Charging community run groups this amount of money is bizarre to me, and I'm not going to pay it anymore.", "(min-width: 41.5rem) 37.5rem, 15.625rem" %}
 
 Many community groups try to keep their costs as low as possible, and those that get sponsorship usually get it on a month-to-month basis and attibute it directly to something. This makes paying for a 6 month subscription to a service difficult, and organisers end up paying themselves.
 

@@ -7,7 +7,7 @@ tags:
 2018 has been an eventful year, with more personal firsts and a number of successful personal projects!
 
 If you want to see last year's post, you can find it [here](/2017/12/24/2017-Retrospective/).
-<!-- more -->
+<!-- excerpt -->
 
 ## 2018 Aims
 At the end of last year's post I set a few aims for this year. They were:

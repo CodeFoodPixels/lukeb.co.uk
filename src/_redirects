@@ -17,3 +17,6 @@
 /2017/12/24/2017-Retrospective/ /blog/2017/12/24/2017-retrospective/ 301!
 /2017/12/05/Conditional-Breakpoints-Chrome-DevTools/ /blog/2017/12/05/conditional-breakpoints-in-chrome-devtools/ 301!
 /2017/11/12/New-Website/ /blog/2017/11/12/new-website/ 301!
+/tags/* /blog/tag/:splat 301!
+/page/* /blog/page/:splat 301!
+/about / 301!

@@ -8,7 +8,7 @@ tags:
 ---
 Friday the 7th September 2012 was a bad day for me. That was the day that I was fired from my first development job. It was the beginning of a 7 month unemployment period where I struggled with depression, impostor syndrome and I asked myself some tough questions.
 
-<!-- more -->
+<!-- excerpt -->
 
 ## The Lead-Up
 I'd been at the job for 15 months when I was fired and had spent a chunk of that time going through the disciplinary process for working too slow and not working to an expected quality.

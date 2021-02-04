@@ -2,19 +2,19 @@
 title: Blackboxing Scripts In Chrome DevTools
 date: 2018-02-05
 tags:
- - devtools
- - tips
+  - devtools
+  - tips
 ---
+
 Chrome DevTools has a feature called blackboxing which allows you to ignore certain scripts when debugging. When a script is blackboxed, it's hidden from the call stack pane and you don't step into it when stepping through the code. This is really useful when debugging code that uses frameworks or libraries such as Ember, React or jQuery.
 
-<!-- more -->
+<!-- excerpt -->
 
 There are a few ways to blackbox a script:
 
 ## Blackboxing in settings
 
-![The blackboxing tab in the settings section of Chrome DevTools](settings.png)
-
+{% image "./src/posts/blackboxing-scripts-in-chrome-devtools/settings.png", "The blackboxing tab in the settings section of Chrome DevTools", "(min-width: 41.5rem) 37.5rem, 15.625rem" %}
 
 1. In the settings section, go to the "Blackboxing" tab
 
@@ -26,7 +26,7 @@ There are a few ways to blackbox a script:
 
 ## Blackboxing in the editor pane of the sources section
 
-![The blackboxing item in the editor pane context menu](editor-pane.png)
+{% image "./src/posts/blackboxing-scripts-in-chrome-devtools/editor-pane.png", "The blackboxing item in the editor pane context menu", "(min-width: 41.5rem) 37.5rem, 15.625rem" %}
 
 1. In the sources section, open the file you want to blackbox
 
@@ -36,7 +36,7 @@ There are a few ways to blackbox a script:
 
 ## Blackboxing in the call stack pane of the sources section
 
-![The blackboxing item in the call stack pane context menu](call-stack-pane.png)
+{% image "./src/posts/blackboxing-scripts-in-chrome-devtools/call-stack-pane.png", "The blackboxing item in the call stack pane context menu", "(min-width: 41.5rem) 37.5rem, 15.625rem" %}
 
 1. When paused on a breakpoint, go to the sources section
 

@@ -58,20 +58,19 @@ async function videoShortcode(src, width, options) {
 }
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.setLibrary(
-    "md",
-    markdownIt({ html: true }).use(markdownItLinkAttributes, {
-      pattern: /^(?!(https:\/\/lukeb\.co.uk|#|\/)).*$/,
-      attrs: {
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-    })
-  );
+  const markdownLib = markdownIt({ html: true }).use(markdownItLinkAttributes, {
+    pattern: /^(?!(https:\/\/lukeb\.co.uk|#|\/)).*$/,
+    attrs: {
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
+  });
+
+  eleventyConfig.setLibrary("md", markdownLib);
 
   eleventyConfig.addPassthroughCopy("src/static");
   eleventyConfig.addPassthroughCopy("src/.well-known");
-  eleventyConfig.addPassthroughCopy("src/favicon.ico");
+  eleventyConfig.addPassthroughCopy("src/_redirects");
 
   eleventyConfig.addWatchTarget("src/static/css/");
 
@@ -150,6 +149,52 @@ module.exports = function (eleventyConfig) {
       .slice(0, site.maxPostsPerPage);
   });
 
+  eleventyConfig.addCollection("tagList", function (collection) {
+    let tagList = [];
+    collection.getAll().forEach(function (item) {
+      if ("tags" in item.data) {
+        let tags = item.data.tags;
+
+        tags = tags.filter(function (item) {
+          switch (item) {
+            // this list should match the `filter` list in tags.njk
+            case "all":
+            case "nav":
+            case "pages":
+            case "posts":
+            case "postFeed":
+              return false;
+          }
+
+          return true;
+        });
+
+        for (const tag of tags) {
+          const tagIndex = tagList.findIndex(
+            (element) => element.name === tag.toLowerCase()
+          );
+          if (tagIndex > -1) {
+            tagList[tagIndex].count += 1;
+          } else {
+            tagList.push({ name: tag.toLowerCase(), count: 1 });
+          }
+        }
+      }
+    });
+    return tagList.sort((a, b) => {
+      const diff = b.count - a.count;
+      if (diff === 0) {
+        return a.name < b.name ? -1 : 1;
+      }
+      return diff;
+    });
+  });
+
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    excerpt_separator: "<!-- excerpt -->",
+  });
+
   eleventyConfig.addPlugin(readingTime);
   eleventyConfig.addPlugin(rssPlugin);
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -157,10 +202,25 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   eleventyConfig.addFilter("date", nunjucksDate);
-  eleventyConfig.addFilter("excerpt", (post) => {
-    const content = post.replace(/(<([^>]+)>)/gi, "");
-    return content.substr(0, content.lastIndexOf(" ", 200)) + "...";
+
+  eleventyConfig.addFilter("debug", (data) => {
+    console.log(data);
   });
+
+  eleventyConfig.addFilter("md", (content = "") => {
+    return markdownLib.render(content);
+  });
+
+  eleventyConfig.addFilter("w3DateFilter", function w3cDate(value) {
+    const dateObject = new Date(value);
+
+    return dateObject.toISOString();
+  });
+
+  eleventyConfig.addFilter("lowercase", (text) => {
+    return text.toLowerCase();
+  });
+
   eleventyConfig.addFilter("slug", (input) => {
     const options = {
       replacement: "-",

@@ -10,7 +10,7 @@ Many companies have internal APIs that provide their data, but scaling these can
 
 While I was working at Sky Betting and Gaming, I was introduced to a pattern that they use called a viewbuilder. I find it to be a really interesting and useful idea, and we used it heavily in my time there.
 
-<!-- more -->
+<!-- excerpt -->
 
 ## What is a viewbuilder?
 

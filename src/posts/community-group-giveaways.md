@@ -9,7 +9,7 @@ tags:
 ---
 At LeedsJS we've been lucky enough to have sponsors willing to offer up prizes for us to give away to our attendees. We've tried a couple of ways to give them away and I thought I'd write up a post to discuss them.
 
-<!-- more -->
+<!-- excerpt -->
 
 ## Where to get prizes
 I guess this should be the first step, because you need to have stuff to be able to give away stuff. I know of a few ways to do this:

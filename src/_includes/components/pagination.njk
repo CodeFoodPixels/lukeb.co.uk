@@ -1,0 +1,21 @@
+{% if pagination.pages.length > 1 %}
+  <nav class="content__pagination">
+    {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}" class="content__pagination-page" data-direction="backwards">
+        &laquo; Previous
+      </a>
+    {% endif %}
+    {% for href in pagination.hrefs %}
+      {% if loop.index0 !== pagination.pageNumber %}
+        <a href="{{ href }}">{{ loop.index }}</a>
+      {% else %}
+        {{ loop.index }}
+      {% endif %}
+    {% endfor %}
+    {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}" class="content__pagination-page" data-direction="forwards">
+        Next &raquo;
+      </a>
+    {% endif %}
+  </nav>
+{% endif %}

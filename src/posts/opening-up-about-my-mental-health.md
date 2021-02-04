@@ -8,7 +8,7 @@ I've tried to start writing this post a few times. Mental health is a difficult 
 
 While this post is difficult to write, I want to be open about it. I hope that this can help other people feel like they can talk about their mental health too.
 
-<!-- more -->
+<!-- excerpt -->
 
 Since I was in my early teenage years, I've struggled with low moods and low self-esteem. My way of dealing with it has been to either to accept it and put up with feeling like that, or ignore it and carry on.
 
