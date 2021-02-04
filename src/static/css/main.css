@@ -2,12 +2,12 @@
   --content-margin: 0rem;
   --content-max-width: 60rem;
   --nav__item-flex-basis: 33%;
-  --highlight-color: #bb1b1b;
-  --highlight-color--lighter: #d53535;
-  --highlight-color--darker: #8e2323;
-  --highlight-color-hover: #ad1111;
-  --highlight-color-hover--lighter: #ad1111;
-  --highlight-color-hover--darker: #ad1111;
+  --highlight-color--lighter: hsl(0, 65%, 52%);
+  --highlight-color: hsl(0, 75%, 42%);
+  --highlight-color--darker: hsl(0, 85%, 32%);
+  --highlight-color-hover--lighter: hsl(0, 70%, 47%);
+  --highlight-color-hover: hsl(0, 80%, 37%);
+  --highlight-color-hover--darker: hsl(0, 90%, 27%);
   --header-direction: column;
   --header-name-text-size: 2rem;
   --header-start-text-size: 1rem;
@@ -399,7 +399,7 @@ a:hover {
   text-decoration: none;
 }
 
-.nav__link:hover {
+.nav__item:hover .nav__link {
   padding-top: 0.875rem;
   padding-bottom: 0.625rem;
 }
