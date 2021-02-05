@@ -1,0 +1,26 @@
+---
+layout: layouts/page.njk
+---
+{{ content | safe}}
+{% if speaking.futureEvents.length > 0 %}
+  <h2>Upcoming talks</h2>
+  {% set talkEvents = speaking.futureEvents %}
+  {% include 'components/talk-events.njk' %}
+{% endif %}
+
+<h2>All talks</h2>
+{% for talk in speaking.talks %}
+  <h3 id="{{ talk.title | slug }}">{{ talk.title }}</h2>
+  <p>{{ talk.abstract | md | safe }}</p>
+  {% if talk.futureEvents.length > 0 %}
+    <h3>Future events</h3>
+    {% set talkEvents = talk.futureEvents %}
+    {% include 'components/talk-events.njk' %}
+  {% endif %}
+
+  {% if talk.pastEvents.length > 0 %}
+    <h3>Past events</h3>
+    {% set talkEvents = talk.pastEvents %}
+    {% include 'components/talk-events.njk' %}
+  {% endif %}
+{% endfor %}

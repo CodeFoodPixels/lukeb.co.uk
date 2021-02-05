@@ -1,0 +1,22 @@
+<ul class="talk-events">
+  {% for event in talkEvents %}
+    <li class="talk-events__event">
+      <span class="talk-events__event-name">{{ event.name }}</span>
+      <span class="talk-events__event-type talk-events__event-type--{{ event.type }}">{{ event.type }}</span>
+      {% if event.talk %}
+        <span class="talk-events__event-talk">
+          <a href="#{{event.talk | slug}}">{{ event.talk }}</a>
+        </span>
+      {% endif %}
+      <span class="talk-events__event-location">Location:
+        {{ event.location }}</span>
+      <span class="talk-events__event-date">Date:
+        {{ event.date }}</span>
+      {% if event.video %}
+        <span class="talk-events__event-video">
+          <a href="{{ event.video }}" aria-label="Watch video from {{ event.name }}" target="_blank" rel="external nofollow noopener noreferrer">Watch video</a>
+        </span>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
