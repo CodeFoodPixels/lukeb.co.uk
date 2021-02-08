@@ -47,18 +47,31 @@
         </div>
         <div class="header__text">
           <a href="/" class="header__name">Luke Bonaccorsi</a>
-          <div class="header__start js-start"><span class="header__start-text">Press Start</span></div>
+          <div class="header__start js-start">
+            <span class="header__start-text">Press Start</span></div>
         </div>
       </div>
     </header>
     <nav class="nav" role="navigation" aria-label="Site Navigation">
       <ul class="nav__content">
-        <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
-        <li class="nav__item"><a href="/blog/" class="nav__link">Blog</a></li>
-        <li class="nav__item"><a href="/speaking/" class="nav__link">Speaking</a></li>
-        <li class="nav__item"><a href="https://github.com/CodeFoodPixels" class="nav__link" target="_blank" rel="external nofollow noopener noreferrer">GitHub</a></li>
-        <li class="nav__item"><a href="https://twitter.com/CodeFoodPixels" class="nav__link" target="_blank" rel="external nofollow noopener noreferrer">Twitter</a></li>
-        <li class="nav__item"><a href="/rss.xml" class="nav__link">RSS</a></li>
+        <li class="nav__item">
+          <a href="/" class="nav__link">Home</a>
+        </li>
+        <li class="nav__item">
+          <a href="/blog/" class="nav__link">Blog</a>
+        </li>
+        <li class="nav__item">
+          <a href="/speaking/" class="nav__link">Speaking</a>
+        </li>
+        <li class="nav__item">
+          <a href="https://github.com/CodeFoodPixels" class="nav__link" target="_blank" rel="external nofollow noopener noreferrer">GitHub</a>
+        </li>
+        <li class="nav__item">
+          <a href="https://twitter.com/CodeFoodPixels" class="nav__link" target="_blank" rel="external nofollow noopener noreferrer">Twitter</a>
+        </li>
+        <li class="nav__item">
+          <a href="/rss.xml" class="nav__link">RSS</a>
+        </li>
       </ul>
     </nav>
     <main class="content">
@@ -73,19 +86,32 @@
         </a>
       </p>
     </footer>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator
+            .serviceWorker
+            .register('/service-worker.js');
+        });
+      }
+    </script>
     <script type="text/javascript">
       window.gameScriptLoaded = false;
-      document.querySelector(".js-start").addEventListener("click", function () {
-        if (window.gameScriptLoaded === true) {
-          loadGame();
-        } else {
-          const gameScript = document.createElement('script');
-          gameScript.setAttribute("type", "text/javascript");
-          gameScript.setAttribute("src", "/static/js/easter.js");
-          gameScript.setAttribute("onload", "window.gameScriptLoaded = true; loadGame()");
-          document.body.appendChild(gameScript)
-        }
-      });
+      document
+        .querySelector(".js-start")
+        .addEventListener("click", function () {
+          if (window.gameScriptLoaded === true) {
+            loadGame();
+          } else {
+            const gameScript = document.createElement('script');
+            gameScript.setAttribute("type", "text/javascript");
+            gameScript.setAttribute("src", "/static/js/easter.js");
+            gameScript.setAttribute("onload", "window.gameScriptLoaded = true; loadGame()");
+            document
+              .body
+              .appendChild(gameScript)
+          }
+        });
     </script>
     <img src="https://analytics.lukeb.co.uk/ping.png" aria-hidden="true" alt="" height="0" decoding="async">
   </body>
