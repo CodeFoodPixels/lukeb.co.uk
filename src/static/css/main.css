@@ -342,6 +342,21 @@ a:hover {
   height: 3.5rem;
   flex: 1 1 var(--nav__item-flex-basis);
   text-align: center;
+  border: 0.125rem solid #000000;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.nav__link {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  padding-top: 0.625rem;
+  padding-bottom: 0.875rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  box-sizing: border-box;
+  text-decoration: none;
   background: linear-gradient(
       180deg,
       var(--highlight-color--lighter) 0rem,
@@ -359,49 +374,28 @@ a:hover {
       var(--highlight-color--darker) calc(100% - 0.25rem)
     ),
     var(--highlight-color);
-  border: 0.125rem solid #000000;
-  box-sizing: border-box;
-  position: relative;
 }
 
-.nav__item:hover {
-  background: linear-gradient(
-      180deg,
-      var(--highlight-color-hover--darker) 0rem,
-      var(--highlight-color-hover--darker) 0.25rem,
-      transparent 0.25rem,
-      transparent calc(100% - 0.25rem),
-      var(--highlight-color-hover--lighter) calc(100% - 0.25rem)
-    ),
-    linear-gradient(
-      90deg,
-      var(--highlight-color-hover--darker) 0rem,
-      var(--highlight-color-hover--darker) 0.25rem,
-      transparent 0.25rem,
-      transparent calc(100% - 0.25rem),
-      var(--highlight-color-hover--lighter) calc(100% - 0.25rem)
-    ),
-    var(--highlight-color-hover);
-}
-
-.nav__link {
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding-top: 0.625rem;
-  padding-bottom: 0.875rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
-.nav__item:hover .nav__link {
+.nav__link:hover {
   padding-top: 0.875rem;
   padding-bottom: 0.625rem;
+  background: linear-gradient(
+    180deg,
+    var(--highlight-color-hover--darker) 0rem,
+    var(--highlight-color-hover--darker) 0.25rem,
+    transparent 0.25rem,
+    transparent calc(100% - 0.25rem),
+    var(--highlight-color-hover--lighter) calc(100% - 0.25rem)
+  ),
+  linear-gradient(
+    90deg,
+    var(--highlight-color-hover--darker) 0rem,
+    var(--highlight-color-hover--darker) 0.25rem,
+    transparent 0.25rem,
+    transparent calc(100% - 0.25rem),
+    var(--highlight-color-hover--lighter) calc(100% - 0.25rem)
+  ),
+  var(--highlight-color-hover);
 }
 
 .content {
@@ -535,7 +529,11 @@ a:hover {
 .footer {
   font-family: "Press Start 2P", monospace;
   text-align: center;
-  margin-bottom: 1rem;
+  padding: 1rem;
+  margin: 0 auto;
+  width: calc(100% - (var(--content-margin) * 2));
+  max-width: var(--content-max-width);
+  box-sizing: border-box;
 }
 
 .footer p {
