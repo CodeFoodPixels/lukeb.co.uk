@@ -15,7 +15,7 @@
             minute read</span>
           <div class="content__tags">
             {% for tag in item.data.tags %}
-              <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">#{{ tag }}</a>
+              <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">#{{ tag | lowercase }}</a>
             {% endfor %}
           </div>
         </div>

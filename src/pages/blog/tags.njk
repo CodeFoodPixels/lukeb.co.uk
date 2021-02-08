@@ -4,5 +4,5 @@ layout: layouts/page.njk
 permalink: /blog/tag/
 ---
 {% for tag in collections.tagList %}
-  <p><a href="/blog/tag/{{ tag }}">#{{ tag.name }}</a> - {{ tag.count }} posts</p>
+  <p><a href="/blog/tag/{{ tag.name | slug }}">#{{ tag.name }}</a> - {{ tag.count }} posts</p>
 {% endfor %}

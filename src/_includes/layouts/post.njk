@@ -14,7 +14,7 @@ layout: layouts/base.njk
         minute read</span>
       <div>
         {% for tag in tags %}
-          <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">#{{ tag }}</a>
+          <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">#{{ tag | lowercase }}</a>
         {% endfor %}
       </div>
     </div>

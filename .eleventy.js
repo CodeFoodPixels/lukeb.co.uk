@@ -108,36 +108,39 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection("tagList", function (collection) {
     let tagList = [];
-    collection.getAll().forEach(function (item) {
-      if ("tags" in item.data) {
-        let tags = item.data.tags;
+    collection
+      .getAll()
+      .filter(livePosts)
+      .forEach(function (item) {
+        if ("tags" in item.data) {
+          let tags = item.data.tags;
 
-        tags = tags.filter(function (item) {
-          switch (item) {
-            // this list should match the `filter` list in tags.njk
-            case "all":
-            case "nav":
-            case "pages":
-            case "posts":
-            case "postFeed":
-              return false;
-          }
+          tags = tags.filter(function (item) {
+            switch (item) {
+              // this list should match the `filter` list in tags.njk
+              case "all":
+              case "nav":
+              case "pages":
+              case "posts":
+              case "postFeed":
+                return false;
+            }
 
-          return true;
-        });
+            return true;
+          });
 
-        for (const tag of tags) {
-          const tagIndex = tagList.findIndex(
-            (element) => element.name === tag.toLowerCase()
-          );
-          if (tagIndex > -1) {
-            tagList[tagIndex].count += 1;
-          } else {
-            tagList.push({ name: tag.toLowerCase(), count: 1 });
+          for (const tag of tags) {
+            const tagIndex = tagList.findIndex(
+              (element) => element.name === tag.toLowerCase()
+            );
+            if (tagIndex > -1) {
+              tagList[tagIndex].count += 1;
+            } else {
+              tagList.push({ name: tag.toLowerCase(), count: 1 });
+            }
           }
         }
-      }
-    });
+      });
     return tagList.sort((a, b) => {
       const diff = b.count - a.count;
       if (diff === 0) {
