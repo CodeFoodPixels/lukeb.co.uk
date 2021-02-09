@@ -15,14 +15,23 @@
 
   // Store core files in a cache (including a page to display when offline)
   function updateAssetCache() {
-    return caches.open(assetCache).then((assets) => {
-      return assets.addAll([
-        `/static/fonts/pressstart2p.woff2`,
-        `/static/browserconfig.xml`,
-        `/static/site.webmanifest`,
-        `/static/js/easter.js`,
-      ]);
-    });
+    return Promise.all([caches.open(assetCache), caches.open(imageCache)]).then(
+      ([assets, images]) => {
+        return Promise.all([
+          assets.addAll([
+            `/static/fonts/pressstart2p.woff2`,
+            `/static/browserconfig.xml`,
+            `/static/site.webmanifest`,
+            `/static/js/easter.js`,
+          ]),
+          images.addAll([
+            `/static/images/asteroid.svg`,
+            `/static/images/laser.svg`,
+            `/static/images/stars.svg`,
+          ]),
+        ]);
+      }
+    );
   }
 
   // Store core files in a cache (including a page to display when offline)
@@ -110,7 +119,7 @@
             fetch(request)
               .then((response) => {
                 // Stash a copy of this page in the cache
-                if (request.url.match(/\.(jpe?g|png|gif|svg)$/)) {
+                if (request.url.match(/\.(jpe?g|avif|webp|png|gif|svg)$/)) {
                   const copy = response.clone();
                   caches.open(imageCache).then((cache) => {
                     cache.put(request, copy);
@@ -120,7 +129,7 @@
               })
               .catch(() => {
                 // If the request is for an image, show an offline placeholder
-                if (request.url.match(/\.(jpe?g|png|gif|svg)$/)) {
+                if (request.url.match(/\.(jpe?g|avif|webp|png|gif|svg)$/)) {
                   return new Response(
                     `<svg width="400" height="300" role="img" aria-labelledby="offline-title" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><title id="offline-title">Offline</title><g fill="none" fill-rule="evenodd"><path fill="#D8D8D8" d="M0 0h400v300H0z"/><text fill="#9B9B9B" font-family="Helvetica Neue,Arial,Helvetica,sans-serif" font-size="72" font-weight="bold"><tspan x="93" y="172">offline</tspan></text></g></svg>`,
                     {
