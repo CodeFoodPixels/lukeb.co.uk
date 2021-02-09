@@ -64,7 +64,7 @@ h2,
 h3,
 h4,
 h5 {
-  margin: 3rem 0 1.38rem;
+  margin: 2rem 0 1.38rem;
   font-family: "Press Start 2P", Courier;
   font-weight: 400;
   line-height: 0.9;
@@ -455,7 +455,7 @@ a:hover {
 }
 
 .content__article:not(:first-child) {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .content__pagination {
@@ -533,6 +533,8 @@ a:hover {
   width: calc(100% - (var(--content-margin) * 2));
   max-width: var(--content-max-width);
   box-sizing: border-box;
+  font-size: 1.5em;
+  line-height: 1;
 }
 
 .footer p {

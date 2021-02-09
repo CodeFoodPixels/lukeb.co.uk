@@ -14,7 +14,7 @@
             {{ item.templateContent | readingTime({speed: 200, raw: true}) }}
             minute read</span>
           <div class="content__tags">
-            {% for tag in item.data.tags %}
+            {% for tag in item.data.tags | sort %}
               <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">#{{ tag | lowercase }}</a>
             {% endfor %}
           </div>

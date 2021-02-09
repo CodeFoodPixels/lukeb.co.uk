@@ -13,7 +13,7 @@ layout: layouts/base.njk
         {{ content | readingTime({speed: 200, raw: true}) }}
         minute read</span>
       <div>
-        {% for tag in tags %}
+        {% for tag in tags | sort %}
           <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">#{{ tag | lowercase }}</a>
         {% endfor %}
       </div>
