@@ -164,7 +164,7 @@ a:hover {
   height: 100%;
   top: 0rem;
   left: 0rem;
-  background: svg-load("../../_includes/svg/stars.svg"), #000000;
+  background: url("/static/images/stars.svg"), #000000;
   background-size: var(--header-background-size);
   will-change: transform;
   z-index: -1;
@@ -212,7 +212,7 @@ a:hover {
   position: absolute;
   width: var(--laser-width);
   height: var(--laser-height);
-  background-image: svg-load("../../_includes/svg/laser.svg");
+  background-image: url("/static/images/laser.svg");
   background-size: var(--laser-width);
   left: calc(50% - (var(--laser-width) / 2));
   top: calc(50% + (var(--laser-height) / 2));
@@ -233,7 +233,7 @@ a:hover {
 .header--hero .header__asteroid::before {
   content: " ";
   display: block;
-  background-image: svg-load("../../_includes/svg/asteroid.svg");
+  background-image: url("/static/images/asteroid.svg");
   background-size: auto var(--asteroid-size);
   width: calc(var(--asteroid-size) * 20);
   height: var(--asteroid-size);
