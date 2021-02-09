@@ -629,7 +629,7 @@ a:hover {
   src: url("/static/fonts/pressstart2p.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
-  font-display: optional;
+  font-display: fallback;
 }
 
 @keyframes stars {
