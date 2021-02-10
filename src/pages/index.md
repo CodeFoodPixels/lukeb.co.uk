@@ -1,5 +1,5 @@
 ---
-title: Hi, I'm Luke!
+title: Hey, I'm Luke!
 layout: layouts/page.njk
 heroHeader: true
 renderData:

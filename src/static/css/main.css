@@ -473,6 +473,7 @@ a:hover {
 .content__header h2 a:active {
   color: #000000;
   text-decoration: none;
+  display: inline-block;
 }
 
 .content__header a:hover {
