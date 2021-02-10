@@ -442,6 +442,10 @@ a:hover {
   color: #000000;
 }
 
+.content:focus {
+  outline: none;
+}
+
 .content a,
 .content a:visited {
   color: var(--highlight-color);
@@ -461,6 +465,10 @@ a:hover {
   height: auto;
   max-width: 100%;
   max-height: 50vh;
+}
+
+.content figcaption {
+  text-align: center;
 }
 
 .content__header {
