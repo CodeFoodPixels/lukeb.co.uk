@@ -1,7 +1,6 @@
 const path = require("path");
 const fs = require("fs").promises;
 const { PurgeCSS } = require("purgecss");
-const purifycss = require("purify-css");
 const csso = require("csso");
 
 module.exports = async function (content, outputPath) {
