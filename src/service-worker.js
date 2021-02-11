@@ -20,8 +20,7 @@
         return Promise.all([
           assets.addAll([
             `/static/fonts/pressstart2p.woff2`,
-            `/static/browserconfig.xml`,
-            `/static/site.webmanifest`,
+            `/site.webmanifest`,
             `/static/js/easter.js`,
           ]),
           images.addAll([
