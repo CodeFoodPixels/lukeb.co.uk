@@ -14,10 +14,13 @@ layout: layouts/base.njk
         minute read</span>
       <div>
         {% for tag in tags | sort %}
-          <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">#{{ tag | lowercase }}</a>
+          <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">{{ tag | lowercase }}</a>
         {% endfor %}
       </div>
     </div>
   </header>
   {{ content | safe }}
+</article>
+<article class="content__footer">
+  {% include "components/about-block.njk" %}
 </article>

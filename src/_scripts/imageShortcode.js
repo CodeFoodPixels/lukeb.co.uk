@@ -3,10 +3,11 @@ const Image = require("@11ty/eleventy-img");
 module.exports = async function imageShortcode(
   src,
   alt,
-  sizes = "(min-width: 73.25rem) 62.5rem, (min-width: 54rem) 50rem, (min-width: 41.5rem) 37.5rem, 15.625rem"
+  sizes = "(min-width: 73.25rem) 62.5rem, (min-width: 54rem) 50rem, (min-width: 41.5rem) 37.5rem, 15.625rem",
+  widths = [1000, 800, 600, 250]
 ) {
   let metadata = await Image(src, {
-    widths: [1000, 800, 600, 250],
+    widths,
     formats: ["avif", "webp", "jpeg", "png"],
     outputDir: "./dist/static/images",
     urlPath: "/static/images",

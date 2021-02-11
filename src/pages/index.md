@@ -2,8 +2,6 @@
 title: Hey, I'm Luke!
 layout: layouts/page.njk
 heroHeader: true
-renderData:
-  title: Hello!
 permalink: /
 ---
 {% image "./src/static/images/luke-bonaccorsi.jpg", "Luke Bonaccorsi sat on a red chair, eating a large baguette", "(min-width: 864px) 800px, (min-width: 664px) 600px, 250px" %}

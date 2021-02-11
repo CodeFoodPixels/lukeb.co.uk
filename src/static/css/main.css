@@ -82,21 +82,33 @@ h1 {
   font-size: 4.209rem;
 }
 
-h2 {font-size: 3.157rem;}
+h2 {
+  font-size: 3.157rem;
+}
 
-h3 {font-size: 2.369rem;}
+h3 {
+  font-size: 2.369rem;
+}
 
-h4 {font-size: 1.777rem;}
+h4 {
+  font-size: 1.777rem;
+}
 
-h5 {font-size: 1.333rem;}
+h5 {
+  font-size: 1.333rem;
+}
 
-small, .text_small {font-size: 0.75rem;}
+small,
+.text_small {
+  font-size: 0.75rem;
+}
 
 .content__header::after,
 h2:not(:first-child)::after,
 h3:not(:first-child)::after,
 h4:not(:first-child)::after,
-h5:not(:first-child)::after {
+h5:not(:first-child)::after,
+.content__footer::before {
   content: " ";
   height: 0.25rem;
   width: 100%;
@@ -403,7 +415,8 @@ a:hover {
   position: relative;
 }
 
-.nav__link:hover, .nav__link:focus {
+.nav__link:hover,
+.nav__link:focus {
   padding-top: 0.875rem;
   padding-bottom: 0.625rem;
   background: linear-gradient(
@@ -492,6 +505,10 @@ a:hover {
   margin-bottom: 0.5rem;
 }
 
+.tag-link::before {
+  content: "#";
+}
+
 .content {
   overflow-wrap: break-word;
 }
@@ -514,6 +531,51 @@ a:hover {
 
 .content__pagination-page {
   margin: 0 0.25rem;
+}
+
+.content__footer {
+  margin-top: 4rem;
+}
+
+.content__about {
+  display: flex;
+  margin-top: 2rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content__about img {
+  max-width: none;
+  margin-bottom: 1rem;
+}
+
+.follow-links {
+  display: block;
+  line-height: 2;
+}
+
+.follow-links__link {
+  padding: 0.5rem;
+  font-family: "Press Start 2P", Courier;
+  font-size: 1.2em;
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+a.follow-links__link--twitter,
+a.follow-links__link--twitter:hover,
+a.follow-links__link--twitter:visited,
+a.follow-links__link--twitter:active {
+  background: #00acee;
+  color: #000000;
+}
+
+a.follow-links__link--rss,
+a.follow-links__link--rss:hover,
+a.follow-links__link--rss:visited,
+a.follow-links__link--rss:active {
+  background: #EF8021;
+  color: #000000;
 }
 
 .talk-events {
@@ -650,6 +712,14 @@ a:hover {
     --nav__item-flex-basis: 0rem;
     --header-direction: row;
     --header-flex: 1 1 50%;
+  }
+
+  .content__about {
+    flex-direction: row;
+  }
+
+  .content__about img {
+    margin-right: 1rem;
   }
 }
 
