@@ -33,16 +33,20 @@
       <div class="header__background"></div>
       <div class="header__content">
         <div class="header__spaceship">
-          <div class="header__laser"></div>
-          <div class="header__asteroid header__asteroid--1"></div>
-          <div class="header__asteroid header__asteroid--2"></div>
-          <div class="header__asteroid header__asteroid--3"></div>
+          {% if heroHeader %}
+            <div class="header__laser"></div>
+            <div class="header__asteroid header__asteroid--1"></div>
+            <div class="header__asteroid header__asteroid--2"></div>
+            <div class="header__asteroid header__asteroid--3"></div>
+          {% endif %}
           <div class="header__spaceship-wrapper">
             {% include 'svg/spaceship.svg' %}
           </div>
-          <div class="header__asteroid header__asteroid--4"></div>
-          <div class="header__asteroid header__asteroid--5"></div>
-          <div class="header__asteroid header__asteroid--6"></div>
+          {% if heroHeader %}
+            <div class="header__asteroid header__asteroid--4"></div>
+            <div class="header__asteroid header__asteroid--5"></div>
+            <div class="header__asteroid header__asteroid--6"></div>
+          {% endif %}
         </div>
         <div class="header__text">
           <a href="/" class="header__name">Luke Bonaccorsi</a>

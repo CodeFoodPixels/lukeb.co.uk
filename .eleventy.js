@@ -5,7 +5,7 @@ const nunjucksDate = require("nunjucks-date-filter");
 const slugify = require("slugify");
 
 const postcss = require("./src/_scripts/postcss.js");
-const purifycss = require("./src/_scripts/purifycss.js");
+const minifycss = require("./src/_scripts/minifycss.js");
 const imageShortcode = require("./src/_scripts/imageShortcode.js");
 const videoShortcode = require("./src/_scripts/videoShortcode.js");
 
@@ -33,7 +33,7 @@ module.exports = function (eleventyConfig) {
 
   // Build processes
   eleventyConfig.on("beforeBuild", postcss);
-  eleventyConfig.addTransform("purifycss", purifycss);
+  eleventyConfig.addTransform("minifycss", minifycss);
 
   // Passthrough copy
   eleventyConfig.addPassthroughCopy("src/service-worker.js");

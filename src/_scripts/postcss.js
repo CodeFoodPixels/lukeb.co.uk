@@ -1,6 +1,5 @@
 const fs = require("fs").promises;
 const path = require("path");
-const inlineSVG = require("postcss-inline-svg");
 const autoprefixer = require("autoprefixer");
 const postcss = require("postcss");
 
@@ -9,7 +8,7 @@ module.exports = async () => {
     path.join(__dirname, "..", "static", "css", "main.css")
   );
 
-  const result = await postcss([inlineSVG, autoprefixer]).process(css, {
+  const result = await postcss([autoprefixer]).process(css, {
     from: path.join(__dirname, "..", "static", "css", "main.css"),
     to: path.join(__dirname, "..", "..", "dist", "static", "css", "dist.css"),
   });
