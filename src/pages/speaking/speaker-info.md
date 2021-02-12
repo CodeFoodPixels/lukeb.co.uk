@@ -6,6 +6,8 @@ permalink: /speaking/info/
 
 {% include "components/bio.html" %}
 
+<!-- excerpt -->
+
 ### Links
 
 - Website: [https://lukeb.co.uk](/)
