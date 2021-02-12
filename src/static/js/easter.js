@@ -24,11 +24,23 @@ function loadGame() {
   close.style.marginRight = "-" + gameWidth / 2 + "px";
   document.body.appendChild(close);
 
-  close.addEventListener("click", function (e) {
+  var boxid = "MyBoxID";
+
+  function closeListener(e) {
     e.stopPropagation();
     e.preventDefault();
     closeGame();
-  });
+  }
+
+  function keyUpListener(e) {
+    if (e.code === "Escape") {
+      closeListener(e);
+    }
+  }
+
+  document.addEventListener("keyup", keyUpListener);
+
+  close.addEventListener("click", closeListener);
 
   canvas.focus();
 
@@ -42,8 +54,8 @@ function loadGame() {
   var descentIncrement = 0.1;
   var ascentIncrement = 0.1;
   var maxVelocity = 5;
-  var mainFont = "14px monospace";
-  var titleFont = "30px 'Press Start 2P'";
+  var mainFont = "16px Courier";
+  var titleFont = "50px 'Press Start 2P'";
 
   var asteroid = {
     velocity: 6,
@@ -340,6 +352,8 @@ function loadGame() {
   }
 
   function closeGame() {
+    document.removeEventListener("keyup", keyUpListener);
+    close.removeEventListener("click", closeListener);
     document.body.classList.remove("easter");
     document.body.removeChild(overlay);
     document.body.removeChild(close);

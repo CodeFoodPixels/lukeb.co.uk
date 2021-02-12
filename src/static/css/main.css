@@ -684,6 +684,7 @@ a.follow-links__link--rss:active {
   color: #ffffff;
   border: none;
   background: transparent;
+  font-size: 1.2rem;
 }
 
 .easter__canvas {
