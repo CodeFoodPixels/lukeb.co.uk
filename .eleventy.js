@@ -33,7 +33,7 @@ module.exports = function (eleventyConfig) {
 
   // Build processes
   eleventyConfig.on("beforeBuild", postcss);
-  eleventyConfig.addTransform("minifycss", minifycss);
+  // eleventyConfig.addTransform("minifycss", minifycss);
 
   // Passthrough copy
   eleventyConfig.addPassthroughCopy("src/service-worker.js");

@@ -16,8 +16,15 @@ module.exports = async () => {
   await fs.mkdir(path.join(__dirname, "..", "..", "dist", "static", "css"), {
     recursive: true,
   });
+
+  const prismcss = await fs.readFile(
+    path.join(__dirname, "..", "static", "css", "prism-a11y-dark.css")
+  );
+
   return fs.writeFile(
     path.join(__dirname, "..", "..", "dist", "static", "css", "dist.css"),
-    result.css
+    `${result.css}
+
+${prismcss}`
   );
 };
