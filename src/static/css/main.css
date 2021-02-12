@@ -1166,3 +1166,12 @@ pre[class*="language-"],
 :not(pre) > code[class*="language-"] {
   border-radius: 0;
 }
+
+code[class*="language-"],
+pre[class*="language-"] {
+	font-family: Courier;
+}
+
+:not(pre) > code[class*="language-"] {
+  padding: 0.25rem 0.5rem;
+}
