@@ -39,7 +39,7 @@ body {
   background: #000000;
   color: #ffffff;
   margin: 0;
-  font-family: Courier;
+  font-family: Courier, monospace;
   font-size: 16px;
   line-height: 1.75;
   display: flex;
@@ -65,7 +65,7 @@ h3,
 h4,
 h5 {
   margin: 2rem 0 1.38rem;
-  font-family: "Press Start 2P", Courier;
+  font-family: "Press Start 2P", Courier, monospace;
   font-weight: 400;
   line-height: 0.9;
 }
@@ -299,7 +299,7 @@ a:hover {
 }
 
 .header__text {
-  font-family: "Press Start 2P", Courier;
+  font-family: "Press Start 2P", Courier, monospace;
   color: #ffffff;
   text-align: center;
   width: min-content;
@@ -351,7 +351,7 @@ a:hover {
 }
 
 .nav {
-  font-family: "Press Start 2P", Courier;
+  font-family: "Press Start 2P", Courier, monospace;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -451,7 +451,7 @@ a:hover {
   max-width: var(--content-max-width);
   box-sizing: border-box;
   flex: 1;
-  font-family: Courier;
+  font-family: Courier, monospace;
   color: #000000;
 }
 
@@ -556,7 +556,7 @@ a:hover {
 
 .follow-links__link {
   padding: 0.5rem;
-  font-family: "Press Start 2P", Courier;
+  font-family: "Press Start 2P", Courier, monospace;
   font-size: 1.2em;
   margin-right: 0.5rem;
   white-space: nowrap;
@@ -605,7 +605,7 @@ a.follow-links__link--rss:active {
 }
 
 .talk-events__event-name {
-  font-family: "Press Start 2P", Courier;
+  font-family: "Press Start 2P", Courier, monospace;
   font-size: 1.9rem;
   margin-bottom: 0.5rem;
   line-height: 0.9;
@@ -630,7 +630,7 @@ a.follow-links__link--rss:active {
 }
 
 .footer {
-  font-family: "Press Start 2P", Courier;
+  font-family: "Press Start 2P", Courier, monospace;
   text-align: center;
   padding: 1rem;
   margin: 0 auto;
@@ -680,7 +680,7 @@ a.follow-links__link--rss:active {
   top: 50%;
   margin-top: -10rem;
   right: 50%;
-  font-family: "Press Start 2P", Courier;
+  font-family: "Press Start 2P", Courier, monospace;
   color: #ffffff;
   border: none;
   background: transparent;
@@ -1169,7 +1169,7 @@ pre[class*="language-"],
 
 code[class*="language-"],
 pre[class*="language-"] {
-	font-family: Courier;
+	font-family: Courier, monospace;
 }
 
 :not(pre) > code[class*="language-"] {
