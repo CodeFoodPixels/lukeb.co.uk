@@ -6,7 +6,7 @@
 
 (function () {
   // Update 'version' if you need to refresh the cache
-  const version = `2.0.0`;
+  const version = `2.0.1`;
 
   const assetCache = `assets@${version}`;
   const pageCache = `pages`;

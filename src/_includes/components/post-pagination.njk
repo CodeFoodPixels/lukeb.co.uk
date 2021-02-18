@@ -1,0 +1,29 @@
+{# getNextCollectionItem and getPreviousCollectionItem are reversed here because the post list is reversed #}
+{% set previousPost = collections.posts | getNextCollectionItem(page) %}
+{% set nextPost = collections.posts | getPreviousCollectionItem(page) %}
+{% if previousPost or nextPost %}
+  <nav class="content__post-pagination" role="navigation" aria-label="Pagination Navigation">
+    <dl class="content__post-pagination-content">
+      {% if previousPost %}
+      <div class="content__post-pagination-item">
+        <dt class="content__post-pagination-label">Previous post:</dt>
+        <dd class="content__post-pagination-title">
+          <a href="{{ previousPost.url }}" class="content__post-pagination-link" data-direction="backwards">
+            {{ previousPost.data.title }}
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+      {% if nextPost %}
+      <div class="content__post-pagination-item">
+        <dt class="content__post-pagination-label">Next post:</dt>
+        <dd class="content__post-pagination-title">
+          <a href="{{ nextPost.url }}" class="content__post-pagination-link" data-direction="forwards">
+            {{ nextPost.data.title }}
+          </a>
+        </dd>
+      <div>
+      {% endif %}
+    </ol>
+  </nav>
+{% endif %}

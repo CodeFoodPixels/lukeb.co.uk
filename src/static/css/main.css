@@ -8,7 +8,7 @@
   --highlight-color-hover--lighter: hsl(0, 70%, 47%);
   --highlight-color-hover: hsl(0, 80%, 37%);
   --highlight-color-hover--darker: hsl(0, 90%, 27%);
-  --header-direction: column;
+  --responsive-direction: column;
   --header-name-text-size: 3.2rem;
   --header-start-text-size: 1.6rem;
   --spaceship-height: 5rem;
@@ -108,7 +108,8 @@ h2:not(:first-child)::after,
 h3:not(:first-child)::after,
 h4:not(:first-child)::after,
 h5:not(:first-child)::after,
-.content__footer::before {
+.content__footer::before,
+.content__footer::after {
   content: " ";
   height: 0.25rem;
   width: 100%;
@@ -174,7 +175,7 @@ a:hover {
 }
 
 .header--hero {
-  --header-direction: column;
+  --responsive-direction: column;
   --header-name-text-size: min(14.4vw, 16vh);
   --header-start-text-size: min(7.2vw, 8vh);
   --header-line-width: min(0.5625vw, 0.625vh);
@@ -215,7 +216,7 @@ a:hover {
   width: calc(100vw - (var(--content-margin) * 2));
   max-width: var(--content-max-width);
   display: flex;
-  flex-direction: var(--header-direction);
+  flex-direction: var(--responsive-direction);
   justify-content: center;
   align-items: center;
   position: relative;
@@ -533,6 +534,29 @@ a:hover {
   margin: 0 0.25rem;
 }
 
+.content__post-pagination {
+  margin: 2rem 0rem 1rem;
+}
+
+.content__post-pagination-item {
+  display: flex;
+  flex-direction: var(--responsive-direction);
+  margin-bottom: 0.5rem;
+}
+
+.content__post-pagination-label {
+  width: 9rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+  font-weight: bold;
+}
+
+.content__post-pagination-title {
+  flex: 1 1 auto;
+  margin: 0;
+}
+
+
 .content__footer {
   margin-top: 4rem;
 }
@@ -574,7 +598,7 @@ a.follow-links__link--rss,
 a.follow-links__link--rss:hover,
 a.follow-links__link--rss:visited,
 a.follow-links__link--rss:active {
-  background: #EF8021;
+  background: #ef8021;
   color: #000000;
 }
 
@@ -703,7 +727,7 @@ a.follow-links__link--rss:active {
 
 @media screen and (min-width: 43.75rem) {
   :root {
-    --header-direction: row;
+    --responsive-direction: row;
     --header-flex: 1 1 50%;
   }
 }
@@ -711,7 +735,7 @@ a.follow-links__link--rss:active {
 @media screen and (min-width: 48rem) {
   :root {
     --nav__item-flex-basis: 0rem;
-    --header-direction: row;
+    --responsive-direction: row;
     --header-flex: 1 1 50%;
   }
 
@@ -1169,7 +1193,7 @@ pre[class*="language-"],
 
 code[class*="language-"],
 pre[class*="language-"] {
-	font-family: Courier, monospace;
+  font-family: Courier, monospace;
 }
 
 :not(pre) > code[class*="language-"] {

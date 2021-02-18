@@ -60,7 +60,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("date", nunjucksDate);
 
   eleventyConfig.addFilter("debug", (data) => {
+    console.log("");
+    console.log("********** DEBUG **********");
     console.log(data);
+    console.log("******** END DEBUG ********");
+    console.log("");
   });
 
   eleventyConfig.addFilter("md", (content = "") => {
@@ -99,19 +103,20 @@ module.exports = function (eleventyConfig) {
   // Collections
   const now = new Date();
   const livePosts = (post) => post.date <= now && !post.data.draft;
-  eleventyConfig.addCollection("posts", (collection) => {
-    return [
-      ...collection.getFilteredByGlob("./src/posts/*.md").filter(livePosts),
-    ].reverse();
-  });
 
-  eleventyConfig.addCollection("postFeed", (collection) => {
-    return [
-      ...collection.getFilteredByGlob("./src/posts/*.md").filter(livePosts),
-    ]
-      .reverse()
-      .slice(0, site.maxPostsPerPage);
-  });
+  const posts = (collectionApi) =>
+    collectionApi
+      .getFilteredByGlob("./src/posts/*")
+      .filter(livePosts)
+      .reverse();
+
+  eleventyConfig.addCollection("posts", (collectionApi) =>
+    posts(collectionApi)
+  );
+
+  eleventyConfig.addCollection("postFeed", (collectionApi) =>
+    posts(collectionApi).slice(0, site.maxPostsPerPage)
+  );
 
   eleventyConfig.addCollection("tagList", function (collection) {
     let tagList = [];
