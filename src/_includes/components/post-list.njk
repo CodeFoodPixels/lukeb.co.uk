@@ -1,12 +1,13 @@
+<div class="h-feed">
 {% if postListItems.length %}
   {% for item in postListItems %}
-    <article class="content__article content__article--list">
+    <article class="content__article content__article--list h-entry">
       <header class="content__header">
         <h2>
-          <a href="{{ item.url }}">{{ item.data.title }}</a>
+          <a href="{{ item.url }}" class="p-name u-url">{{ item.data.title }}</a>
         </h2>
         <div class="content__meta">
-          <time datetime="{{ item.date | w3DateFilter }}">{{ item.date | date("YYYY-MM-DD") }}</time>
+          <time datetime="{{ item.date | w3DateFilter }}" class="dt-published">{{ item.date | date("YYYY-MM-DD") }}</time>
           <span>
             //
           </span>
@@ -20,12 +21,13 @@
           </div>
         </div>
       </header>
-      {% if item.data.page.excerpt %}
-        {{ item.data.page.excerpt | md | safe}}
-      {% else %}
-        {{ item.templateContent | safe }}
-      {% endif %}
-
+      <div class="p-summary">
+        {% if item.data.page.excerpt %}
+          {{ item.data.page.excerpt | md | safe}}
+        {% else %}
+          {{ item.templateContent | safe }}
+        {% endif %}
+      </div>
       <footer>
         <p>
           <a href="{{ item.url }}" aria-label="Read {{ item.data.title }}">Read More</a>
@@ -34,3 +36,4 @@
     </article>
   {% endfor %}
 {% endif %}
+</div>
