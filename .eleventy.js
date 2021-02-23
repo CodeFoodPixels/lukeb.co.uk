@@ -123,10 +123,6 @@ module.exports = function (eleventyConfig) {
     posts(collectionApi)
   );
 
-  eleventyConfig.addCollection("postFeed", (collectionApi) =>
-    posts(collectionApi).slice(0, site.maxPostsPerPage)
-  );
-
   eleventyConfig.addCollection("tagList", function (collection) {
     let tagList = [];
     collection

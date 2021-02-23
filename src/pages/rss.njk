@@ -8,22 +8,22 @@ permalink: '/rss.xml'
 	<link href="{{ site.url }}{{ permalink }}" rel="self"/>
 	<link href="{{ site.url }}/"/>
 	{% if collections.posts|length %}
-	<updated>{{ collections.posts | rssLastUpdatedDate }}</updated>
+	<updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
 	{% endif %}
 	<id>{{ site.url }}</id>
 	<author>
-  <name>{{ site.authorName }}</name>
-  <email>{{ site.authorEmail }}</email>
+    <name>{{ site.authorName }}</name>
+    <email>{{ site.authorEmail }}</email>
 	</author>
 	{% for post in collections.posts %}
   {% set absolutePostUrl %}{{ site.url }}{{ post.url | url }}{% endset %}
   <entry>
     <title>{{ post.data.title }}</title>
     <link href="{{ absolutePostUrl }}"/>
-    <updated>{{ post.date | rssDate }}</updated>
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
     <id>{{ absolutePostUrl }}</id>
     <content type="html"><![CDATA[
-      {{ post.templateContent | safe }}
+      {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}
     ]]></content>
   </entry>
 	{% endfor %}
