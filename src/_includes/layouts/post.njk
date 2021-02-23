@@ -1,11 +1,18 @@
 ---
 layout: layouts/base.njk
 ---
+{%- set absoluteUrl = item.url | url | absoluteUrl(site.url) -%}
+{%- set postMentionCount = webmentions | webmentionCountForUrl(absoluteUrl) -%}
 <article class="content__article">
   <header class="content__header">
     <h1>{{ title }}</h1>
     <div class="content__meta">
       <time datetime="{{ date | w3DateFilter }}">{{ date | date("YYYY-MM-DD") }}</time>
+      <span>
+        //
+      </span>
+      <a href="#webmentions">{{ postMentionCount }}
+        Response{%- if (postMentionCount !== 1) %}s{% endif %}</a>
       <span>
         //
       </span>

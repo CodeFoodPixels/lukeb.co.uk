@@ -13,9 +13,9 @@
             <span>
               //
             </span>
-            <span>{{ postMentionCount }}
-              Response{%- if (postMentions.total !== 1) %}s{% endif %}
-            </span>
+            <a href="{{ item.url }}#webmentions">{{ postMentionCount }}
+              Response{%- if (postMentionCount !== 1) %}s{% endif -%}
+            </a>
             <span>
               //
             </span>

@@ -39,7 +39,6 @@ function clean(entry) {
 
 module.exports = {
   count(webmentions, url) {
-    console.log(url);
     return filteredWebmentions(webmentions, url).length;
   },
 

@@ -1,7 +1,7 @@
 {%- set absoluteUrl = page.url | url | absoluteUrl(site.url) -%}
 {%- set postMentions = webmentions | webmentionsForUrl(absoluteUrl) -%}
 
-<article class="webmentions">
+<article id="webmentions" class="webmentions">
   <header class="webmentions__header">
     <h2>
       {{ postMentions.total }}
