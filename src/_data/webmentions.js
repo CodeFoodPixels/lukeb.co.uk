@@ -66,7 +66,7 @@ module.exports = async function () {
       };
 
       await writeToCache(webmentions);
-      return webmentions;
+      return webmentions.children;
     }
   }
 
