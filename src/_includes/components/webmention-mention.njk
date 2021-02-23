@@ -1,0 +1,20 @@
+<li class="webmentions__item">
+  <div class="webmention__meta">
+    {% if mention.author %}
+        {% image mention.author.photo or '/static/images/webmention-avatar-default.svg', mention.author.name, "48px", [48], {class: "webmention__author-photo"} %}
+      <a href="{{ mention.author.url }}" target="_blank" rel="external nofollow noopener noreferrer">
+        <span class="webmention__author-name">{{ mention.author.name }}</span>
+      </a>
+    {% else %}
+      {% image '/static/images/webmention-avatar-default.svg', "Anonymous", "48px", [48], {class: "webmention__author-photo"} %}
+      <span class="webmention__author-name">Anonymous</span>
+    {% endif %}
+    {% if mention.published %}
+        <time class="webmention__pubdate dt-published" datetime="{{ mention.published }}">{{ mention.published  | date("YYYY-MM-DD") }}</time>
+    {% endif %}
+  </div>
+
+  <p>{{ mention.content.value | safe }}</p>
+  
+  <p><a href="{{ mention.url }}" target="_blank" rel="external nofollow noopener noreferrer">View original post</a></p>
+</li>

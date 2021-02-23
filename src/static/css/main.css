@@ -8,6 +8,40 @@
   --highlight-color-hover--lighter: hsl(0, 70%, 47%);
   --highlight-color-hover: hsl(0, 80%, 37%);
   --highlight-color-hover--darker: hsl(0, 90%, 27%);
+  --button-background: linear-gradient(
+    180deg,
+    var(--highlight-color--lighter) 0rem,
+    var(--highlight-color--lighter) 0.25rem,
+    transparent 0.25rem,
+    transparent calc(100% - 0.25rem),
+    var(--highlight-color--darker) calc(100% - 0.25rem)
+  ),
+  linear-gradient(
+    90deg,
+    var(--highlight-color--lighter) 0rem,
+    var(--highlight-color--lighter) 0.25rem,
+    transparent 0.25rem,
+    transparent calc(100% - 0.25rem),
+    var(--highlight-color--darker) calc(100% - 0.25rem)
+  ),
+  var(--highlight-color);
+  --button-background--clicked: linear-gradient(
+    180deg,
+    var(--highlight-color-hover--darker) 0rem,
+    var(--highlight-color-hover--darker) 0.25rem,
+    transparent 0.25rem,
+    transparent calc(100% - 0.25rem),
+    var(--highlight-color-hover--lighter) calc(100% - 0.25rem)
+  ),
+  linear-gradient(
+    90deg,
+    var(--highlight-color-hover--darker) 0rem,
+    var(--highlight-color-hover--darker) 0.25rem,
+    transparent 0.25rem,
+    transparent calc(100% - 0.25rem),
+    var(--highlight-color-hover--lighter) calc(100% - 0.25rem)
+  ),
+  var(--highlight-color-hover);
   --responsive-direction: column;
   --header-name-text-size: 3.2rem;
   --header-start-text-size: 1.6rem;
@@ -109,7 +143,9 @@ h3:not(:first-child)::after,
 h4:not(:first-child)::after,
 h5:not(:first-child)::after,
 .content__footer::before,
-.content__footer::after {
+.content__footer::after,
+.webmentions::before,
+.webmentions__header::after {
   content: " ";
   height: 0.25rem;
   width: 100%;
@@ -140,7 +176,7 @@ a:hover {
   text-decoration: none;
 }
 
-:focus {
+*:focus {
   outline: 0.25rem solid var(--highlight-color);
   outline-offset: 0.25rem;
   z-index: 1;
@@ -295,6 +331,7 @@ a:hover {
 
 .header__spaceship-wrapper svg {
   height: var(--spaceship-height);
+  width: calc(var(--spaceship-height) * 2);
   will-change: transform;
   display: block;
 }
@@ -396,23 +433,7 @@ a:hover {
   padding-right: 0.75rem;
   box-sizing: border-box;
   text-decoration: none;
-  background: linear-gradient(
-      180deg,
-      var(--highlight-color--lighter) 0rem,
-      var(--highlight-color--lighter) 0.25rem,
-      transparent 0.25rem,
-      transparent calc(100% - 0.25rem),
-      var(--highlight-color--darker) calc(100% - 0.25rem)
-    ),
-    linear-gradient(
-      90deg,
-      var(--highlight-color--lighter) 0rem,
-      var(--highlight-color--lighter) 0.25rem,
-      transparent 0.25rem,
-      transparent calc(100% - 0.25rem),
-      var(--highlight-color--darker) calc(100% - 0.25rem)
-    ),
-    var(--highlight-color);
+  background: var(--button-background);
   position: relative;
 }
 
@@ -420,23 +441,7 @@ a:hover {
 .nav__link:focus {
   padding-top: 0.875rem;
   padding-bottom: 0.625rem;
-  background: linear-gradient(
-      180deg,
-      var(--highlight-color-hover--darker) 0rem,
-      var(--highlight-color-hover--darker) 0.25rem,
-      transparent 0.25rem,
-      transparent calc(100% - 0.25rem),
-      var(--highlight-color-hover--lighter) calc(100% - 0.25rem)
-    ),
-    linear-gradient(
-      90deg,
-      var(--highlight-color-hover--darker) 0rem,
-      var(--highlight-color-hover--darker) 0.25rem,
-      transparent 0.25rem,
-      transparent calc(100% - 0.25rem),
-      var(--highlight-color-hover--lighter) calc(100% - 0.25rem)
-    ),
-    var(--highlight-color-hover);
+  background: var(--button-background--clicked);
 }
 
 .nav :focus {
@@ -479,6 +484,39 @@ a:hover {
   height: auto;
   max-width: 100%;
   max-height: 50vh;
+}
+
+.content img {
+  clip-path: polygon(
+    0px 16px,
+    4px 16px,
+    4px 8px,
+    8px 8px,
+    8px 4px,
+    16px 4px,
+    16px 0px,
+    calc(100% - 16px) 0px,
+    calc(100% - 16px) 4px,
+    calc(100% - 8px) 4px,
+    calc(100% - 8px) 8px,
+    calc(100% - 4px) 8px,
+    calc(100% - 4px) 16px,
+    100% 16px,
+    100% calc(100% - 16px),
+    calc(100% - 4px) calc(100% - 16px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 16px) calc(100% - 4px),
+    calc(100% - 16px) 100%,
+    16px 100%,
+    16px calc(100% - 4px),
+    8px calc(100% - 4px),
+    8px calc(100% - 8px),
+    4px calc(100% - 8px),
+    4px calc(100% - 16px),
+    0px calc(100% - 16px)
+  );
 }
 
 .content figcaption {
@@ -535,7 +573,7 @@ a:hover {
 }
 
 .content__post-pagination {
-  margin: 2rem 0rem 1rem;
+  margin: 3rem 0;
 }
 
 .content__post-pagination-item {
@@ -555,7 +593,6 @@ a:hover {
   flex: 1 1 auto;
   margin: 0;
 }
-
 
 .content__footer {
   margin-top: 4rem;
@@ -600,6 +637,81 @@ a.follow-links__link--rss:visited,
 a.follow-links__link--rss:active {
   background: #ef8021;
   color: #000000;
+}
+
+.webmentions__form-label {
+  display: block;
+}
+
+.webmentions__field-wrapper {
+  display: inline-flex;
+}
+
+.webmentions__form-field {
+  border: 1px solid black;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: Courier, monospace;
+  height: 2rem;
+  box-sizing: border-box;
+  margin-right: 0.5rem;
+}
+
+.webmentions__form-submit {
+  font-size: 1rem;
+  font-family: Courier, monospace;
+  height: 2rem;
+  display: inline-block;
+  border: 0;
+  padding: 0.45rem 1rem 0.55rem;
+  background: var(--button-background);
+  color: #ffffff;
+}
+
+.webmentions__form-submit:active {
+  background: var(--button-background--clicked);
+  padding: 0.55rem 1rem 0.45rem;
+}
+
+.webmentions__facepile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.webmentions__face-link {
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.webmentions__list {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.webmentions__item {
+  margin-bottom: 2rem;
+}
+
+.webmention__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.webmention__meta .webmention__author-photo {
+  margin-right: 0.5rem;
+}
+
+.webmention__author-name {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.webmention__truncated {
+  padding: 0.125rem 0.25rem;
+  background: #666;
+  color: white;
 }
 
 .talk-events {

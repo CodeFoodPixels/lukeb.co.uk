@@ -1,0 +1,7 @@
+<div class="webmentions__facepile">
+  {% for facepileMention in facepileMentions | reverse %}
+    <a href="{{ facepileMention.url }}" class="webmentions__face-link" target="_blank" rel="external nofollow noopener noreferrer">
+      {% image facepileMention.photo or "./src/static/images/webmention-avatar-default.svg", facepileMention.name, "48px", [48]%}
+    </a>
+  {% endfor %}
+</div>

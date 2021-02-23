@@ -8,21 +8,34 @@ const postcss = require("./src/_scripts/postcss.js");
 const minifycss = require("./src/_scripts/minifycss.js");
 const imageShortcode = require("./src/_scripts/imageShortcode.js");
 const videoShortcode = require("./src/_scripts/videoShortcode.js");
+const webmentionsForUrl = require("./src/_scripts/webmentionsForUrl.js");
 
 const markdownIt = require("markdown-it");
 const markdownItLinkAttributes = require("markdown-it-link-attributes");
+const markdownItAnchor = require("markdown-it-anchor");
 
 const site = require("./src/_data/site.json");
 
 module.exports = function (eleventyConfig) {
+  const slug = (input) => {
+    const options = {
+      replacement: "-",
+      remove: /[&,+()$~%.'":*!?<>{}]/g,
+      lower: true,
+    };
+    return slugify(input, options);
+  };
+
   // Markdown config
-  const markdownLib = markdownIt({ html: true }).use(markdownItLinkAttributes, {
-    pattern: /^(?!(https:\/\/lukeb\.co.uk|#|\/)).*$/,
-    attrs: {
-      target: "_blank",
-      rel: "noopener noreferrer",
-    },
-  });
+  const markdownLib = markdownIt({ html: true })
+    .use(markdownItLinkAttributes, {
+      pattern: /^(?!(https:\/\/lukeb\.co.uk|#|\/)).*$/,
+      attrs: {
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+    })
+    .use(markdownItAnchor, { slugify: slug });
 
   eleventyConfig.setLibrary("md", markdownLib);
 
@@ -80,20 +93,15 @@ module.exports = function (eleventyConfig) {
     return text.toLowerCase();
   });
 
-  eleventyConfig.addFilter("slug", (input) => {
-    const options = {
-      replacement: "-",
-      remove: /[&,+()$~%.'":*!?<>{}]/g,
-      lower: true,
-    };
-    return slugify(input, options);
-  });
+  eleventyConfig.addFilter("slug", slug);
 
   eleventyConfig.addFilter("livePosts", (posts) => {
     const now = new Date();
 
     return posts.filter((post) => post.date <= now && !post.data.draft);
   });
+
+  eleventyConfig.addFilter("webmentionsForUrl", webmentionsForUrl);
 
   // Plugins
   eleventyConfig.addPlugin(readingTime);

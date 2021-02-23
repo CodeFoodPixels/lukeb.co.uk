@@ -6,11 +6,11 @@
 
 (function () {
   // Update 'version' if you need to refresh the cache
-  const version = `2.0.1`;
+  const version = `2.0.2`;
 
   const assetCache = `assets@${version}`;
   const pageCache = `pages`;
-  const imageCache = `images`;
+  const imageCache = `images@${version}`;
   const cacheList = [assetCache, pageCache, imageCache];
 
   // Store core files in a cache (including a page to display when offline)

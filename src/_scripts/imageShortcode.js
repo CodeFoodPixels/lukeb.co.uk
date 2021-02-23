@@ -4,7 +4,8 @@ module.exports = async function imageShortcode(
   src,
   alt,
   sizes = "(min-width: 73.25rem) 62.5rem, (min-width: 54rem) 50rem, (min-width: 41.5rem) 37.5rem, 15.625rem",
-  widths = [1000, 800, 600, 250]
+  widths = [1000, 800, 600, 250],
+  attributes = {}
 ) {
   let metadata = await Image(src, {
     widths,
@@ -18,6 +19,7 @@ module.exports = async function imageShortcode(
     sizes,
     loading: "lazy",
     decoding: "async",
+    ...attributes,
   };
 
   return Image.generateHTML(metadata, imageAttributes, {

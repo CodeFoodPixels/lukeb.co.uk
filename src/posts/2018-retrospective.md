@@ -6,7 +6,7 @@ tags:
 ---
 2018 has been an eventful year, with more personal firsts and a number of successful personal projects!
 
-If you want to see last year's post, you can find it [here](/2017/12/24/2017-Retrospective/).
+If you want to see last year's post, you can find it [here](/blog/2017/12/24/2017-Retrospective/).
 <!-- excerpt -->
 
 ## 2018 Aims
@@ -28,7 +28,7 @@ In July I gave my home automation talk at the Fullstack London and ScotlandJS co
 Before this year I'd never been to South America, but towards the end of the year I went twice to speak at two separate conferences. First, in October, I headed to Buenos Aires in Argentina to speak at Nodeconf Argentina and then in November I went to Medellín in Colombia to speak at JSConf Colombia. Both were amazing experiences in super interesting cities with more great people! I was also fortunate to be able to extend my time in both cities to explore and eat some amazing food!
 
 ## Mental Health
-In August I wrote about taking steps to deal with my mental health better (you can read that post [here](/2018/08/04/Opening-up-about-my-mental-health/)), and I've made some progress.
+In August I wrote about taking steps to deal with my mental health better (you can read that post [here](/blog/2018/08/04/Opening-up-about-my-mental-health/)), and I've made some progress.
 
 I went through the "depression recovery course" and while it didn't help, it was a step in the right direction.
 
@@ -42,9 +42,9 @@ I'm still learning stuff all the time and I'm still really enjoying the chances 
 ## LeedsJS
 This year we've had a load of amazing talks on both technical and non-technical topics at LeedsJS.
 
-This year I decided to stop Q&A, and I feel that this has been a success. You can read more about this decision [here](/2018/05/06/Why-LeedsJS-Doesn-t-Have-Q-A-Anymore/).
+This year I decided to stop Q&A, and I feel that this has been a success. You can read more about this decision [here](/blog/2018/05/06/Why-LeedsJS-Doesn-t-Have-Q-A-Anymore/).
 
-I also wrote about our giveaway process [here](https://lukeb.co.uk/2018/04/27/Community-Group-Giveaways/). Since this post, I've also started selecting a second winner from any tweets made with the LeedsJS hashtag during the event.
+I also wrote about our giveaway process [here](/blog/2018/04/27/Community-Group-Giveaways/). Since this post, I've also started selecting a second winner from any tweets made with the LeedsJS hashtag during the event.
 
 Finally, I made the decision at the end of this year that I'm going to move LeedsJS away from Meetup.com during the next 6 months. They charge $90 for 6 months for what I feel to be a inflexible and sub-par platform. I'm going to be moving to using the LeedsJS website, using a ticketing system like Tito and a mailing list system like Mailchimp.
 

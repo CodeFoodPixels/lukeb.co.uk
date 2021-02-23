@@ -41,7 +41,7 @@ Earlier in this year I released [jscad-includify](https://github.com/lukeb-uk/js
 
 As a result of the work I did on jscad-includify, I got interested in snapshot testing. As I couldn't find a tool that would let me do snapshot testing with TAP (the Node test framework that I like), I ended up writing [tapshot](https://github.com/lukeb-uk/tapshot). This was an interesting challenge as I learned a lot about snapshot testing and had to ensure it was well tested itself.
 
-I also rebuilt this website with the aim of keeping it more up to date and to blog more. You can read more about the website [here](https://lukeb.co.uk/2017/11/12/New-Website/).
+I also rebuilt this website with the aim of keeping it more up to date and to blog more. You can read more about the website [here](/blog/2017/11/12/New-Website/).
 
 Throughout the year I've also been working on my automation bot [Woodhouse](https://github.com/Woodhouse). I've not added a lot of major functionality and have mainly been working on tidying up the version 2 code, but I have been working on automating my heating over the past couple of months and will hopefully have a post up on that soon.
 

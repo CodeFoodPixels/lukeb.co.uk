@@ -42,7 +42,7 @@ While most people like a joke, unfortunately people aren't very original when it
 
 ### A decent chunk of the audience probably doesn't care
 
-While there can still be good questions in a Q&A, it's still usually something that only a handful of your audience actually wants to know more about. The rest of your audience is becoming disengaged and just wants your event to progress. [The question that's largely irrelevant to the talk](#The-question-that's-largely-irrelevant-to-the-talk) and the ["I have this specific problem with my code, fix it for me"](#“I-have-this-specific-problem-with-my-code-fix-it-for-me”) also fall into this category.
+While there can still be good questions in a Q&A, it's still usually something that only a handful of your audience actually wants to know more about. The rest of your audience is becoming disengaged and just wants your event to progress. [The question that's largely irrelevant to the talk](#the-question-that's-largely-irrelevant-to-the-talk) and the ["I have this specific problem with my code, fix it for me"](#i-have-this-specific-problem-with-my-code-fix-it-for-me) also fall into this category.
 
 ## Additional factors
 
