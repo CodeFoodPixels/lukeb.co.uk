@@ -101,7 +101,8 @@ module.exports = function (eleventyConfig) {
     return posts.filter((post) => post.date <= now && !post.data.draft);
   });
 
-  eleventyConfig.addFilter("webmentionsForUrl", webmentionsForUrl);
+  eleventyConfig.addFilter("webmentionsForUrl", webmentionsForUrl.mentions);
+  eleventyConfig.addFilter("webmentionCountForUrl", webmentionsForUrl.count);
 
   // Plugins
   eleventyConfig.addPlugin(readingTime);

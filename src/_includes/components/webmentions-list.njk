@@ -1,15 +1,11 @@
-{%- set absoluteUrl -%}{{ page.url | url | absoluteUrl(site.url) }}{%- endset -%}
+{%- set absoluteUrl = page.url | url | absoluteUrl(site.url) -%}
 {%- set postMentions = webmentions | webmentionsForUrl(absoluteUrl) -%}
 
 <article class="webmentions">
   <header class="webmentions__header">
     <h2>
       {{ postMentions.total }}
-      {% if (postMentions.total === 1) %}
-        Response
-      {% else %}
-        Responses
-      {% endif %}
+      Response{%- if (postMentions.total !== 1) %}s{% endif %}
     </h2>
     <p>
       <form action="https://webmention.io/{{ site.domain }}/webmention" method="post" class="form-webmention">
@@ -23,7 +19,8 @@
     </p>
     <p>
       Powered by
-      <a href="https://indieweb.org/Webmention" target="_blank" rel="external nofollow noopener noreferrer">Webmentions</a> via
+      <a href="https://indieweb.org/Webmention" target="_blank" rel="external nofollow noopener noreferrer">Webmentions</a>
+      via
       <a href="https://webmention.io" target="_blank" rel="external nofollow noopener noreferrer">Webmention.io</a>
       and
       <a href="https://brid.gy" target="_blank" rel="external nofollow noopener noreferrer">Bridgy</a>

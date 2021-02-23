@@ -1,39 +1,47 @@
 <div class="h-feed">
-{% if postListItems.length %}
-  {% for item in postListItems %}
-    <article class="content__article content__article--list h-entry">
-      <header class="content__header">
-        <h2>
-          <a href="{{ item.url }}" class="p-name u-url">{{ item.data.title }}</a>
-        </h2>
-        <div class="content__meta">
-          <time datetime="{{ item.date | w3DateFilter }}" class="dt-published">{{ item.date | date("YYYY-MM-DD") }}</time>
-          <span>
-            //
-          </span>
-          <span>About
-            {{ item.templateContent | readingTime({speed: 200, raw: true}) }}
-            minute read</span>
-          <div class="content__tags">
-            {% for tag in item.data.tags | sort %}
-              <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">{{ tag | lowercase }}</a>
-            {% endfor %}
+  {% if postListItems.length %}
+    {% for item in postListItems %}
+      {%- set absoluteUrl = item.url | url | absoluteUrl(site.url) -%}
+      {%- set postMentionCount = webmentions | webmentionCountForUrl(absoluteUrl) -%}
+      <article class="content__article content__article--list h-entry">
+        <header class="content__header">
+          <h2>
+            <a href="{{ item.url }}" class="p-name u-url">{{ item.data.title }}</a>
+          </h2>
+          <div class="content__meta">
+            <time datetime="{{ item.date | w3DateFilter }}" class="dt-published">{{ item.date | date("YYYY-MM-DD") }}</time>
+            <span>
+              //
+            </span>
+            <span>{{ postMentionCount }}
+              Response{%- if (postMentions.total !== 1) %}s{% endif %}
+            </span>
+            <span>
+              //
+            </span>
+            <span>About
+              {{ item.templateContent | readingTime({speed: 200, raw: true}) }}
+              minute read</span>
+            <div class="content__tags">
+              {% for tag in item.data.tags | sort %}
+                <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">{{ tag | lowercase }}</a>
+              {% endfor %}
+            </div>
           </div>
+        </header>
+        <div class="p-summary">
+          {% if item.data.page.excerpt %}
+            {{ item.data.page.excerpt | md | safe}}
+          {% else %}
+            {{ item.templateContent | safe }}
+          {% endif %}
         </div>
-      </header>
-      <div class="p-summary">
-        {% if item.data.page.excerpt %}
-          {{ item.data.page.excerpt | md | safe}}
-        {% else %}
-          {{ item.templateContent | safe }}
-        {% endif %}
-      </div>
-      <footer>
-        <p>
-          <a href="{{ item.url }}" aria-label="Read {{ item.data.title }}">Read More</a>
-        </p>
-      </footer>
-    </article>
-  {% endfor %}
-{% endif %}
+        <footer>
+          <p>
+            <a href="{{ item.url }}" aria-label="Read {{ item.data.title }}">Read More</a>
+          </p>
+        </footer>
+      </article>
+    {% endfor %}
+  {% endif %}
 </div>
