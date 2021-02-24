@@ -3,7 +3,7 @@ layout: layouts/base.njk
 ---
 {%- set absoluteUrl = page.url | url | absoluteUrl(site.url) -%}
 {%- set postMentionCount = webmentions | webmentionCountForUrl(absoluteUrl) -%}
-<article class="content__article">
+<article class="content__article h-entry">
   <header class="content__header">
     <h1 class="p-name">{{ title }}</h1>
     <div class="content__meta">
