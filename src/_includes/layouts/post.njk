@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 ---
-{%- set absoluteUrl = item.url | url | absoluteUrl(site.url) -%}
+{%- set absoluteUrl = page.url | url | absoluteUrl(site.url) -%}
 {%- set postMentionCount = webmentions | webmentionCountForUrl(absoluteUrl) -%}
 <article class="content__article">
   <header class="content__header">
