@@ -5,9 +5,9 @@ layout: layouts/base.njk
 {%- set postMentionCount = webmentions | webmentionCountForUrl(absoluteUrl) -%}
 <article class="content__article">
   <header class="content__header">
-    <h1>{{ title }}</h1>
+    <h1 class="p-name">{{ title }}</h1>
     <div class="content__meta">
-      <time datetime="{{ date | w3DateFilter }}">{{ date | date("YYYY-MM-DD") }}</time>
+      <time datetime="{{ date | w3DateFilter }}" class="dt-published">{{ date | date("YYYY-MM-DD") }}</time>
       <span>
         //
       </span>
@@ -21,12 +21,15 @@ layout: layouts/base.njk
         minute read</span>
       <div>
         {% for tag in tags | sort %}
-          <a class="tag-link" href="/blog/tag/{{ tag | slug }}/" rel="tag">{{ tag | lowercase }}</a>
+          <a class="tag-link p-category" href="/blog/tag/{{ tag | slug }}/" rel="tag">{{ tag | lowercase }}</a>
         {% endfor %}
       </div>
     </div>
   </header>
-  {{ content | safe }}
+  <div>{{ page.excerpt | md | safe }}</div>
+  <div class="e-content">
+    {{ content | stripExcerpt(page.excerpt) | safe }}
+  </div>
 </article>
 <article class="content__footer">
   {% include "components/about-block.njk" %}

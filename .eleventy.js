@@ -104,6 +104,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("webmentionsForUrl", webmentionsForUrl.mentions);
   eleventyConfig.addFilter("webmentionCountForUrl", webmentionsForUrl.count);
 
+  eleventyConfig.addFilter("stripExcerpt", (content, excerptMarkdown) => {
+    const excerpt = markdownLib.render(excerptMarkdown);
+
+    return content.replace(excerpt, "");
+  });
+
   // Plugins
   eleventyConfig.addPlugin(readingTime);
   eleventyConfig.addPlugin(rssPlugin);
