@@ -26,7 +26,7 @@ layout: layouts/base.njk
       </div>
     </div>
   </header>
-  <div>{{ page.excerpt | md | safe }}</div>
+  <div class="p-summary">{{ page.excerpt | md | safe }}</div>
   <div class="e-content">
     {{ content | stripExcerpt(page.excerpt) | safe }}
   </div>

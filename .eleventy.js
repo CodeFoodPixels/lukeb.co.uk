@@ -105,6 +105,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("webmentionCountForUrl", webmentionsForUrl.count);
 
   eleventyConfig.addFilter("stripExcerpt", (content, excerptMarkdown) => {
+    if (!excerptMarkdown) {
+      return content;
+    }
+
     const excerpt = markdownLib.render(excerptMarkdown);
 
     return content.replace(excerpt, "");
