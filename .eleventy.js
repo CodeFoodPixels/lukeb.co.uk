@@ -14,8 +14,6 @@ const markdownIt = require("markdown-it");
 const markdownItLinkAttributes = require("markdown-it-link-attributes");
 const markdownItAnchor = require("markdown-it-anchor");
 
-const site = require("./src/_data/site.json");
-
 module.exports = function (eleventyConfig) {
   const slug = (input) => {
     const options = {
