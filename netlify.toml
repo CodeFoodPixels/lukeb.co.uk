@@ -1,0 +1,6 @@
+[[plugins]]
+package = "netlify-plugin-webmentions"
+  
+  [plugins.inputs]
+  feedPath = "rss.xml"
+  limit = 1
