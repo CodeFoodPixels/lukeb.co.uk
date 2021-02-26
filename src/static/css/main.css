@@ -99,7 +99,7 @@ h3,
 h4,
 h5 {
   margin: 2rem 0 1.38rem;
-  font-family: "Press Start 2P", Courier, monospace;
+  font-family: "Press Start 2P Modified", Courier, monospace;
   font-weight: 400;
   line-height: 0.9;
 }
@@ -337,7 +337,7 @@ a:hover {
 }
 
 .header__text {
-  font-family: "Press Start 2P", Courier, monospace;
+  font-family: "Press Start 2P Modified", Courier, monospace;
   color: #ffffff;
   text-align: center;
   width: min-content;
@@ -389,7 +389,7 @@ a:hover {
 }
 
 .nav {
-  font-family: "Press Start 2P", Courier, monospace;
+  font-family: "Press Start 2P Modified", Courier, monospace;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -617,7 +617,7 @@ a:hover {
 
 .follow-links__link {
   padding: 0.5rem;
-  font-family: "Press Start 2P", Courier, monospace;
+  font-family: "Press Start 2P Modified", Courier, monospace;
   font-size: 1.2em;
   margin-right: 0.5rem;
   white-space: nowrap;
@@ -741,7 +741,7 @@ a.follow-links__link--rss:active {
 }
 
 .talk-events__event-name {
-  font-family: "Press Start 2P", Courier, monospace;
+  font-family: "Press Start 2P Modified", Courier, monospace;
   font-size: 1.9rem;
   margin-bottom: 0.5rem;
   line-height: 0.9;
@@ -766,7 +766,7 @@ a.follow-links__link--rss:active {
 }
 
 .footer {
-  font-family: "Press Start 2P", Courier, monospace;
+  font-family: "Press Start 2P Modified", Courier, monospace;
   text-align: center;
   padding: 1rem;
   margin: 0 auto;
@@ -816,7 +816,7 @@ a.follow-links__link--rss:active {
   top: 50%;
   margin-top: -10rem;
   right: 50%;
-  font-family: "Press Start 2P", Courier, monospace;
+  font-family: "Press Start 2P Modified", Courier, monospace;
   color: #ffffff;
   border: none;
   background: transparent;
@@ -875,7 +875,7 @@ a.follow-links__link--rss:active {
 }
 
 @font-face {
-  font-family: "Press Start 2P";
+  font-family: "Press Start 2P Modified";
   src: url("/static/fonts/pressstart2p.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
