@@ -1,6 +1,5 @@
 const fs = require("fs").promises;
 const fetch = require("node-fetch");
-const unionBy = require("lodash.unionby");
 const site = require("./site.json");
 
 const CACHE_DIR = "_cache";
@@ -19,10 +18,6 @@ async function fetchWebmentions(since) {
   }
 
   return null;
-}
-
-function mergeWebmentions(a, b) {
-  return unionBy(a.children, b.children, "wm-id");
 }
 
 async function writeToCache(data) {
@@ -53,6 +48,7 @@ async function readFromCache() {
 
 module.exports = async function () {
   const cache = await readFromCache();
+
   const { lastFetched } = cache;
 
   // Only fetch new mentions in production
@@ -62,13 +58,12 @@ module.exports = async function () {
     if (feed) {
       const webmentions = {
         lastFetched: new Date().toISOString(),
-        children: mergeWebmentions(cache, feed),
+        children: feed.children,
       };
 
       await writeToCache(webmentions);
       return webmentions.children;
     }
   }
-
   return cache.children;
 };
