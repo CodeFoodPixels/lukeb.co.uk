@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
-    "serve": "netlify dev"
+    "serve": "eleventy --serve",
+    "netlify-dev": "netlify dev"
   },
   "repository": {
     "type": "git",

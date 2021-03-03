@@ -104,10 +104,7 @@ h5 {
   line-height: 0.9;
 }
 
-h2:first-child,
-h3:first-child,
-h4:first-child,
-h5:first-child {
+.content__header h2 {
   margin-top: 1.38rem;
 }
 
@@ -138,10 +135,10 @@ small,
 }
 
 .content__header::after,
-h2:not(:first-child)::after,
-h3:not(:first-child)::after,
-h4:not(:first-child)::after,
-h5:not(:first-child)::after,
+h2:not(.content__header h2)::after,
+h3::after,
+h4::after,
+h5::after,
 .content__footer::before,
 .content__footer::after,
 .webmentions::before,

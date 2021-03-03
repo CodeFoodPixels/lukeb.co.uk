@@ -6,7 +6,7 @@
 
 (function () {
   // Update 'version' if you need to refresh the cache
-  const version = `2.0.2`;
+  const version = `2.0.3`;
 
   const assetCache = `assets@${version}`;
   const pageCache = `pages`;
@@ -77,6 +77,9 @@
 
     // For HTML requests, try the network first, fall back to the cache, finally the offline page
     if (request.headers.get(`Accept`).indexOf(`text/html`) !== -1) {
+      if (request.url.match("browser-sync")) {
+        return fetch(request);
+      }
       // Fix for Chrome bug: https://code.google.com/p/chromium/issues/detail?id=573937
       if (request.mode != `navigate`) {
         request = new Request(request.url, {
