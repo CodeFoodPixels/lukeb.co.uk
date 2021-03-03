@@ -32,6 +32,6 @@ They gave me an information pack with stuff about the side effects of the vaccin
 
 It's been about an hour and a half since I had the vaccine, and so far the only side effect I've experienced is a sore arm.
 
-Throughout the process, the staff and volunteers were fantastic: they were well organised, professional, and reassuring. The whole thing was run so smoothly and the whole operation is a testament of our public services in spite of the compete mismanagement of the entire COVID pandemic by the Tory government. I'm so relieved to have had the first dose of my vaccine, and to have my 2nd dose booked for May.
+Throughout the process, the staff and volunteers were fantastic: they were well organised, professional, and reassuring. The whole thing was run so smoothly and the whole operation is a testament of our public services in spite of the complete mismanagement of the entire COVID pandemic by the Tory government. I'm so relieved to have had the first dose of my vaccine, and to have my 2nd dose booked for May.
 
 If you're eligible, please go get vaccinated. If you're unsure if you're currently eligible, check the [NHS COVID vaccine booking system](https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/book-coronavirus-vaccination/).
