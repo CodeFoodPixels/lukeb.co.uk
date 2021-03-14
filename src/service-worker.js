@@ -6,7 +6,7 @@
 
 (function () {
   // Update 'version' if you need to refresh the cache
-  const version = `2.0.4`;
+  const version = `2.0.5`;
 
   const assetCache = `assets@${version}`;
   const pageCache = `pages`;
@@ -76,7 +76,10 @@
     }
 
     // For HTML requests, try the network first, fall back to the cache, finally the offline page
-    if (request.headers.get(`Accept`).indexOf(`text/html`) !== -1) {
+    if (
+      request.headers.get(`Accept`) &&
+      request.headers.get(`Accept`).indexOf(`text/html`) !== -1
+    ) {
       if (request.url.match("browser-sync")) {
         return fetch(request);
       }
