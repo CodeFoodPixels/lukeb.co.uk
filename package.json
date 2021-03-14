@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
+    "postbuild": "glyphhanger ./dist/every-char/index.html --subset=./dist/static/fonts/pressstart2p.woff2 --formats=woff2",
     "serve": "eleventy --serve",
     "netlify-dev": "netlify dev"
   },
@@ -29,6 +30,7 @@
     "autoprefixer": "^10.2.3",
     "csso": "^4.2.0",
     "eleventy-plugin-reading-time": "0.0.1",
+    "glyphhanger": "^4.0.0",
     "lodash.unionby": "^4.8.0",
     "lodash.uniqby": "^4.7.0",
     "markdown-it-anchor": "^7.0.2",

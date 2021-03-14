@@ -112,6 +112,14 @@ module.exports = function (eleventyConfig) {
     return content.replace(excerpt, "");
   });
 
+  eleventyConfig.addFilter("uniq", (array) => {
+    return [...new Set(array)];
+  });
+
+  eleventyConfig.addFilter("split", (string, separator) => {
+    return string.split(separator);
+  });
+
   // Plugins
   eleventyConfig.addPlugin(readingTime);
   eleventyConfig.addPlugin(rssPlugin);
