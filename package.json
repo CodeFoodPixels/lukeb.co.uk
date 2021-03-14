@@ -7,7 +7,8 @@
     "build": "eleventy",
     "postbuild": "glyphhanger ./dist/every-char/index.html --subset=./dist/static/fonts/pressstart2p.woff2 --formats=woff2",
     "serve": "eleventy --serve",
-    "netlify-dev": "netlify dev"
+    "netlify-dev": "netlify dev",
+    "netlify-build": "netlify build"
   },
   "repository": {
     "type": "git",
