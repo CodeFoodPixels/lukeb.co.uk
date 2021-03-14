@@ -8,7 +8,7 @@ const postcss = require("./src/_scripts/postcss.js");
 const minifycss = require("./src/_scripts/minifycss.js");
 const imageShortcode = require("./src/_scripts/imageShortcode.js");
 const videoShortcode = require("./src/_scripts/videoShortcode.js");
-const webmentionsForUrl = require("./src/_scripts/webmentionsForUrl.js");
+const webmentionsForPage = require("./src/_scripts/webmentionsForPage.js");
 
 const markdownIt = require("markdown-it");
 const markdownItLinkAttributes = require("markdown-it-link-attributes");
@@ -30,7 +30,7 @@ module.exports = function (eleventyConfig) {
       pattern: /^(?!(https:\/\/lukeb\.co.uk|#|\/)).*$/,
       attrs: {
         target: "_blank",
-        rel: "noopener noreferrer",
+        rel: "external noopener noreferrer",
       },
     })
     .use(markdownItAnchor, { slugify: slug });
@@ -99,8 +99,8 @@ module.exports = function (eleventyConfig) {
     return posts.filter((post) => post.date <= now && !post.data.draft);
   });
 
-  eleventyConfig.addFilter("webmentionsForUrl", webmentionsForUrl.mentions);
-  eleventyConfig.addFilter("webmentionCountForUrl", webmentionsForUrl.count);
+  eleventyConfig.addFilter("webmentionsForPage", webmentionsForPage.mentions);
+  eleventyConfig.addFilter("webmentionCountForPage", webmentionsForPage.count);
 
   eleventyConfig.addFilter("stripExcerpt", (content, excerptMarkdown) => {
     if (!excerptMarkdown) {
@@ -115,7 +115,24 @@ module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(readingTime);
   eleventyConfig.addPlugin(rssPlugin);
-  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    init: ({ Prism }) => {
+      Prism.languages.nunjucks = {
+        keyword: /\b(?:comment|endcomment|if|elsif|else|endif|unless|endunless|for|endfor|case|endcase|when|in|break|assign|continue|limit|offset|range|reversed|raw|endraw|capture|endcapture|tablerow|endtablerow)\b/,
+        number: /\b0b[01]+\b|\b0x(?:\.[\da-fp-]+|[\da-f]+(?:\.[\da-fp-]+)?)\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?[df]?/i,
+        operator: {
+          pattern: /(^|[^.])(?:\+[+=]?|-[-=]?|!=?|<<?=?|>>?>?=?|==?|&[&=]?|\|[|=]?|\*=?|\/=?|%=?|\^=?|[?:~])/m,
+          lookbehind: true,
+        },
+        function: {
+          pattern: /(^|[\s;|&])(?:append|prepend|capitalize|cycle|cols|increment|decrement|abs|at_least|at_most|ceil|compact|concat|date|default|divided_by|downcase|escape|escape_once|first|floor|join|last|lstrip|map|minus|modulo|newline_to_br|plus|remove|remove_first|replace|replace_first|reverse|round|rstrip|size|slice|sort|sort_natural|split|strip|strip_html|strip_newlines|times|truncate|truncatewords|uniq|upcase|url_decode|url_encode|include|paginate)(?=$|[\s;|&])/,
+          lookbehind: true,
+        },
+      };
+
+      Prism.languages.njk = Prism.languages.nunjucks;
+    },
+  });
 
   // Collections
   const now = new Date();

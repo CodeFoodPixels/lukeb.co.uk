@@ -89,7 +89,8 @@ p {
   padding: 0;
 }
 
-p {
+p, pre[class*="language-"] {
+  margin-top: 0;
   margin-bottom: 1rem;
 }
 
@@ -1352,4 +1353,40 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"] {
   padding: 0.25rem 0.5rem;
+}
+
+pre[class*="language-"] {
+  position: relative;
+}
+
+pre[class*="language"]::before {
+  position: relative;
+  top: -0.5rem;
+  left: -0.5rem;
+  display: block;
+  width: min-content;
+  padding: 0.5rem;
+  background: var(--highlight-color--darker);
+}
+
+pre.language-js::before ,
+pre.language-javascript::before  {
+  content: "JavaScript";
+}
+
+pre.language-css::before {
+  content: "CSS";
+}
+
+pre.language-json::before {
+  content: "JSON"
+}
+
+pre.language-html::before {
+  content: "HTML"
+}
+
+pre.language-njk::before,
+pre.language-nunjucks::before {
+  content: "Nunjucks"
 }

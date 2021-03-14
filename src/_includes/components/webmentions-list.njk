@@ -1,5 +1,4 @@
-{%- set absoluteUrl = page.url | url | absoluteUrl(site.url) -%}
-{%- set postMentions = webmentions | webmentionsForUrl(absoluteUrl) -%}
+{%- set postMentions = webmentions | webmentionsForPage(page.url) -%}
 
 <article id="webmentions" class="webmentions">
   <header class="webmentions__header">
@@ -19,11 +18,11 @@
     </p>
     <p>
       Powered by
-      <a href="https://indieweb.org/Webmention" target="_blank" rel="external nofollow noopener noreferrer">Webmentions</a>
+      <a href="https://indieweb.org/Webmention" target="_blank" rel="external noopener noreferrer">Webmentions</a>
       via
-      <a href="https://webmention.io" target="_blank" rel="external nofollow noopener noreferrer">Webmention.io</a>
+      <a href="https://webmention.io" target="_blank" rel="external noopener noreferrer">Webmention.io</a>
       and
-      <a href="https://brid.gy" target="_blank" rel="external nofollow noopener noreferrer">Bridgy</a>
+      <a href="https://brid.gy" target="_blank" rel="external noopener noreferrer">Bridgy</a>
     </p>
   </header>
 
@@ -49,43 +48,15 @@
 {% include "components/webmentions-facepile.njk" %}
 {% endif %}
 
-{% if postMentions.replies.length %}
+{% if postMentions.comments.length %}
 <h3>
-  {% if postMentions.replies.length === 1%}{{ postMentions.replies.length }}
-    Reply{% elif (postMentions.replies.length > 1) -%}{{ postMentions.replies.length }}
-    Replies{% endif -%}
+  {% if postMentions.comments.length === 1%}{{ postMentions.comments.length }}
+    Comment{% elif (postMentions.comments.length > 1) -%}{{ postMentions.comments.length }}
+    Comments{% endif -%}
 </h3>
 
 <ol class="webmentions__list">
-  {% asyncEach mention in postMentions.replies | reverse %}
-  {% include "components/webmention-mention.njk" %}
-  {% endeach %}
-</ol>
-{% endif %}
-
-{% if postMentions.mentions.length %}
-<h3>
-  {% if postMentions.mentions.length === 1%}{{ postMentions.mentions.length }}
-    Mention{% elif (postMentions.mentions.length > 1) -%}{{ postMentions.mentions.length }}
-    Mentions{% endif -%}
-</h3>
-
-<ol class="webmentions__list">
-  {% asyncEach mention in postMentions.mentions | reverse %}
-  {% include "components/webmention-mention.njk" %}
-  {% endeach %}
-</ol>
-{% endif %}
-
-{% if postMentions.bookmarks.length %}
-<h3>
-  {% if postMentions.bookmarks.length === 1%}{{ postMentions.bookmarks.length }}
-    Bookmark{% elif (postMentions.bookmarks.length > 1) -%}{{ postMentions.bookmarks.length }}
-    Bookmarks{% endif -%}
-</h3>
-
-<ol class="webmentions__list">
-  {% asyncEach mention in postMentions.bookmarks | reverse %}
+  {% asyncEach mention in postMentions.comments %}
   {% include "components/webmention-mention.njk" %}
   {% endeach %}
 </ol>

@@ -118,7 +118,7 @@ dist
 # OS Specific files
 .DS_Store
 
-_cache
+_webmentioncache
 
 # Local Netlify folder
 .netlify

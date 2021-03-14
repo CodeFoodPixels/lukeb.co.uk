@@ -2,19 +2,26 @@ const fs = require("fs").promises;
 const fetch = require("node-fetch");
 const site = require("./site.json");
 
-const CACHE_DIR = "_cache";
+const CACHE_DIR = "_webmentioncache";
+const CACHE_TIME = 3600;
+const PER_PAGE = 1000;
 const WEBMENTION_URL = `https://webmention.io/api/mentions.jf2?domain=${site.domain}&token=${site.webmentionToken}`;
 
-async function fetchWebmentions(since) {
-  const url = `${WEBMENTION_URL}&per-page=9999${
+async function fetchWebmentions(since, page = 0) {
+  const params = `&per-page=${PER_PAGE}&page=${page}${
     since ? `&since=${since}` : ""
   }`;
-
-  const response = await fetch(url);
+  const response = await fetch(`${WEBMENTION_URL}${params}`);
 
   if (response.ok) {
     const feed = await response.json();
-    return feed;
+    if (feed.children.length === PER_PAGE) {
+      console.log(feed.children);
+      const olderMentions = await fetchWebmentions(since, page + 1);
+
+      return [...feed.children, ...olderMentions];
+    }
+    return feed.children;
   }
 
   return null;
@@ -49,16 +56,16 @@ async function readFromCache() {
 module.exports = async function () {
   const cache = await readFromCache();
 
-  const { lastFetched } = cache;
-
-  // Only fetch new mentions in production
-  if (!lastFetched) {
-    const feed = await fetchWebmentions(lastFetched);
+  if (
+    !cache.lastFetched ||
+    Date.now() - new Date(cache.lastFetched) >= CACHE_TIME * 1000
+  ) {
+    const feed = await fetchWebmentions(cache.lastFetched);
 
     if (feed) {
       const webmentions = {
         lastFetched: new Date().toISOString(),
-        children: feed.children,
+        children: [...feed, ...cache.children],
       };
 
       await writeToCache(webmentions);
