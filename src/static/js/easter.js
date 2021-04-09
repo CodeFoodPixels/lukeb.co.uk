@@ -1,28 +1,36 @@
-var startClicked = false;
-var startTimeout;
-
 function loadGame() {
   var gameWidth = window.innerWidth < 640 ? window.innerWidth : 640;
   var gameHeight = 320;
+  var cssNakedDay = document.body.classList.contains("css-naked-day");
 
   document.body.classList.add("easter");
 
+  var content = document.querySelector(".content");
+
+  var wrapper = document.createElement("div");
+  wrapper.classList.add("easter__wrapper");
+  content.prepend(wrapper);
+
   var overlay = document.createElement("div");
   overlay.classList.add("easter__overlay");
-  document.body.appendChild(overlay);
+  wrapper.appendChild(overlay);
 
   var canvas = document.createElement("canvas");
   canvas.setAttribute("width", gameWidth);
   canvas.setAttribute("height", gameHeight);
   canvas.classList.add("easter__canvas");
-  canvas.style.marginLeft = "-" + gameWidth / 2 + "px";
-  document.body.appendChild(canvas);
+  if (!cssNakedDay) {
+    canvas.style.marginLeft = "-" + gameWidth / 2 + "px";
+  }
+  wrapper.appendChild(canvas);
 
   var close = document.createElement("button");
   close.innerText = "Close";
   close.classList.add("easter__close");
-  close.style.marginRight = "-" + gameWidth / 2 + "px";
-  document.body.appendChild(close);
+  if (!cssNakedDay) {
+    close.style.marginRight = "-" + gameWidth / 2 + "px";
+  }
+  wrapper.appendChild(close);
 
   var boxid = "MyBoxID";
 
@@ -55,7 +63,7 @@ function loadGame() {
   var ascentIncrement = 0.1;
   var maxVelocity = 5;
   var mainFont = "16px Courier";
-  var titleFont = "50px 'Press Start 2P'";
+  var titleFont = "32px 'Press Start 2P'";
 
   var asteroid = {
     velocity: 6,
@@ -298,7 +306,7 @@ function loadGame() {
   function drawTitle() {
     ctx.font = titleFont;
     ctx.fillStyle = "#ffffff";
-    ctx.fillText("SPACESHIP!", (gameWidth - 290) / 2, 178);
+    ctx.fillText("SPACESHIP!", (gameWidth - 320) / 2, 178);
 
     ctx.font = mainFont;
     ctx.fillStyle = "#ffffff";
@@ -355,9 +363,8 @@ function loadGame() {
     document.removeEventListener("keyup", keyUpListener);
     close.removeEventListener("click", closeListener);
     document.body.classList.remove("easter");
-    document.body.removeChild(overlay);
-    document.body.removeChild(close);
-    document.body.removeChild(canvas);
+    content.removeChild(wrapper);
+    window.gameLaunched = false;
   }
 
   setup();

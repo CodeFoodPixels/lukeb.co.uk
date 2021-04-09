@@ -28,11 +28,16 @@
     <meta name="apple-mobile-web-app-title" content="Luke Bonaccorsi">
     <meta name="application-name" content="Luke Bonaccorsi">
     <meta name="theme-color" content="#000000">
-    <link rel="stylesheet" href="/static/css/dist.css">
+    {% if site.isCssNakedDay === false %}
+      <link rel="stylesheet" href="/static/css/dist.css">
+    {% endif %}
   </head>
-  <body>
+  <body {% if site.isCssNakedDay %}class="css-naked-day"{% endif%}>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="header {{ 'header--hero' if heroHeader }}">
+    {% if site.isCssNakedDay %}
+      <p>It's not broken, it's <a href="https://css-naked-day.github.io" target="_blank" rel="external noopener noreferrer">CSS Naked Day!</a></p>
+    {% endif %}
       <div class="header__background"></div>
       <div class="header__content">
         <div class="header__spaceship">
@@ -103,12 +108,14 @@
     </script>
     <script type="text/javascript">
       window.gameScriptLoaded = false;
+      window.gameLaunched = false;
       document
         .querySelector(".js-start")
         .addEventListener("click", function () {
-          if (window.gameScriptLoaded === true) {
+          if (window.gameScriptLoaded === true && window.gameLaunched === false) {
             loadGame();
-          } else {
+            window.gameLaunched = true;
+          } else if (window.gameLaunched === false) {
             const gameScript = document.createElement('script');
             gameScript.setAttribute("type", "text/javascript");
             gameScript.setAttribute("src", "/static/js/easter.js");
@@ -116,6 +123,7 @@
             document
               .body
               .appendChild(gameScript)
+            window.gameLaunched = true;
           }
         });
     </script>
