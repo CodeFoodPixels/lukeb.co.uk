@@ -1,0 +1,29 @@
+{% set demo = demos[demo_name] %}
+<div class="demo-container">
+  {% if demo.displayedCss %}
+  <details class="demo__code">
+    <summary class="demo__code-toggle">CSS</summary>
+    {% highlight "css" %}
+      {{- demo.displayedCss | prettier("css") | safe }}
+    {% endhighlight %}
+  </details>
+  {% endif %}
+  {% if demo.javascript %}
+  <details class="demo__code">
+    <summary class="demo__code-toggle">JavaScript</summary>
+    {% highlight "javascript" %}
+      {{- demo.javascript | prettier("babel") | safe }}
+    {% endhighlight %}
+  </details>
+  {% endif %}
+  <details class="demo__code">
+    <summary class="demo__code-toggle">HTML</summary>
+    {% highlight "html" %}
+      {{- demo.html | prettier("html") | safe }}
+    {% endhighlight %}
+  </details>
+  <details class="demo__result" open>
+    <summary class="demo__result-toggle">Result</summary>
+    <iframe src="/demo/{{demo_name}}" title="{{ demo.title }}" loading="lazy" class="demo-container__iframe"></iframe>
+  </details>
+</div>

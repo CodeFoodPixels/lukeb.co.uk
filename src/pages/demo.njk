@@ -1,0 +1,10 @@
+---
+pagination:
+    data: demos
+    size: 1
+    alias: demoName
+permalink: "demo/{{ demoName }}/index.html"
+---
+{% set demo = demos[demoName] %}
+{% include "layouts/demo.njk" %}
+

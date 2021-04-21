@@ -3,6 +3,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const readingTime = require("eleventy-plugin-reading-time");
 const nunjucksDate = require("nunjucks-date-filter");
 const slugify = require("slugify");
+const prettier = require("prettier");
 
 const postcss = require("./src/_scripts/postcss.js");
 const minifycss = require("./src/_scripts/minifycss.js");
@@ -118,6 +119,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("split", (string, separator) => {
     return string.split(separator);
+  });
+
+  eleventyConfig.addFilter("prettier", (code, parser) => {
+    return prettier.format(code, { parser });
   });
 
   // Plugins

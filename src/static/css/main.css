@@ -873,6 +873,48 @@ img.webmention__author-photo-image {
   left: 50%;
 }
 
+.demo-container {
+  background: #000000;
+  padding: 0.75rem;
+}
+
+.demo-container__iframe {
+  width: 100%;
+  min-height: 250px;
+  max-height: 400px;
+  height: 75vh;
+  border: none;
+}
+
+.demo {
+  background-color: #000000;
+  color: #000000;
+  min-height: 100vh;
+}
+
+.demo__result {
+  flex: 1;
+  background-color: #ffffff;
+}
+
+.demo__code {
+  margin-bottom: 0.75rem
+}
+
+.demo__code-toggle,
+.demo__result-toggle {
+  padding: 0.5rem;
+  position: relative;
+  z-index: 1;
+  background-color: var(--highlight-color);
+  color: #ffffff;
+}
+
+.demo__code pre[class*="language-"] {
+  margin-bottom: 0;
+  padding-top: 1.25rem
+}
+
 @media screen and (min-width: 40.625rem) {
   :root {
     --content-margin: 1rem;
@@ -1366,7 +1408,7 @@ pre[class*="language"]::before {
   display: block;
   width: min-content;
   padding: 0.5rem;
-  background: var(--highlight-color--darker);
+  background: var(--highlight-color);
 }
 
 pre.language-js::before ,
