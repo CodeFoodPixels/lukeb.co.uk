@@ -5,11 +5,11 @@ const nunjucksDate = require("nunjucks-date-filter");
 const slugify = require("slugify");
 const prettier = require("prettier");
 
-const postcss = require("./src/_scripts/postcss.js");
-const minifycss = require("./src/_scripts/minifycss.js");
-const imageShortcode = require("./src/_scripts/imageShortcode.js");
-const videoShortcode = require("./src/_scripts/videoShortcode.js");
-const webmentionsForPage = require("./src/_scripts/webmentionsForPage.js");
+const postcss = require("./src/_utils/postcss.js");
+const minifycss = require("./src/_utils/minifycss.js");
+const imageShortcode = require("./src/_utils/imageShortcode.js");
+const videoShortcode = require("./src/_utils/videoShortcode.js");
+const webmentionsForPage = require("./src/_utils/webmentionsForPage.js");
 
 const markdownIt = require("markdown-it");
 const markdownItLinkAttributes = require("markdown-it-link-attributes");
