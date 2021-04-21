@@ -7,7 +7,8 @@
     "build": "eleventy",
     "serve": "eleventy --serve",
     "netlify-dev": "netlify dev",
-    "netlify-build": "netlify build"
+    "netlify-build": "netlify build",
+    "new": "node ./src/_scripts/new.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,8 @@
     "autoprefixer": "^10.2.3",
     "csso": "^4.2.0",
     "eleventy-plugin-reading-time": "0.0.1",
+    "inquirer": "^8.0.0",
+    "inquirer-datepicker-prompt": "^0.4.2",
     "lodash.unionby": "^4.8.0",
     "lodash.uniqby": "^4.7.0",
     "markdown-it-anchor": "^7.0.2",
