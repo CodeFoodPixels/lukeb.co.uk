@@ -10,6 +10,7 @@ const minifycss = require("./src/_utils/minifycss.js");
 const imageShortcode = require("./src/_utils/imageShortcode.js");
 const videoShortcode = require("./src/_utils/videoShortcode.js");
 const webmentionsForPage = require("./src/_utils/webmentionsForPage.js");
+const demoFileExists = require("./src/_utils/demoFileExists.js");
 
 const markdownIt = require("markdown-it");
 const markdownItLinkAttributes = require("markdown-it-link-attributes");
@@ -46,7 +47,7 @@ module.exports = function (eleventyConfig) {
   // Build processes
   eleventyConfig.on("beforeBuild", postcss);
   eleventyConfig.addTransform("inlinecode", (content, outputPath) => {
-    if (outputPath.endsWith(".html")) {
+    if (!!outputPath && outputPath.endsWith(".html")) {
       return content.replace(/<code>/g, '<code class="language-inline">');
     }
     return content;
@@ -65,11 +66,21 @@ module.exports = function (eleventyConfig) {
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode(
+    "demoImage",
+    (src, alt, width, attributes) =>
+      imageShortcode(src, alt, "", [width], attributes)
+  );
   eleventyConfig.addNunjucksAsyncShortcode("video", videoShortcode);
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   // Filters
   eleventyConfig.addFilter("date", nunjucksDate);
+
+  eleventyConfig.addNunjucksFilter("demoFileExists", demoFileExists);
+  eleventyConfig.addNunjucksFilter("stripFrontmatter", (content) => {
+    return content.replace(/---((.|\n)*)---/, "");
+  });
 
   eleventyConfig.addFilter("debug", (data) => {
     console.log("");

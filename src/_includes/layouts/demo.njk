@@ -4,23 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ demo.title }}</title>
-    <style>
-      {% if demo.css %}
-        {{demo.css | safe}}
-      {% endif %}
-      {% if demo.displayedCss %}
-        {{demo.displayedCss | safe}}
-      {% endif %}
-    </style>
+    <title>{{ page.title }}</title>
+    {% if page.filePathStem | replace("index", "styles.css") | demoFileExists %}
+      <style>
+        {% include "../../" + page.filePathStem | replace("index", "styles.css") %}
+      </style>
+    {% endif %}
   </head>
   <body>
-    <main id="demo-content" title="{{ demo.title }}">
-      {{ demo.html | safe }}
+    <main id="demo-content" title="{{ title }}">
+      {{ content | safe }}
     </main>
-    {% if demo.javascript %}
+    {% if page.filePathStem | replace("index", "main.js") | demoFileExists %}
       <script>
-        {{ demo.javascript | safe }}
+        {% include "../../" + page.filePathStem | replace("index", "main.js") %}
       </script>
     {% endif %}
   </body>

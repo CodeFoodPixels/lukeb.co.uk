@@ -1,0 +1,4 @@
+{
+  "permalink": "demo/{{ page.filePathStem | replace('demos/', '') }}.html",
+  "layout": "layouts/demo.njk"
+}

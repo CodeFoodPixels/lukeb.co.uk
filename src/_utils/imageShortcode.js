@@ -1,4 +1,5 @@
 const Image = require("@11ty/eleventy-img");
+Image.concurrency = 20;
 
 module.exports = async function imageShortcode(
   src,
