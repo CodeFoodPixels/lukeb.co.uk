@@ -15,6 +15,7 @@ const demoFileExists = require("./src/_utils/demoFileExists.js");
 const markdownIt = require("markdown-it");
 const markdownItLinkAttributes = require("markdown-it-link-attributes");
 const markdownItAnchor = require("markdown-it-anchor");
+const demoImageShortcode = require("./src/_utils/demoImageShortcode.js");
 
 module.exports = function (eleventyConfig) {
   const slug = (input) => {
@@ -66,21 +67,24 @@ module.exports = function (eleventyConfig) {
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-  eleventyConfig.addNunjucksAsyncShortcode(
-    "demoImage",
-    (src, alt, width, attributes) =>
-      imageShortcode(src, alt, "", [width], attributes)
-  );
+  eleventyConfig.addNunjucksAsyncShortcode("demoImage", demoImageShortcode);
   eleventyConfig.addNunjucksAsyncShortcode("video", videoShortcode);
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+  eleventyConfig.addPairedNunjucksAsyncShortcode(
+    "prettier",
+    async (code, parser) => {
+      return prettier.format(code, { parser });
+    }
+  );
+
+  eleventyConfig.addPairedNunjucksShortcode("stripFrontmatter", (content) => {
+    return content.replace(/---((.|\n)*)---/, "");
+  });
 
   // Filters
   eleventyConfig.addFilter("date", nunjucksDate);
 
   eleventyConfig.addNunjucksFilter("demoFileExists", demoFileExists);
-  eleventyConfig.addNunjucksFilter("stripFrontmatter", (content) => {
-    return content.replace(/---((.|\n)*)---/, "");
-  });
 
   eleventyConfig.addFilter("debug", (data) => {
     console.log("");
@@ -130,10 +134,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("split", (string, separator) => {
     return string.split(separator);
-  });
-
-  eleventyConfig.addFilter("prettier", (code, parser) => {
-    return prettier.format(code, { parser });
   });
 
   // Plugins

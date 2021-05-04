@@ -1,33 +1,32 @@
 <div class="demo-container">
   {% if ["demos", demoPath, "styles.css"] | join("/") | demoFileExists %}
-  {% set css %}
-    {% include "../../demos/" + demoPath + "/styles.css" %}
-  {% endset %}
   <details class="demo__code">
     <summary class="demo__code-toggle">CSS</summary>
     {% highlight "css" %}
-      {{ css | prettier("css") | safe }}
+      {% prettier "css" %}
+        {%- include "../../demos/" + demoPath + "/styles.css" %}
+      {% endprettier %}
     {% endhighlight %}
   </details>
   {% endif %}
   {% if ["demos", demoPath, "main.js"] | join("/") | demoFileExists %}
-    {% set javascript %}
-      {% include "../../demos/" + demoPath + "/main.js" %}
-    {% endset %}
     <details class="demo__code">
       <summary class="demo__code-toggle">JavaScript</summary>
       {% highlight "javascript" %}
-        {{- javascript | prettier("babel") | safe }}
+        {% prettier "babel" %}
+          {%- include "../../demos/" + demoPath + "/main.js" %}
+        {% endprettier %}
       {% endhighlight %}
     </details>
   {% endif %}
-  {% set html %}
-    {% include "../../demos/" + demoPath + "/index.njk" %}
-  {% endset %}
   <details class="demo__code">
     <summary class="demo__code-toggle">HTML</summary>
     {% highlight "html" %}
-      {{- html | stripFrontmatter | prettier("html") | safe }}
+      {% prettier "html" %}
+        {% stripFrontmatter %}
+          {%- include "../../demos/" + demoPath + "/index.njk" %}
+        {% endstripFrontmatter %}
+      {% endprettier %}
     {% endhighlight %}
   </details>
   <details class="demo__result" open>
