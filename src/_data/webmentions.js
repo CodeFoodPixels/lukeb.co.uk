@@ -1,6 +1,6 @@
 const fs = require("fs").promises;
 const fetch = require("node-fetch");
-const site = require("./site.js");
+const site = require("./site.js")();
 
 const CACHE_DIR = "_webmentioncache";
 const CACHE_TIME = 3600;
