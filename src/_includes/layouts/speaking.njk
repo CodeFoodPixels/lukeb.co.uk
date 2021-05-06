@@ -13,13 +13,13 @@ layout: layouts/page.njk
   <h3 id="{{ talk.title | slug }}">{{ talk.title }}</h2>
   <p>{{ talk.abstract | md | safe }}</p>
   {% if talk.futureEvents.length > 0 %}
-    <h3>Future events</h3>
+    <h4>Future events</h4>
     {% set talkEvents = talk.futureEvents %}
     {% include 'components/talk-events.njk' %}
   {% endif %}
 
   {% if talk.pastEvents.length > 0 %}
-    <h3>Past events</h3>
+    <h4>Past events</h4>
     {% set talkEvents = talk.pastEvents %}
     {% include 'components/talk-events.njk' %}
   {% endif %}
