@@ -26,7 +26,7 @@ And recently, one of those projects was used as part of a major scientific missi
 
 {% image "./src/posts/per-aspera-ad-astra/github-badge.png", "A popover from the GitHub website that says that my contribution to Bootstrap was used as part of the Mars 2020 helicopter mission", "(min-width: 41.5rem) 37.5rem, 15.625rem" %}
 
-Bootstrap 4 was used, and 5 lines of code that I contrubuted were part of that. It's only a small contribution, but it shows how wide reaching open source code can be. My code is on Mars!
+Bootstrap 4 was used, and [5 lines of code that I contributed](https://github.com/twbs/bootstrap/commit/319009a72b8889d8db5b84ad69ce4118cdf3143f) were part of that. It's only a small contribution, but it shows how wide reaching open source code can be. My code is on Mars!
 
 This post is titled "Per aspera ad astra", a phrase which is part of one of my tattoos. It translates from latin as "through adversity to the stars", and it's pretty cool that this can now relate to my web development career. I had the adversity of getting into development as a career and the rocky start of getting fired from my first development job, and now my code is part of a mission to another planet.
 
