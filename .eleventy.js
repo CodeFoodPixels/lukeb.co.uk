@@ -1,3 +1,4 @@
+const site = require("./src/_data/site")();
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const readingTime = require("eleventy-plugin-reading-time");
@@ -9,13 +10,14 @@ const postcss = require("./src/_utils/postcss.js");
 const minifycss = require("./src/_utils/minifycss.js");
 const imageShortcode = require("./src/_utils/imageShortcode.js");
 const videoShortcode = require("./src/_utils/videoShortcode.js");
-const webmentionsForPage = require("./src/_utils/webmentionsForPage.js");
 const demoFileExists = require("./src/_utils/demoFileExists.js");
 
 const markdownIt = require("markdown-it");
 const markdownItLinkAttributes = require("markdown-it-link-attributes");
 const markdownItAnchor = require("markdown-it-anchor");
 const demoImageShortcode = require("./src/_utils/demoImageShortcode.js");
+
+const webmentions = require("eleventy-plugin-webmentions");
 
 module.exports = function (eleventyConfig) {
   const slug = (input) => {
@@ -115,9 +117,6 @@ module.exports = function (eleventyConfig) {
     return posts.filter((post) => post.date <= now && !post.data.draft);
   });
 
-  eleventyConfig.addFilter("webmentionsForPage", webmentionsForPage.mentions);
-  eleventyConfig.addFilter("webmentionCountForPage", webmentionsForPage.count);
-
   eleventyConfig.addFilter("stripExcerpt", (content, excerptMarkdown) => {
     if (!excerptMarkdown) {
       return content;
@@ -137,6 +136,11 @@ module.exports = function (eleventyConfig) {
   });
 
   // Plugins
+  eleventyConfig.addPlugin(webmentions, {
+    domain: site.domain,
+    token: "pDjIX81PRC-fGTpGYOXOMQ",
+  });
+
   eleventyConfig.addPlugin(readingTime);
   eleventyConfig.addPlugin(rssPlugin);
   eleventyConfig.addPlugin(syntaxHighlight, {

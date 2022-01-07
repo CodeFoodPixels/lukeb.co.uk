@@ -24,7 +24,7 @@
   "author": "Luke bonaccorsi",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.1",
+    "@11ty/eleventy": "^1.0.0-beta.10",
     "@11ty/eleventy-img": "^0.7.8",
     "@11ty/eleventy-plugin-rss": "^1.1.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.6",
@@ -46,5 +46,8 @@
     "prettier": "^2.2.1",
     "purgecss": "^4.0.0",
     "sanitize-html": "^2.3.2"
+  },
+  "dependencies": {
+    "eleventy-plugin-webmentions": "0.0.1"
   }
 }
