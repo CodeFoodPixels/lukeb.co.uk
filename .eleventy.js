@@ -8,7 +8,10 @@ const prettier = require("prettier");
 
 const postcss = require("./src/_utils/postcss.js");
 const minifycss = require("./src/_utils/minifycss.js");
-const imageShortcode = require("./src/_utils/imageShortcode.js");
+const {
+  imageShortcode,
+  svgShortcode,
+} = require("./src/_utils/imageShortcodes.js");
 const videoShortcode = require("./src/_utils/videoShortcode.js");
 const demoFileExists = require("./src/_utils/demoFileExists.js");
 
@@ -69,6 +72,7 @@ module.exports = function (eleventyConfig) {
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("svg", svgShortcode);
   eleventyConfig.addNunjucksAsyncShortcode("demoImage", demoImageShortcode);
   eleventyConfig.addNunjucksAsyncShortcode("video", videoShortcode);
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
@@ -94,6 +98,7 @@ module.exports = function (eleventyConfig) {
     console.log(data);
     console.log("******** END DEBUG ********");
     console.log("");
+    debugger;
   });
 
   eleventyConfig.addFilter("md", (content = "") => {

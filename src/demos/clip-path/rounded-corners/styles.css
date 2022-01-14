@@ -1,0 +1,48 @@
+.clip {
+  clip-path: polygon(
+    0px 5px,
+    1px 5px,
+    1px 3px,
+    2px 3px,
+    2px 2px,
+    3px 2px,
+    3px 1px,
+    4px 1px,
+    5px 1px,
+    5px 0px,
+    calc(100% - 5px) 0px,
+    calc(100% - 5px) 1px,
+    calc(100% - 3px) 1px,
+    calc(100% - 3px) 2px,
+    calc(100% - 2px) 2px,
+    calc(100% - 2px) 3px,
+    calc(100% - 1px) 3px,
+    calc(100% - 1px) 4px,
+    calc(100% - 1px) 5px,
+    100% 5px,
+    100% calc(100% - 5px),
+    calc(100% - 1px) calc(100% - 5px),
+    calc(100% - 1px) calc(100% - 3px),
+    calc(100% - 2px) calc(100% - 3px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 3px) calc(100% - 2px),
+    calc(100% - 3px) calc(100% - 1px),
+    calc(100% - 4px) calc(100% - 1px),
+    calc(100% - 5px) calc(100% - 1px),
+    calc(100% - 5px) 100%,
+    5px 100%,
+    5px calc(100% - 1px),
+    3px calc(100% - 1px),
+    3px calc(100% - 2px),
+    2px calc(100% - 2px),
+    2px calc(100% - 3px),
+    1px calc(100% - 3px),
+    1px calc(100% - 4px),
+    1px calc(100% - 5px),
+    0px calc(100% - 5px)
+  );
+}
+
+.radius{
+  border-radius: 8px;
+}
