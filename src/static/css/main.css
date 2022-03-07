@@ -57,6 +57,7 @@
   --laser-height: 0rem;
   --laser-width: 0rem;
   --laser-endstop: 0rem;
+	--spaceship-entrance-time: 3s;
 }
 
 html {
@@ -231,7 +232,7 @@ a:hover {
     ((50% - (var(--spaceship-height) / 2) - var(--asteroid-size)) / 2) -
       var(--spaceship-movement)
   );
-  --laser-endstop: max(calc(50vw + (var(--laser-width) / 2)), calc(36.625rem));
+  --laser-endstop: max(calc(100vw + (var(--laser-width) / 2)), calc(36.625rem));
 }
 
 .header__background {
@@ -1090,6 +1091,16 @@ img.webmention__author-photo-image {
   }
 }
 
+@keyframes spaceship--entrance {
+  from {
+    transform: translateX(calc(-50vw - 50%));
+  }
+
+  to {
+    transform: translateX(0vw);
+  }
+}
+
 @keyframes spaceship--accelerating {
   /* 6.25% = 0.5 second */
 
@@ -1309,6 +1320,15 @@ img.webmention__author-photo-image {
   }
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes blink {
   from {
     opacity: 1;
@@ -1333,7 +1353,7 @@ img.webmention__author-photo-image {
   }
 
   .header--hero .header__spaceship-wrapper {
-    animation: 16s cubic-bezier(0.32, 0.01, 0.46, 1) infinite
+    animation: var(--spaceship-entrance-time) ease-out 1 spaceship--entrance, 16s var(--spaceship-entrance-time) cubic-bezier(0.32, 0.01, 0.46, 1) infinite
       spaceship--accelerating;
   }
 
@@ -1384,8 +1404,22 @@ img.webmention__author-photo-image {
     animation-delay: calc(4.78s - (2.1s * var(--asteroid-time-multiplier)));
   }
 
-  .header__start-text {
-    animation: 1.5s linear alternate infinite blink;
+  .header--hero .header__name {
+    opacity: 0;
+    animation: 0.5s calc(var(--spaceship-entrance-time) - 0.5s) linear 1 forwards fade-in;
+  }
+
+  .header--hero .header__start {
+    opacity: 0;
+    animation: 0.5s calc(var(--spaceship-entrance-time) + 0.5s) linear 1 forwards fade-in;
+  }
+
+	.header__start-text {
+		animation: 1.5s linear alternate infinite blink;
+	}
+
+	.header--hero .header__start-text {
+    animation: 1.5s calc(var(--spaceship-entrance-time) + 1s) linear alternate infinite blink;
   }
 }
 
