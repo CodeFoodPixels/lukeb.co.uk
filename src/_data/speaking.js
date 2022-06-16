@@ -96,6 +96,12 @@ When I started writing a chatbot a few years ago, I had no idea that it would gr
         video: "https://www.youtube.com/watch?v=P7FXrLcRMPw",
         location: "Omaha, USA",
       },
+      {
+        name: "BBC Develop 2022",
+        type: "conference",
+        date: "2022-06-15",
+        location: "Online",
+      },
     ],
   },
   {
