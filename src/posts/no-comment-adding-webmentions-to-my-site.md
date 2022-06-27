@@ -8,7 +8,7 @@ tags:
   - indieweb
 ---
 
-While I was [rebuilding my website in Eleventy](/2021/02/12/now-with-added-eleventy), I saw Amber Wilson's [article about adding Webmentions to her site](https://amberwilson.co.uk/blog/grow-the-indieweb-with-webmentions/) shared on Twitter. I'd heard of Webmentions but I'd never really looked into them and while I was reading Amber's post, I thought that it's a really cool idea and added them to the list of things I wanted to add to my site.
+While I was [rebuilding my website in Eleventy](/blog/2021/02/12/now-with-added-eleventy), I saw Amber Wilson's [article about adding Webmentions to her site](https://amberwilson.co.uk/blog/grow-the-indieweb-with-webmentions/) shared on Twitter. I'd heard of Webmentions but I'd never really looked into them and while I was reading Amber's post, I thought that it's a really cool idea and added them to the list of things I wanted to add to my site.
 
 <!-- excerpt -->
 
@@ -257,3 +257,7 @@ I hope this has given you an insight into what Webmentions are, and a rough idea
 - [Amber Wilson's post "Grow the IndieWeb with Webmentions](https://amberwilson.co.uk/blog/grow-the-indieweb-with-webmentions/)
 - [Max Böck's post "Using Webmentions in Eleventy"](https://mxb.dev/blog/using-webmentions-on-static-sites/)
 - [IndieWeb examples on IndieWeb.org](https://indieweb.org/Webmention-developer#IndieWeb_Examples)
+
+### Update 2022-06-28
+
+I've now published a reworked and refined version of this [as a plugin!](https://www.npmjs.com/package/eleventy-plugin-webmentions) You can read more about it in [No Comment 2: The Webmentioning](/blog/2022/06/28/no-comment-2-the-webmentioning/).
