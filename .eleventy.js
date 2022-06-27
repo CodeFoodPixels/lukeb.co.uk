@@ -149,7 +149,9 @@ module.exports = function (eleventyConfig) {
       '&hellip; <span class="webmention__truncated">Truncated</span>',
     sanitizeOptions: {
       ...webmentions.defaults.sanitizeOptions,
-      allowedAttributes: {},
+      allowedAttributes: {
+        a: [...Object.keys(linkAttributes.attrs), "href"],
+      },
       transformTags: {
         a: (tagName, attribs) => {
           if (attribs.href.match(linkAttributes.pattern)) {
