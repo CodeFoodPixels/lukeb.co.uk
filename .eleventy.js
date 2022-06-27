@@ -32,15 +32,16 @@ module.exports = function (eleventyConfig) {
     return slugify(input, options);
   };
 
+  const linkAttributes = {
+    pattern: /^(?!(https:\/\/lukeb\.co.uk|#|\/)).*$/,
+    attrs: {
+      target: "_blank",
+      rel: "external noopener noreferrer",
+    },
+  };
   // Markdown config
   const markdownLib = markdownIt({ html: true })
-    .use(markdownItLinkAttributes, {
-      pattern: /^(?!(https:\/\/lukeb\.co.uk|#|\/)).*$/,
-      attrs: {
-        target: "_blank",
-        rel: "external noopener noreferrer",
-      },
-    })
+    .use(markdownItLinkAttributes, linkAttributes)
     .use(markdownItAnchor, { slugify: slug });
 
   eleventyConfig.setLibrary("md", markdownLib);
@@ -144,6 +145,32 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(webmentions, {
     domain: site.domain,
     token: "pDjIX81PRC-fGTpGYOXOMQ",
+    truncationMarker:
+      '&hellip; <span class="webmention__truncated">Truncated</span>',
+    sanitizeOptions: {
+      ...webmentions.defaults.sanitizeOptions,
+      allowedAttributes: {},
+      transformTags: {
+        a: (tagName, attribs) => {
+          if (attribs.href.match(linkAttributes.pattern)) {
+            return {
+              tagName,
+              attribs: {
+                href: attribs.href,
+                ...linkAttributes.attrs,
+              },
+            };
+          }
+
+          return {
+            tagName,
+            attribs: {
+              href: attribs.href,
+            },
+          };
+        },
+      },
+    },
   });
 
   eleventyConfig.addPlugin(readingTime);
