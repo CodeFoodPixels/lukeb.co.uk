@@ -3,8 +3,8 @@ const fs = require("fs").promises;
 const { PurgeCSS } = require("purgecss");
 const csso = require("csso");
 
-module.exports = async function (content, outputPath) {
-  if (outputPath && outputPath.endsWith(".html")) {
+module.exports = async function (content) {
+  if (this.outputPath && this.outputPath.endsWith(".html")) {
     const css = (
       await Promise.all([
         fs.readFile(

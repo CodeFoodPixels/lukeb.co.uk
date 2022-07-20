@@ -31,7 +31,7 @@
     "autoprefixer": "^10.2.3",
     "csso": "^4.2.0",
     "eleventy-plugin-reading-time": "0.0.1",
-    "eleventy-plugin-webmentions": "^1.0.2",
+    "eleventy-plugin-webmentions": "^1.1.0",
     "inquirer": "^8.0.0",
     "inquirer-datepicker-prompt": "^0.4.2",
     "lodash.unionby": "^4.8.0",

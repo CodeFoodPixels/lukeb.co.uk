@@ -53,8 +53,8 @@ module.exports = function (eleventyConfig) {
 
   // Build processes
   eleventyConfig.on("beforeBuild", postcss);
-  eleventyConfig.addTransform("inlinecode", (content, outputPath) => {
-    if (!!outputPath && outputPath.endsWith(".html")) {
+  eleventyConfig.addTransform("inlinecode", (content) => {
+    if (this.outputPath && this.outputPath.endsWith(".html")) {
       return content.replace(/<code>/g, '<code class="language-inline">');
     }
     return content;
