@@ -2,9 +2,11 @@
 title: 2017 Retrospective
 date: 2017-12-24
 tags:
- - retrospective
+  - retrospective
 ---
+
 2017 has been a good year for me with some successful projects and some personal firsts. I felt I should do a little retrospective on this stuff, partially so I can come back and look at it in the future, partially as a celebration. It's not in any particular order.
+
 <!-- excerpt -->
 
 ## Speaking

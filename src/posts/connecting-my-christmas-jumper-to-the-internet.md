@@ -2,16 +2,20 @@
 title: Connecting my Christmas jumper to the Internet
 date: 2019-12-13
 tags:
- - web development
- - hardware
- - javascript
- - iot
+  - web development
+  - hardware
+  - javascript
+  - iot
 ---
+
 Some of you will be aware that while I'm not necessarily great at it, I enjoy playing around with hardware. One of the talks that I've been fortunate enough to travel the world to give is about using JavaScript to do bits of home automation, including automating my curtains and making my own thermostat.
 
 So it may come as no real surprise that when I heard there was going to be a Christmas jumper competition at work last year, I decided add LEDs to my jumper and connect it to the Internet.
+
 <!-- excerpt -->
+
 ## Step 1 - The jumper
+
 I didn't want to start with an off-the-shelf Christmas jumper, that feels a little like cheating. Instead, I decided to get a plain jumper and add my own stuff to it. I went with a dark red jumper with a chunky knit from Primark that cost £8.
 
 {% image "./src/posts/connecting-my-christmas-jumper-to-the-internet/jumper-before.jpg", "A dark red jumper with chunky knit" %}
@@ -25,6 +29,7 @@ Once that was done, I got some sparkly pipe cleaners and used a hot glue gun to 
 {% image "./src/posts/connecting-my-christmas-jumper-to-the-internet/jumper-after.jpg", "A dark red jumper with chunky knit and a christmas tree design" %}
 
 ## Step 2 - The lights
+
 For the lights I started with a set of battery powered Christmas lights that I bought for £1. I chose these because the fact that they were battery powered meant I could wire them up to a microcontroller and control the power to them to make them flash or fade.
 
 {% image "./src/posts/connecting-my-christmas-jumper-to-the-internet/lights.jpg", "An ESP8266 board" %}
@@ -40,6 +45,7 @@ To be able to control the lights, I used a transistor connected between the ligh
 {% image "./src/posts/connecting-my-christmas-jumper-to-the-internet/wiring-diagram.png", "A wiring diagram for connecting the christmas lights to an esp8266", "(min-width: 664px) 600px, 250px" %}
 
 ## Step 3 - Putting it together
+
 The last step of the hardware side was putting the lights in the jumper. As I'd already created holes in the felt for the lights, I just needed to get the lights through the jumper itself.
 
 Part of the reason that I chose the chunky knit jumper was so that I can push the lights through the gaps in the knit and then push it through the holes in the felt.
@@ -51,6 +57,7 @@ One issue that I ran into was the lights shifting and occasionally falling behin
 {% image "./src/posts/connecting-my-christmas-jumper-to-the-internet/jumper-lit.jpg", "The jumper with the lights on" %}
 
 ## Step 4 - Controlling the lights
+
 An Internet connected Christmas jumper isn't complete without being connected to and controlled from the Internet.
 
 As mentioned earlier, I'm using the ESP8266. It has wifi which means I can do some communication. When I'd attended JSHeroes in 2018, [Stephanie Nemeth](https://twitter.com/stephaniecodes) talked about connecting her LED projects to the Internet. One of the key takwaways for me was that sockets aren't necessarily the greatest way to connect, and that MQTT may be better. [Stephanie's talk is up on YouTube](https://www.youtube.com/watch?v=VTxsAiznxt4).

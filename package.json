@@ -8,7 +8,8 @@
     "serve": "eleventy --serve",
     "netlify-dev": "netlify dev",
     "netlify-build": "netlify build",
-    "new": "node ./src/_scripts/new.js"
+    "new": "node ./src/_scripts/new.js",
+    "prettier": "prettier --write ."
   },
   "repository": {
     "type": "git",

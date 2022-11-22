@@ -2,11 +2,12 @@
 title: Pixelated rounded corners with CSS clip-path
 date: 2022-01-17
 tags:
- - css
- - web development
- - website
- - announcements
+  - css
+  - web development
+  - website
+  - announcements
 ---
+
 I remember the day in 2011 when the design agency that I worked for decided that we were dropping IE6 support and raising our minimum to IE 9. Among other things, we didn't have to use images for rounded corners any more, we could use `border-radius`!
 
 Adding rounded corners to items such as images and buttons makes them feel a bit softer and more aesthetically pleasing, but I didn't feel that regular rounded corners would suit the style of my website. That's when I had the idea to use [CSS `clip-path`](https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path).
@@ -14,11 +15,12 @@ Adding rounded corners to items such as images and buttons makes them feel a bit
 <!-- excerpt -->
 
 CSS `clip-path` allows us to determine what part of an element should be shown. We can define a path and anything outside that path will be hidden. There are a number of different shape functions we can use, these are:
- - `circle`
- - `ellipse`
- - `inset` - defines an inset rectangle
- - `polygon` - a set of x and y coordinates for a path
- - `path` - an SVG path string
+
+- `circle`
+- `ellipse`
+- `inset` - defines an inset rectangle
+- `polygon` - a set of x and y coordinates for a path
+- `path` - an SVG path string
 
 For this article, we'll be focusing on `polygon`.
 
@@ -61,43 +63,43 @@ To replicate the shape, we need to create a set of points that follow the outsid
 
 After repeating this to follow the entire curve, we get the following set of coordinates:
 
-``` css
+```css
 clip-path: polygon(
-	0px 5px,
-	1px 5px,
-	1px 3px,
-	2px 3px,
-	2px 2px,
-	3px 2px,
-	3px 1px,
-	4px 1px,
-	5px 1px,
-	5px 0px
-)
+  0px 5px,
+  1px 5px,
+  1px 3px,
+  2px 3px,
+  2px 2px,
+  3px 2px,
+  3px 1px,
+  4px 1px,
+  5px 1px,
+  5px 0px
+);
 ```
 
 This gives us the top left corner. By using `calc()` and flipping horizontally and vertically, we can create the points for the other 4 corners.
 
-As you can see in the below demo, while it compares well to the `border-radius` example,  it's not very noticable at the current scale because we're doing it on a single pixel basis.
+As you can see in the below demo, while it compares well to the `border-radius` example, it's not very noticable at the current scale because we're doing it on a single pixel basis.
 
 {% set demoPath = "clip-path/rounded-corners" %}
 {% include "components/demo.njk" %}
 
 To make it clearer, we have to scale the pixels up. I personally use a scaling multiplier of 4, so 4 on-screen pixels is one pixel in the design. To actually implement this, we take the fixed values from the previous example and multiply them by our scaling multiplier, so the top left corner would be the following:
 
-``` css
+```css
 clip-path: polygon(
-	0px 20px,
-	4px 20px,
-	4px 12px,
-	8px 12px,
-	8px 8px,
-	12px 8px,
-	12px 4px,
-	16px 4px,
-	20px 4px,
-	20px 0px
-)
+  0px 20px,
+  4px 20px,
+  4px 12px,
+  8px 12px,
+  8px 8px,
+  12px 8px,
+  12px 4px,
+  16px 4px,
+  20px 4px,
+  20px 0px
+);
 ```
 
 After applying this to the rest of the corners, it looks like the below demo:

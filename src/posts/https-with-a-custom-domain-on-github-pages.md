@@ -2,10 +2,11 @@
 title: HTTPS With A Custom Domain On GitHub Pages
 date: 2018-01-02
 tags:
- - tips
- - GitHub pages
- - Cloudflare
+  - tips
+  - GitHub pages
+  - Cloudflare
 ---
+
 While GitHub pages supports HTTPS for sites using the github.io domain, it doesn't support it for custom domains. I've had a few people ask how I've achieved HTTPS with a custom domain on GitHub pages, so I felt I should write a post on it.
 
 <!-- excerpt -->
@@ -17,13 +18,14 @@ The first thing we have to do is configure the repo on GitHub.
 1. Open the "settings" page on your repo and scroll down to the "GitHub Pages" section
 
 2. Select the source that your GitHub pages site will be built from. There are a few options here:
-    - gh-pages branch - This means you can use a separate branch on your project just for your documentation.
 
-    - master branch - This means that the content of your master branch is used. I use this for this website.
+   - gh-pages branch - This means you can use a separate branch on your project just for your documentation.
 
-    - master branch /docs folder - This uses the contents of a "docs" folder in the root of your master branch for the site content.
+   - master branch - This means that the content of your master branch is used. I use this for this website.
 
-    - None - This disables GitHub pages for the repo.
+   - master branch /docs folder - This uses the contents of a "docs" folder in the root of your master branch for the site content.
+
+   - None - This disables GitHub pages for the repo.
 
 3. Set your custom domain in the "Custom domain" section
 

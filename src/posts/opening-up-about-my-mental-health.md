@@ -2,8 +2,9 @@
 title: Opening Up About My Mental Health
 date: 2018-08-04
 tags:
- - mental health
+  - mental health
 ---
+
 I've tried to start writing this post a few times. Mental health is a difficult topic to speak about in itself, and struggling with your own mental health can make it even more difficult.
 
 While this post is difficult to write, I want to be open about it. I hope that this can help other people feel like they can talk about their mental health too.
@@ -40,4 +41,4 @@ I'm still unsure how much it'll actually help me, but I'm trying to be open mind
 
 Finally, I'm really thankful to everyone who's been supportive and helpful so far. Being comfortable and able to talk about a difficult topic like mental health with someone helps a lot and I'm incredibly lucky that I have friends, co-workers and an excellent manager that I've been able to talk about it with.
 
-*Thanks to [Beth North](https://bethnorth.wordpress.com/) for reading through this before I posted it*
+_Thanks to [Beth North](https://bethnorth.wordpress.com/) for reading through this before I posted it_

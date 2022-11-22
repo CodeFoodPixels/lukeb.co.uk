@@ -2,22 +2,26 @@
 title: Do I need bunting today?
 date: 2020-05-25
 tags:
- - web development
- - website
- - announcements
- - eleventy
+  - web development
+  - website
+  - announcements
+  - eleventy
 ---
+
 A couple of weeks ago an idea popped into my head, I built it in a few hours and today, as it's a bank holiday, I'm launching it into the world!
+
 <!-- excerpt -->
 
 Introducing [Do I need bunting today?](https://doineedbuntingtoday.com)!
 
 ## What is it?
+
 [Do I need bunting today?](https://doineedbuntingtoday.com) is a site that tells you whether bunting is appropriate, based on if it's a bank holiday in England, Wales, Scotland or Northern Ireland.
 
 That's it, that's the site.
 
 ## Ok, but why?
+
 Because I could 🤷‍♂️
 
 The GOV.UK website has a list of bank holidays available at <https://www.gov.uk/bank-holidays>. This list is well presented, easy to read and I frequently use it to see when bank holidays are because I forget.

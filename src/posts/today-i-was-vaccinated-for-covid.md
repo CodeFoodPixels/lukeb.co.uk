@@ -2,17 +2,18 @@
 title: Today I was vaccinated for covid
 date: 2021-03-03
 tags:
- - covid
- - health
- - life
+  - covid
+  - health
+  - life
 ---
+
 So today I had my first COVID vaccination. Following the examples set by [Bruce Lawson](https://www.brucelawson.co.uk/2021/i-got-vaccinated-for-covid/) and [Stuart Langridge](https://www.kryogenix.org/days/2021/01/28/today-i-was-vaccinated-for-covid/), I felt I'd write about my experience getting the vaccine.
 
 <!-- excerpt -->
 
 {% image "./src/posts/today-i-was-vaccinated-for-covid/banner.jpg", "A sticker that says 'I've had my covid vaccine' around the edges with a heart graphic in the middle" %}
 
-I fall into two of the current categories for getting the vaccination: my BMI is just over 40, so I'm part of the "underlying health conditions" group; and I'm an unpaid carer for my partner. 
+I fall into two of the current categories for getting the vaccination: my BMI is just over 40, so I'm part of the "underlying health conditions" group; and I'm an unpaid carer for my partner.
 
 My partner is clinically extremely vulnerable and was vaccinated yesterday, having booked on Saturday. Because she's vulnerable, we were eager to get mine booked in as soon as possible too. I started checking every day if I could book through the [NHS COVID vaccine booking system](https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/book-coronavirus-vaccination/) and on Monday night, it let me book!
 

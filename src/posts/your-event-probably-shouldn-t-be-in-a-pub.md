@@ -2,10 +2,11 @@
 title: Your Event Probably Shouldn't Be In A Pub
 date: 2019-05-15
 tags:
- - community
- - meetups
- - speaking
+  - community
+  - meetups
+  - speaking
 ---
+
 When we were looking for a new venue for [LeedsJS](https://leedsjs.com) a few years ago, one of the criteria I set was "not a pub". Initially this seems like an arbitrary decision, but I had a number of reasons for doing so.
 
 <!-- excerpt -->

@@ -2,10 +2,11 @@
 title: Why LeedsJS Doesn't Have Q&A Anymore
 date: 2018-05-06
 tags:
- - community
- - meetups
- - speaking
+  - community
+  - meetups
+  - speaking
 ---
+
 The day before April's LeedsJS meetup, I decided to try not having Q&A after the talks in favour of encouraging people to come and chat to the speakers directly. There were a variety of reasons as to why I felt that this would be the best route, and it seems to have been a success!
 
 <!-- excerpt -->
@@ -91,4 +92,3 @@ Firstly, I was picked to speak at [ScotlandJS 2018](http://scotlandjs.com/), whi
 I also attended the JSHeroes conference the week before April's LeedsJS event. While the conference was great and the organisers tried to make the Q&A section as engaging as possible, it still suffered many of the issues I've mentioned in this post. This is not the fault of the organisers, the work they did was fantastic!
 
 Another thing was that Kitze shared his "[awesome conference practices](https://github.com/kitze/awesome-conference-practices)" document. There was some healthy discussion about Q&A as part of that and I realised that other people shared my views on Q&A.
-

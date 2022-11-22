@@ -1,12 +1,15 @@
 ---
-title: 'Get involved in your local community groups: Why I love LeedsJS'
+title: "Get involved in your local community groups: Why I love LeedsJS"
 date: 2019-09-19
 tags:
- - meetups
- - community
+  - meetups
+  - community
 ---
+
 I first got involved in [LeedsJS](https://leedsjs.com) in 2015, and then took over as the main organiser in 2016. Since then, we've grown from around 15 people per event to about 60 per event.
+
 <!-- excerpt -->
+
 The biggest drive for LeedsJS is sharing knowledge so that our attendees can become better developers. In recent years I've expanded the scope of this by adding another talk spot where we try and get talks on topics such as mental health, testing and inclusivity. These are topics that make people better teammates, and this fits well with the goal of helping people become better developers.
 
 As a group, we welcome people with all levels of experience, from those that have been writing JavaScript since it first came around, to those who have no real experience writing it at all. This mix means that some of the junior developers who attend have had a real boost from being part of the community, through speaking to more experienced developers and asking questions.

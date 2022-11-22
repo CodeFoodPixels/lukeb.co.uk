@@ -2,10 +2,11 @@
 title: Per aspera ad astra
 date: 2021-05-12
 tags:
- - web development
- - open source
- - programming
+  - web development
+  - open source
+  - programming
 ---
+
 When I was younger, I wanted to be a "robot scientist". I found them fascinating and wanted to learn about how they work and how to build them, but I lived in the middle of nowhere, in a time when the web was still finding it's feet, which meant that the resources weren't really there for me and eventually I realised that it wasn't really a viable option.
 
 In my early teens, I found web development and I've been hooked ever since. Open source was, and still is, massively helpful for me to learn from. Whether that's taking apart open source projects to learn how they work, or contributing to them.

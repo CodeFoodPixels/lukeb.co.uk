@@ -57,7 +57,7 @@
   --laser-height: 0rem;
   --laser-width: 0rem;
   --laser-endstop: 0rem;
-	--spaceship-entrance-time: 3s;
+  --spaceship-entrance-time: 3s;
 }
 
 html {
@@ -1352,8 +1352,9 @@ img.webmention__author-photo-image {
   }
 
   .header--hero .header__spaceship-wrapper {
-    animation: var(--spaceship-entrance-time) ease-out 1 spaceship--entrance, 16s var(--spaceship-entrance-time) cubic-bezier(0.32, 0.01, 0.46, 1) infinite
-      spaceship--accelerating;
+    animation: var(--spaceship-entrance-time) ease-out 1 spaceship--entrance,
+      16s var(--spaceship-entrance-time) cubic-bezier(0.32, 0.01, 0.46, 1)
+        infinite spaceship--accelerating;
   }
 
   .header--hero .header__spaceship-wrapper svg {
@@ -1405,20 +1406,23 @@ img.webmention__author-photo-image {
 
   .header--hero .header__name {
     opacity: 0;
-    animation: 0.5s calc(var(--spaceship-entrance-time) - 0.5s) linear 1 forwards fade-in;
+    animation: 0.5s calc(var(--spaceship-entrance-time) - 0.5s) linear 1
+      forwards fade-in;
   }
 
   .header--hero .header__start {
     opacity: 0;
-    animation: 0.5s calc(var(--spaceship-entrance-time) + 0.5s) linear 1 forwards fade-in;
+    animation: 0.5s calc(var(--spaceship-entrance-time) + 0.5s) linear 1
+      forwards fade-in;
   }
 
-	.header__start-text {
-		animation: 1.5s linear alternate infinite blink;
-	}
+  .header__start-text {
+    animation: 1.5s linear alternate infinite blink;
+  }
 
-	.header--hero .header__start-text {
-    animation: 1.5s calc(var(--spaceship-entrance-time) + 1s) linear alternate infinite blink;
+  .header--hero .header__start-text {
+    animation: 1.5s calc(var(--spaceship-entrance-time) + 1s) linear alternate
+      infinite blink;
   }
 }
 
