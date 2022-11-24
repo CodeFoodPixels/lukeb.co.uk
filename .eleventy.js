@@ -154,7 +154,7 @@ module.exports = function (eleventyConfig) {
       },
       transformTags: {
         a: (tagName, attribs) => {
-          if (attribs.href.match(linkAttributes.pattern)) {
+          if (attribs.href && attribs.href.match(linkAttributes.pattern)) {
             return {
               tagName,
               attribs: {
@@ -164,12 +164,17 @@ module.exports = function (eleventyConfig) {
             };
           }
 
-          return {
+          const returnObj = {
             tagName,
-            attribs: {
-              href: attribs.href,
-            },
           };
+
+          if (attribs.href) {
+            returnObj.attribs = {
+              href: attribs.href,
+            };
+          }
+
+          return returnObj;
         },
       },
     },
