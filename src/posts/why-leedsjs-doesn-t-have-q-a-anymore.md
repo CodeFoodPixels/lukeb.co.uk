@@ -1,6 +1,6 @@
 ---
 title: Why LeedsJS Doesn't Have Q&A Anymore
-date: 2018-05-06
+date: 2018-05-06 10:30:00
 tags:
   - community
   - meetups

@@ -13,4 +13,4 @@ I'm an experienced public speaker, having spoken at multiple international confe
 
 Outside of tech, my other big passion is food and cooking. I enjoy trying different recipes and techniques, as well as learning to use new ingredients.
 
-I also enjoy pixel art and will occasionally post pieces to Twitter.
+I also enjoy pixel art and will occasionally post pieces on social media.

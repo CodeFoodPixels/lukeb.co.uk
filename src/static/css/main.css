@@ -627,12 +627,12 @@ a:hover {
   white-space: nowrap;
 }
 
-a.follow-links__link--twitter,
-a.follow-links__link--twitter:hover,
-a.follow-links__link--twitter:visited,
-a.follow-links__link--twitter:active {
-  background: #00acee;
-  color: #000000;
+a.follow-links__link--mastodon,
+a.follow-links__link--mastodon:hover,
+a.follow-links__link--mastodon:visited,
+a.follow-links__link--mastodon:active {
+  background: #563acc;
+  color: #ffffff;
 }
 
 a.follow-links__link--rss,

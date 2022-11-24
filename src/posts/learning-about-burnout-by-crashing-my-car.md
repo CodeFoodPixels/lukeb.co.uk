@@ -1,6 +1,6 @@
 ---
 title: Learning About Burnout By Crashing My Car
-date: 2018-01-15
+date: 2018-01-15 10:30:00
 tags:
   - burnout
   - mental health

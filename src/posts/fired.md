@@ -1,6 +1,6 @@
 ---
 title: Fired
-date: 2018-09-07
+date: 2018-09-07 10:30:00
 tags:
   - mental health
   - employment

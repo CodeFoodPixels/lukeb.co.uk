@@ -1,6 +1,6 @@
 ---
 title: "Now with added Eleventy!"
-date: 2021-02-12
+date: 2021-02-12 10:30:00
 tags:
   - css
   - HTML

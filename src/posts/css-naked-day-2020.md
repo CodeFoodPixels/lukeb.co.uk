@@ -1,6 +1,6 @@
 ---
 title: CSS Naked Day 2020
-date: 2020-04-09
+date: 2020-04-09 10:30:00
 tags:
   - css
   - HTML

@@ -1,6 +1,6 @@
 ---
 title: Conditional Breakpoints In Chrome DevTools
-date: 2017-12-05
+date: 2017-12-05 10:30:00
 tags:
   - devtools
   - tips

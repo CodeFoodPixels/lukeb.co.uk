@@ -1,6 +1,6 @@
 ---
 title: Opening Up About My Mental Health
-date: 2018-08-04
+date: 2018-08-04 10:30:00
 tags:
   - mental health
 ---

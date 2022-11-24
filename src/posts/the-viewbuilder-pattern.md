@@ -1,6 +1,6 @@
 ---
 title: The Viewbuilder Pattern
-date: 2020-02-01
+date: 2020-02-01 10:30:00
 tags:
   - programming
   - patterns

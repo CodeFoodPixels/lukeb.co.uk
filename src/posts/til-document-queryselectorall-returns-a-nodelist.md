@@ -1,6 +1,6 @@
 ---
 title: "TIL: document.querySelectorAll returns a NodeList"
-date: 2018-02-06
+date: 2018-02-06 10:30:00
 tags:
   - TIL
   - tips

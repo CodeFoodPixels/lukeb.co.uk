@@ -1,6 +1,6 @@
 ---
 title: Building the new LeedsJS website
-date: 2019-11-11
+date: 2019-11-11 10:30:00
 tags:
   - community
   - meetups

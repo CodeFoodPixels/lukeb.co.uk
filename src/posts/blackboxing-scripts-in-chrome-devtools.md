@@ -1,6 +1,6 @@
 ---
 title: Blackboxing Scripts In Chrome DevTools
-date: 2018-02-05
+date: 2018-02-05 10:30:00
 tags:
   - devtools
   - tips

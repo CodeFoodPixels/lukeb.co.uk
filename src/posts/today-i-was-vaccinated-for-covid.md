@@ -1,6 +1,6 @@
 ---
 title: Today I was vaccinated for covid
-date: 2021-03-03
+date: 2021-03-03 10:30:00
 tags:
   - covid
   - health

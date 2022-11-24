@@ -1,6 +1,6 @@
 ---
 title: Connecting my Christmas jumper to the Internet
-date: 2019-12-13
+date: 2019-12-13 10:30:00
 tags:
   - web development
   - hardware

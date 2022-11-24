@@ -1,6 +1,6 @@
 ---
 title: HTTPS With A Custom Domain On GitHub Pages
-date: 2018-01-02
+date: 2018-01-02 10:30:00
 tags:
   - tips
   - GitHub pages

@@ -1,6 +1,6 @@
 ---
 title: Pixelated rounded corners with CSS clip-path
-date: 2022-01-17
+date: 2022-01-17 10:30:00
 tags:
   - css
   - web development

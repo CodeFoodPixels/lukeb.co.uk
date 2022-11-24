@@ -1,6 +1,6 @@
 ---
 title: "Get involved in your local community groups: Why I love LeedsJS"
-date: 2019-09-19
+date: 2019-09-19 10:30:00
 tags:
   - meetups
   - community

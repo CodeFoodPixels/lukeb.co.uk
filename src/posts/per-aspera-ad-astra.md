@@ -1,6 +1,6 @@
 ---
 title: Per aspera ad astra
-date: 2021-05-12
+date: 2021-05-12 10:30:00
 tags:
   - web development
   - open source

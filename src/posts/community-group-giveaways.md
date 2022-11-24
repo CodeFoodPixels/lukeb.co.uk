@@ -1,6 +1,6 @@
 ---
 title: Community Group Giveaways
-date: 2018-04-27
+date: 2018-04-27 10:30:00
 tags:
   - meetups
   - community
@@ -43,7 +43,3 @@ The current way that we're doing our giveaways at LeedsJS is through a prize dra
 If you feel like this is the right approach for your group, then I have a template form that you can use to get started. The form has the script attached to it already, so all you have to do is make a copy, customise it to suit your giveaway and then share it. When you come to select your winner, click on the puzzle piece in the top right, select "Choose random responder". You'll need to auth with your Google account so that it can read the data. You can get the form from [this Google folder](https://drive.google.com/open?id=1LGGcDjoS8_yWZbQU9blBz9AdTJX9z4Gq).
 
 Currently this form only asks for the entrant's name, but after a discussion with my friend and former co-organiser [Chris Manson](https://twitter.com/real_ate) I may update the one for LeedsJS to ask for some feedback about the event/group too.
-
-## Please let me know how it goes!
-
-If you try any of this out with your group or have other ideas/suggestions to add to this post, please [tweet or DM me](https://twitter.com/CodeFoodPixels/). I'd be very interested to hear how it goes and any tweaks or changes you've made to make it work for your group!

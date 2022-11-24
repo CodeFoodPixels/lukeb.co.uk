@@ -1,6 +1,6 @@
 ---
 title: 2017 Retrospective
-date: 2017-12-24
+date: 2017-12-24 10:30:00
 tags:
   - retrospective
 ---

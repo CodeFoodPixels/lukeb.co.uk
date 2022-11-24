@@ -1,6 +1,6 @@
 ---
 title: 2018 Retrospective
-date: 2018-12-31
+date: 2018-12-31 10:30:00
 tags:
   - retrospective
 ---

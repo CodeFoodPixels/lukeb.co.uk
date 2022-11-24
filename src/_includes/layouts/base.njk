@@ -2,24 +2,23 @@
 <html lang="en">
   <head>
     <link rel="preload" href="/static/fonts/pressstart2p.woff2" as="font" type="font/woff2" crossorigin="crossorigin">
-    <title>{{ renderData.title or title or site.title }}
-      // Luke Bonaccorsi - Web Developer</title>
+    <title>{{ renderData.title or title or site.title }} // Luke Bonaccorsi - Web Developer</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ page.excerpt | md | striptags or renderData.description or description or site.description}}">
+    <meta name="description" content="{{ page.excerpt | md | striptags or renderData.description or description or site.description }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@CodeFoodPixels">
     <meta name="og:title" content="{{ renderData.title or title or site.title }}">
     <meta name="twitter:title" content="{{ renderData.title or title or site.title }}">
-    <meta name="twitter:description" content="{{ page.excerpt | md | striptags or renderData.description or description or site.description}}">
-    <meta name="og:description" content="{{ page.excerpt | md | striptags or renderData.description or description or site.description}}">
+    <meta name="twitter:description" content="{{ page.excerpt | md | striptags or renderData.description or description or site.description }}">
+    <meta name="og:description" content="{{ page.excerpt | md | striptags or renderData.description or description or site.description }}">
     <meta name="twitter:image" content="{{ site.url }}/static/images/{{ renderData.image or image or 'logo-banner.png' }}">
     <meta name="og:image" content="{{ site.url }}/static/images/{{ renderData.image or image or 'logo-banner.png' }}">
     <meta name="og:url" content="{{ site.url }}{{ page.url }}">
     <meta name="og:type" content="website">
     <meta name="monetization" content="$ilp.uphold.com/a22q3KaYwEaL">
-    <link rel="webmention" href="https://webmention.io/{{ site.domain }}/webmention" />
-    <link rel="pingback" href="https://webmention.io/{{ site.domain }}/xmlrpc" />
+    <link rel="webmention" href="https://webmention.io/{{ site.domain }}/webmention"/>
+    <link rel="pingback" href="https://webmention.io/{{ site.domain }}/xmlrpc"/>
+    <link rel="me" href="https://twitter.com/codefoodpixels"/>
     <link rel="feed" href="{{ site.url }}/blog/">
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -32,12 +31,14 @@
       <link rel="stylesheet" href="/static/css/dist.css">
     {% endif %}
   </head>
-  <body {% if site.isCssNakedDay %}class="css-naked-day"{% endif%}>
+  <body {% if site.isCssNakedDay %} class="css-naked-day" {% endif %}>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="header {{ 'header--hero' if heroHeader }}">
-    {% if site.isCssNakedDay %}
-      <p>It's not broken, it's <a href="https://css-naked-day.github.io" target="_blank" rel="external noopener noreferrer">CSS Naked Day!</a></p>
-    {% endif %}
+      {% if site.isCssNakedDay %}
+        <p>It's not broken, it's
+          <a href="https://css-naked-day.github.io" target="_blank" rel="external noopener noreferrer">CSS Naked Day!</a>
+        </p>
+      {% endif %}
       <div class="header__background"></div>
       <div class="header__content">
         <div class="header__spaceship">
@@ -59,7 +60,8 @@
         <div class="header__text">
           <a href="{{ site.url }}" class="header__name h-card p-author" rel="me author">Luke Bonaccorsi</a>
           <div class="header__start js-start">
-            <span class="header__start-text">Press Start</span></div>
+            <span class="header__start-text">Press Start</span>
+          </div>
         </div>
       </div>
     </header>
@@ -75,10 +77,15 @@
           <a href="/speaking/" class="nav__link">Speaking</a>
         </li>
         <li class="nav__item">
-          <a href="https://github.com/CodeFoodPixels" class="nav__link" target="_blank" rel="me external noopener noreferrer">GitHub</a>
+          <a href="https://github.com/CodeFoodPixels" class="nav__link" target="_blank" rel="me external noopener noreferrer">
+            GitHub</a>
         </li>
         <li class="nav__item">
-          <a href="https://twitter.com/CodeFoodPixels" class="nav__link" target="_blank" rel="me external noopener noreferrer">Twitter</a>
+          <a
+            href="https://indieweb.social/@CodeFoodPixels"
+            class="nav__link"
+            target="_blank"
+            rel="me external noopener noreferrer">Mastodon</a>
         </li>
         <li class="nav__item">
           <a href="/rss.xml" class="nav__link">RSS</a>
@@ -89,8 +96,7 @@
       {{ content | safe }}
     </main>
     <footer class="footer">
-      <p>&copy; Luke Bonaccorsi 2017 -
-        {% year %}</p>
+      <p>&copy; Luke Bonaccorsi 2017 - {% year %}</p>
       <p>
         <a href="https://github.com/codefoodpixels/website-11ty" target="_blank" rel="external noopener noreferrer">
           View website source on GitHub
@@ -100,32 +106,29 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function () {
-          navigator
-            .serviceWorker
-            .register('/service-worker.js');
+          navigator.serviceWorker.register('/service-worker.js');
         });
       }
     </script>
     <script type="text/javascript">
       window.gameScriptLoaded = false;
       window.gameLaunched = false;
-      document
-        .querySelector(".js-start")
-        .addEventListener("click", function () {
-          if (window.gameScriptLoaded === true && window.gameLaunched === false) {
-            loadGame();
-            window.gameLaunched = true;
-          } else if (window.gameLaunched === false) {
-            const gameScript = document.createElement('script');
-            gameScript.setAttribute("type", "text/javascript");
-            gameScript.setAttribute("src", "/static/js/easter.js");
-            gameScript.setAttribute("onload", "window.gameScriptLoaded = true; loadGame()");
-            document
-              .body
-              .appendChild(gameScript)
-            window.gameLaunched = true;
-          }
-        });
+      document.querySelector(".js-start").addEventListener("click", function () {
+        if (window.gameScriptLoaded === true && window.gameLaunched === false) {
+          loadGame();
+          window.gameLaunched = true;
+        } else if (window.gameLaunched === false) {
+          const gameScript = document.createElement('script');
+          gameScript.setAttribute("type", "text/javascript");
+          gameScript.setAttribute("src", "/static/js/easter.js");
+          gameScript.setAttribute("onload", "window.gameScriptLoaded = true; loadGame()");
+          document
+            .body
+            .appendChild(gameScript)
+            window
+            .gameLaunched = true;
+        }
+      });
     </script>
     <script defer src="https://analytics.lukeb.co.uk/ping.js" type="text/javascript"></script>
   </body>

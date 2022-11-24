@@ -11,7 +11,7 @@ permalink: /speaking/info/
 ### Links
 
 - Website: [https://lukeb.co.uk](/)
-- Twitter: [@CodeFoodPixels](https://twitter.com/codefoodpixels)
+- Mastodon: [@CodeFoodPixels@indieweb.social](https://indieweb.social/@CodeFoodPixels)
 - GitHub: [CodeFoodPixels](https://github.com/codefoodpixels)
 
 ### Pictures
