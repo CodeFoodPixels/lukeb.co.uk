@@ -1,9 +1,13 @@
-// const { schedule } = require("@netlify/functions");
-const { cron } = require("../../dist/nextbuild.json");
+const { request } = require("node:https");
+const { schedule } = require("@netlify/functions");
+// const { cron } = require("../../dist/nextbuild.json");
 
-exports.handler = async function (event, context) {
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: cron }),
+exports.handler = schedule("40 13 28 11 1", (event, context) => {
+  const options = {
+    hostname: "api.netlify.com",
+    path: `/build_hooks/${process.env.BUILD_HOOK}`,
+    method: "POST",
   };
-};
+
+  request(options);
+});
