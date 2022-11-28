@@ -203,21 +203,26 @@ module.exports = function (eleventyConfig) {
   });
 
   function getUTCPostDate(date) {
+    const padded = (val) => val.toString().padStart(2, "0");
+
     return zonedTimeToUtc(
-      `${date.getFullYear()}-${
-        date.getMonth() + 1
-      }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+      `${date.getFullYear()}-${padded(date.getMonth() + 1)}-${padded(
+        date.getDate()
+      )} ${padded(date.getHours())}:${padded(date.getMinutes())}:${padded(
+        date.getSeconds()
+      )}`,
       site.timezone
     );
   }
 
   // Collections
   const now = new Date();
-  const livePosts = (post) =>
-    getUTCPostDate(post.date, post.data.time) <= now && !post.data.draft;
+  const livePosts = (post) => {
+    return getUTCPostDate(post.date) <= now && !post.data.draft;
+  };
 
   const futurePosts = (post) =>
-    getUTCPostDate(post.date, post.data.time) > now && !post.data.draft;
+    getUTCPostDate(post.date) > now && !post.data.draft;
 
   const posts = (collectionApi, filter = livePosts) =>
     collectionApi.getFilteredByGlob("./src/posts/*").filter(filter).reverse();
