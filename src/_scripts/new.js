@@ -2,10 +2,16 @@ const inquirer = require("inquirer");
 const slugify = require("slugify");
 const fs = require("fs").promises;
 const path = require("path");
+const config = require("../_data/site")();
 
 inquirer.registerPrompt("datetime", require("inquirer-datepicker-prompt"));
 
 async function run() {
+  const [postHours, postMinutes] = config.publishTime.split(":");
+  const dateInitial = new Date();
+  dateInitial.setHours(postHours);
+  dateInitial.setMinutes(postMinutes);
+
   const answers = await inquirer.prompt([
     {
       type: "list",
@@ -21,8 +27,9 @@ async function run() {
     {
       type: "datetime",
       name: "date",
-      message: "What is the publish date?",
-      format: ["yyyy", "-", "mm", "-", "dd"],
+      message: "What is the publish date/time?",
+      format: ["yyyy", "-", "mm", "-", "dd", " ", "HH", ":", "MM"],
+      initial: dateInitial,
       when: (answers) => {
         return answers.type === "Post";
       },
@@ -59,10 +66,12 @@ async function run() {
     );
 
     file = file.replace("Default title", answers.title);
-    file = file.replace(
-      "1970-01-01",
-      answers.date.toLocaleDateString("en-CA", { timeZone: "Europe/London" })
-    );
+
+    const formattedDate = `${answers.date.getFullYear()}-${
+      answers.date.getMonth() + 1
+    }-${answers.date.getDate()} ${answers.date.getHours()}:${answers.date.getMinutes()}:00`;
+
+    file = file.replace("1970-01-01 00:00:00", formattedDate);
 
     const filename = slug(answers.title);
     await fs.writeFile(

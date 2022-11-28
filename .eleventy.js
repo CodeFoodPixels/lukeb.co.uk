@@ -5,6 +5,7 @@ const readingTime = require("eleventy-plugin-reading-time");
 const nunjucksDate = require("nunjucks-date-filter");
 const slugify = require("slugify");
 const prettier = require("prettier");
+const { zonedTimeToUtc } = require("date-fns-tz");
 
 const postcss = require("./src/_utils/postcss.js");
 const minifycss = require("./src/_utils/minifycss.js");
@@ -201,18 +202,32 @@ module.exports = function (eleventyConfig) {
     },
   });
 
+  function getUTCPostDate(date) {
+    return zonedTimeToUtc(
+      `${date.getFullYear()}-${
+        date.getMonth() + 1
+      }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+      site.timezone
+    );
+  }
+
   // Collections
   const now = new Date();
-  const livePosts = (post) => post.date <= now && !post.data.draft;
+  const livePosts = (post) =>
+    getUTCPostDate(post.date, post.data.time) <= now && !post.data.draft;
 
-  const posts = (collectionApi) =>
-    collectionApi
-      .getFilteredByGlob("./src/posts/*")
-      .filter(livePosts)
-      .reverse();
+  const futurePosts = (post) =>
+    getUTCPostDate(post.date, post.data.time) > now && !post.data.draft;
+
+  const posts = (collectionApi, filter = livePosts) =>
+    collectionApi.getFilteredByGlob("./src/posts/*").filter(filter).reverse();
 
   eleventyConfig.addCollection("posts", (collectionApi) =>
     posts(collectionApi)
+  );
+
+  eleventyConfig.addCollection("futurePosts", (collectionApi) =>
+    posts(collectionApi, futurePosts).reverse()
   );
 
   eleventyConfig.addCollection("tagList", function (collection) {
