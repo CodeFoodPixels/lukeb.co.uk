@@ -1,9 +1,13 @@
+const { readFile } = require("fs/promises");
+const path = require("path");
+
 class NextBuild {
   data() {
     return {
-      permalink: "/nextbuild.json",
+      permalink: "../netlify/functions/build.js",
     };
   }
+
   dateToCron(date) {
     const minutes = date.getMinutes();
     const hours = date.getHours();
@@ -14,7 +18,12 @@ class NextBuild {
     return `${minutes} ${hours} ${days} ${months} ${dayOfWeek}`;
   }
 
-  render({ collections, site }) {
+  async render({ collections, site }) {
+    const template = await readFile(
+      path.join(__dirname, "_scripts", "templates", "buildFunction.js"),
+      { encoding: "utf-8" }
+    );
+
     const nextYear = new Date();
     nextYear.setFullYear(nextYear.getFullYear() + 1);
     nextYear.setHours(0);
@@ -29,10 +38,9 @@ class NextBuild {
     const filteredPostDates = postDates.filter((date) => date <= nextYear);
     filteredPostDates.sort((a, b) => a - b);
 
-    return JSON.stringify({
-      date: postDates[0],
-      cron: this.dateToCron(postDates[0]),
-    });
+    return template
+      .replace("0 0 0 0 0", this.dateToCron(filteredPostDates[0]))
+      .replace("<<build_hook>>", process.env.BUILD_HOOK);
   }
 }
 
