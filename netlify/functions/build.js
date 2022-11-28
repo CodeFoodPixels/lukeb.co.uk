@@ -1,4 +1,4 @@
-const { schedule } = require("@netlify/functions");
+// const { schedule } = require("@netlify/functions");
 const { cron } = require("../../dist/nextbuild.json");
 
 exports.handler = async function (event, context) {
