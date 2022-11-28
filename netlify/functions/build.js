@@ -9,5 +9,17 @@ exports.handler = schedule("50 13 28 11 1", (event, context) => {
     method: "POST",
   };
 
-  request(options);
+  request(options, (res) => {
+    console.log("statusCode:", res.statusCode);
+    console.log("headers:", res.headers);
+
+    res.on("data", (d) => {
+      process.stdout.write(d);
+    });
+  });
+
+  req.on("error", (e) => {
+    console.error(e);
+  });
+  req.end();
 });
