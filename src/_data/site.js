@@ -3,6 +3,11 @@ module.exports = () => {
   const month = today.getMonth();
   const day = today.getDate();
 
+  const nextCssNakedDay = new Date(`${today.getFullYear()}-04-09 00:00:00`);
+  if (nextCssNakedDay < today) {
+    nextCssNakedDay.setFullYear(nextCssNakedDay.getFullYear() + 1);
+  }
+
   return {
     name: "Luke Bonaccorsi",
     description:
@@ -14,5 +19,11 @@ module.exports = () => {
     maxPostsPerPage: 10,
     webmentionToken: "pDjIX81PRC-fGTpGYOXOMQ",
     isCssNakedDay: month === 3 && day === 9,
+    timezone: "Europe/London",
+    publishTime: "10:30",
+    rebuildDates: [
+      nextCssNakedDay,
+      new Date(`${today.getFullYear() + 1}-01-01 00:00:00`), // New Year's Day
+    ],
   };
 };
