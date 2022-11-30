@@ -2,7 +2,7 @@
 title: 2018 Retrospective
 date: 2018-12-31 10:30:00
 tags:
-  - retrospective
+  - Retrospective
 ---
 
 2018 has been an eventful year, with more personal firsts and a number of successful personal projects!

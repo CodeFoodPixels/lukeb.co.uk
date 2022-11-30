@@ -2,12 +2,12 @@
 title: "Now with added Eleventy!"
 date: 2021-02-12 10:30:00
 tags:
-  - css
+  - CSS
   - HTML
-  - website
-  - eleventy
-  - announcements
-  - web development
+  - Website
+  - Eleventy
+  - Announcements
+  - Web Development
 ---
 
 Ever since I gave [Eleventy](https://11ty.dev/) a go when I was building the [LeedsJS](https://leedsjs.com) website, I've been a huge fan and advocate, even convincing some people to give it a try out of my sheer enthusiasm for it. I absolutely love the simplicity and flexibility of it, as well as things like data files. I have a whole post talking about this stuff from when I was [building the new LeedsJS website](/blog/2019/11/11/building-the-new-leedsjs-website/).

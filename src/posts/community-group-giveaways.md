@@ -2,10 +2,10 @@
 title: Community Group Giveaways
 date: 2018-04-27 10:30:00
 tags:
-  - meetups
-  - community
-  - tips
-  - retrospective
+  - Meetups
+  - Community
+  - Tips
+  - Retrospective
 ---
 
 At LeedsJS we've been lucky enough to have sponsors willing to offer up prizes for us to give away to our attendees. We've tried a couple of ways to give them away and I thought I'd write up a post to discuss them.

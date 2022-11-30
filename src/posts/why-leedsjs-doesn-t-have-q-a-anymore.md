@@ -2,9 +2,9 @@
 title: Why LeedsJS Doesn't Have Q&A Anymore
 date: 2018-05-06 10:30:00
 tags:
-  - community
-  - meetups
-  - speaking
+  - Community
+  - Meetups
+  - Speaking
 ---
 
 The day before April's LeedsJS meetup, I decided to try not having Q&A after the talks in favour of encouraging people to come and chat to the speakers directly. There were a variety of reasons as to why I felt that this would be the best route, and it seems to have been a success!

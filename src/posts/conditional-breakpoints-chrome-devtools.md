@@ -2,8 +2,8 @@
 title: Conditional Breakpoints In Chrome DevTools
 date: 2017-12-05 10:30:00
 tags:
-  - devtools
-  - tips
+  - DevTools
+  - Tips
 ---
 
 A really useful feature that I often find myself using in Chrome DevTools is conditional breakpoints. Conditional breakponts allow you to only pause execution when a certain expression evaluates to true, meaning that you can pause it when you want it to.

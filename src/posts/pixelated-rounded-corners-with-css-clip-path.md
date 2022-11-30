@@ -2,10 +2,10 @@
 title: Pixelated rounded corners with CSS clip-path
 date: 2022-01-17 10:30:00
 tags:
-  - css
-  - web development
-  - website
-  - announcements
+  - CSS
+  - Web Development
+  - Website
+  - Announcements
 ---
 
 I remember the day in 2011 when the design agency that I worked for decided that we were dropping IE6 support and raising our minimum to IE 9. Among other things, we didn't have to use images for rounded corners any more, we could use `border-radius`!

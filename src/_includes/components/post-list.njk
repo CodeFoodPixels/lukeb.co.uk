@@ -12,25 +12,22 @@
             <span>
               //
             </span>
-            <a href="{{ item.url }}#webmentions">{{ postMentionCount }}
-              Response{%- if (postMentionCount !== 1) %}s{% endif -%}
+            <a href="{{ item.url }}#webmentions">{{ postMentionCount }} Response{%- if (postMentionCount !== 1) %}s{% endif -%}
             </a>
             <span>
               //
             </span>
-            <span>About
-              {{ item.templateContent | readingTime({speed: 200, raw: true}) }}
-              minute read</span>
+            <span>About {{ item.templateContent | readingTime({speed: 200, raw: true}) }} minute read</span>
             <div class="content__tags">
               {% for tag in item.data.tags | sort %}
-                <a class="tag-link p-category" href="/blog/tag/{{ tag | slug }}/" rel="tag">{{ tag | lowercase }}</a>
+                <a class="tag-link p-category" href="/blog/tag/{{ tag | slug }}/" rel="tag">{{ tag }}</a>
               {% endfor %}
             </div>
           </div>
         </header>
         <div class="p-summary">
           {% if item.data.page.excerpt %}
-            {{ item.data.page.excerpt | md | safe}}
+            {{ item.data.page.excerpt | md | safe }}
           {% else %}
             {{ item.templateContent | safe }}
           {% endif %}

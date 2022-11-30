@@ -2,10 +2,10 @@
 title: Connecting my Christmas jumper to the Internet
 date: 2019-12-13 10:30:00
 tags:
-  - web development
-  - hardware
-  - javascript
-  - iot
+  - Web Development
+  - Hardware
+  - JavaScript
+  - IoT
 ---
 
 Some of you will be aware that while I'm not necessarily great at it, I enjoy playing around with hardware. One of the talks that I've been fortunate enough to travel the world to give is about using JavaScript to do bits of home automation, including automating my curtains and making my own thermostat.

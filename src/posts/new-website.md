@@ -2,11 +2,11 @@
 title: New Website!
 date: 2017-11-12 10:30:00
 tags:
-  - css
+  - CSS
   - HTML
-  - website
-  - announcements
-  - web development
+  - Website
+  - Announcements
+  - Web Development
 ---
 
 My previous site hadn't been touched since late 2014 and was running using a custom PHP system I'd written that took markdown and produced the page. This was happening every time someone hit the page so was pretty inefficient.

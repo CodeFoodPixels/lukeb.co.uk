@@ -2,8 +2,8 @@
 title: Blackboxing Scripts In Chrome DevTools
 date: 2018-02-05 10:30:00
 tags:
-  - devtools
-  - tips
+  - DevTools
+  - Tips
 ---
 
 Chrome DevTools has a feature called blackboxing which allows you to ignore certain scripts when debugging. When a script is blackboxed, it's hidden from the call stack pane and you don't step into it when stepping through the code. This is really useful when debugging code that uses frameworks or libraries such as Ember, React or jQuery.

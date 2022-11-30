@@ -2,9 +2,9 @@
 title: Building the new LeedsJS website
 date: 2019-11-11 10:30:00
 tags:
-  - community
-  - meetups
-  - web development
+  - Community
+  - Meetups
+  - Web Development
 ---
 
 At the end of 2018, I announced that I was setting a 6 month deadline for LeedsJS to move away from Meetup. At the time they charged $90 for 6 months as an organiser, which I was paying out of my own pocket. At the time of writing, this has been raised to $98.94.

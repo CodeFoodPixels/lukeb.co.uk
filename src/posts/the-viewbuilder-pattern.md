@@ -2,8 +2,8 @@
 title: The Viewbuilder Pattern
 date: 2020-02-01 10:30:00
 tags:
-  - programming
-  - patterns
+  - Programming
+  - Patterns
 ---
 
 Many companies have internal APIs that provide their data, but scaling these can be tricky and expensive. There are also cases where you're using a rate-limited 3rd party API that you need to use to provide data to the frontend of your website.

@@ -2,8 +2,8 @@
 title: "Get involved in your local community groups: Why I love LeedsJS"
 date: 2019-09-19 10:30:00
 tags:
-  - meetups
-  - community
+  - Meetups
+  - Community
 ---
 
 I first got involved in [LeedsJS](https://leedsjs.com) in 2015, and then took over as the main organiser in 2016. Since then, we've grown from around 15 people per event to about 60 per event.

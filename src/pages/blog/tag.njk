@@ -13,8 +13,9 @@ pagination:
   addAllPagesToCollections: true
 layout: layouts/page.njk
 eleventyComputed:
-  title: Posts tagged "{{ tag | lowercase}}"
+  title: Posts tagged "{{ tag }}"
 permalink: /blog/tag/{{ tag | slug }}/
 ---
+
 {% set postListItems = collections[ tag ] | livePosts | reverse %}
 {% include "components/post-list.njk" %}

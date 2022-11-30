@@ -2,9 +2,9 @@
 title: Today I was vaccinated for covid
 date: 2021-03-03 10:30:00
 tags:
-  - covid
-  - health
-  - life
+  - Covid
+  - Health
+  - Life
 ---
 
 So today I had my first COVID vaccination. Following the examples set by [Bruce Lawson](https://www.brucelawson.co.uk/2021/i-got-vaccinated-for-covid/) and [Stuart Langridge](https://www.kryogenix.org/days/2021/01/28/today-i-was-vaccinated-for-covid/), I felt I'd write about my experience getting the vaccine.

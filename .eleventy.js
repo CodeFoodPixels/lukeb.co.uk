@@ -260,12 +260,12 @@ module.exports = function (eleventyConfig) {
 
           for (const tag of tags) {
             const tagIndex = tagList.findIndex(
-              (element) => element.name === tag.toLowerCase()
+              (element) => element.name === tag
             );
             if (tagIndex > -1) {
               tagList[tagIndex].count += 1;
             } else {
-              tagList.push({ name: tag.toLowerCase(), count: 1 });
+              tagList.push({ name: tag, count: 1 });
             }
           }
         }

@@ -2,10 +2,10 @@
 title: "No Comment 2: The Webmentioning"
 date: 2022-06-28 10:30:00
 tags:
-  - website
-  - web development
-  - eleventy
-  - indieweb
+  - Website
+  - Web Development
+  - Eleventy
+  - IndieWeb
 ---
 
 When version 1.0.0 of Eleventy was released, one of the features that I was excited to see was the ability to add global data through configuration. This means that plugins can now add global data, and I saw it as a great opportunity to move [my webmentions code](/blog/2021/03/15/no-comment-adding-webmentions-to-my-site/) into a plugin for others to use!

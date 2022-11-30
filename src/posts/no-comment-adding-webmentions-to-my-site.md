@@ -2,10 +2,10 @@
 title: "No comment: Adding Webmentions to my site"
 date: 2021-03-15 10:30:00
 tags:
-  - website
-  - web development
-  - eleventy
-  - indieweb
+  - Website
+  - Web Development
+  - Eleventy
+  - IndieWeb
 ---
 
 While I was [rebuilding my website in Eleventy](/blog/2021/02/12/now-with-added-eleventy), I saw Amber Wilson's [article about adding Webmentions to her site](https://amberwilson.co.uk/blog/grow-the-indieweb-with-webmentions/) shared on Twitter. I'd heard of Webmentions but I'd never really looked into them and while I was reading Amber's post, I thought that it's a really cool idea and added them to the list of things I wanted to add to my site.

@@ -3,7 +3,7 @@ title: "TIL: document.querySelectorAll returns a NodeList"
 date: 2018-02-06 10:30:00
 tags:
   - TIL
-  - tips
+  - Tips
 ---
 
 Modern browsers have the native selector engine `document.querySelectorAll` which is really useful for easily finding elements. I had assumed that it returned an Array but I've just found out that I was wrong and it returns a NodeList.

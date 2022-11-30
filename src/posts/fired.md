@@ -2,9 +2,9 @@
 title: Fired
 date: 2018-09-07 10:30:00
 tags:
-  - mental health
-  - employment
-  - retrospective
+  - Mental Health
+  - Employment
+  - Retrospective
 ---
 
 Friday the 7th September 2012 was a bad day for me. That was the day that I was fired from my first development job. It was the beginning of a 7 month unemployment period where I struggled with depression, impostor syndrome and I asked myself some tough questions.

@@ -2,7 +2,7 @@
 title: Opening Up About My Mental Health
 date: 2018-08-04 10:30:00
 tags:
-  - mental health
+  - Mental Health
 ---
 
 I've tried to start writing this post a few times. Mental health is a difficult topic to speak about in itself, and struggling with your own mental health can make it even more difficult.

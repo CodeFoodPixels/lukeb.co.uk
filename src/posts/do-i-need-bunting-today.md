@@ -2,10 +2,10 @@
 title: Do I need bunting today?
 date: 2020-05-25 10:30:00
 tags:
-  - web development
-  - website
-  - announcements
-  - eleventy
+  - Web Development
+  - Website
+  - Announcements
+  - Eleventy
 ---
 
 A couple of weeks ago an idea popped into my head, I built it in a few hours and today, as it's a bank holiday, I'm launching it into the world!

@@ -19,7 +19,7 @@ layout: layouts/base.njk
       <span>About {{ content | readingTime({speed: 200, raw: true}) }} minute read</span>
       <div>
         {% for tag in tags | sort %}
-          <a class="tag-link p-category" href="/blog/tag/{{ tag | slug }}/" rel="tag">{{ tag | lowercase }}</a>
+          <a class="tag-link p-category" href="/blog/tag/{{ tag | slug }}/" rel="tag">{{ tag }}</a>
         {% endfor %}
       </div>
     </div>

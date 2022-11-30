@@ -2,8 +2,8 @@
 title: Learning About Burnout By Crashing My Car
 date: 2018-01-15 10:30:00
 tags:
-  - burnout
-  - mental health
+  - Burnout
+  - Mental Health
 ---
 
 Today marks 4 years since I crashed and wrote off my car while driving to work one morning due to being burnt out. At the time I didn't really realise I was burnt out or even what burnout was.
