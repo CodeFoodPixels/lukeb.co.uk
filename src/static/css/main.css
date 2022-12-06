@@ -1427,17 +1427,22 @@ img.webmention__author-photo-image {
 }
 
 /* prismjs overrides */
+:not(pre) > code {
+  background: #2b2b2b;
+  color: #ffffff;
+}
+
 pre[class*="language-"],
-:not(pre) > code[class*="language-"] {
+:not(pre) > code {
   border-radius: 0;
 }
 
-code[class*="language-"],
+code,
 pre[class*="language-"] {
   font-family: Courier, monospace;
 }
 
-:not(pre) > code[class*="language-"] {
+:not(pre) > code {
   padding: 0.25rem 0.5rem;
 }
 

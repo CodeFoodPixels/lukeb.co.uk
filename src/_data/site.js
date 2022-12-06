@@ -7,6 +7,8 @@ module.exports = () => {
   if (nextCssNakedDay < today) {
     nextCssNakedDay.setFullYear(nextCssNakedDay.getFullYear() + 1);
   }
+  const dayAfterCssNakedDay = new Date(nextCssNakedDay);
+  dayAfterCssNakedDay.setDate(dayAfterCssNakedDay.getDate() + 1);
 
   return {
     name: "Luke Bonaccorsi",
@@ -23,6 +25,7 @@ module.exports = () => {
     publishTime: "10:30",
     rebuildDates: [
       nextCssNakedDay,
+      dayAfterCssNakedDay,
       new Date(`${today.getFullYear() + 1}-01-01 00:00:00`), // New Year's Day
     ],
   };

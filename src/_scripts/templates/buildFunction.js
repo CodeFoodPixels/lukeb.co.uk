@@ -1,28 +1,21 @@
-const { request } = require("node:https");
+const { request } = require("https");
 const { schedule } = require("@netlify/functions");
 
-exports.handler = schedule("0 0 0 0 0", (event, context, callback) => {
-  const options = {
-    hostname: "api.netlify.com",
-    path: `/build_hooks/<<build_hook>>`,
-    method: "POST",
-  };
-
-  const req = request(options, (res) => {
-    console.log("statusCode:", res.statusCode);
-    console.log("headers:", res.headers);
-
-    res.on("data", (d) => {
-      process.stdout.write(d);
-    });
-  });
+exports.handler = schedule("0 0 0 0 0", () => {
+  const req = request(
+    "https://api.netlify.com/build_hooks/<<build_hook>>",
+    { method: "POST" },
+    (res) => {
+      console.log("statusCode:", res.statusCode);
+    }
+  );
 
   req.on("error", (e) => {
     console.error(e);
   });
   req.end();
 
-  callback({
+  return {
     statusCode: 200,
-  });
+  };
 });
