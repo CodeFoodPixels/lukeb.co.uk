@@ -36,7 +36,7 @@ So let's create a basic Scheduled Function that prints "Hello world!" to the log
 ```javascript
 const { schedule } = require("@netlify/functions");
 
-exports.handler = schedule("* * * * *", () => {
+exports.handler = schedule("* * * * *", await () => {
   console.log("Hello world!");
 
   return {
@@ -63,19 +63,23 @@ To make the `POST` request, we can use Node's built in `https` module.
 const { request } = require("https");
 const { schedule } = require("@netlify/functions");
 
-exports.handler = schedule("30 10 * * *", () => {
-  const req = request(
-    `https://api.netlify.com/build_hooks/${process.env.BUILD_HOOK}`,
-    { method: "POST" },
-    (res) => {
-      console.log("statusCode:", res.statusCode);
-    }
-  );
+exports.handler = schedule("30 10 * * *", async () => {
+  await new Promise((resolve, reject) => {
+    const req = request(
+      `https://api.netlify.com/build_hooks/${process.env.BUILD_HOOK}`,
+      { method: "POST" },
+      (res) => {
+        console.log("statusCode:", res.statusCode);
+        resolve();
+      }
+    );
 
-  req.on("error", (e) => {
-    console.error(e);
+    req.on("error", (e) => {
+      console.error(e);
+      reject();
+    });
+    req.end();
   });
-  req.end();
 
   return {
     statusCode: 200,
@@ -149,19 +153,23 @@ class BuildFunction {
 const { request } = require("https");
 const { schedule } = require("@netlify/functions");
 
-exports.handler = schedule("${this.dateToCron(postDates[0])}", () => {
-  const req = request(
-    "https://api.netlify.com/build_hooks/${process.env.BUILD_HOOK}",
-    { method: "POST" },
-    (res) => {
-      console.log("statusCode:", res.statusCode);
-    }
-  );
+exports.handler = schedule("${this.dateToCron(postDates[0])}", async () => {
+  await new Promise((resolve, reject) => {
+    const req = request(
+      "https://api.netlify.com/build_hooks/${process.env.BUILD_HOOK}",
+      { method: "POST" },
+      (res) => {
+        console.log("statusCode:", res.statusCode);
+        resolve();
+      }
+    );
 
-  req.on("error", (e) => {
-    console.error(e);
+    req.on("error", (e) => {
+      console.error(e);
+      reject();
+    });
+    req.end();
   });
-  req.end();
 
   return {
     statusCode: 200,
@@ -211,3 +219,7 @@ getUTCPostDate(date) {
 This post was published with this method! I figured what better post to test it on than a post about the thing itself. Is that [dogfooding](https://en.wikipedia.org/wiki/Eating_your_own_dog_food)?
 
 Anyway, I hope this helps you figure out how to use Netlify Scheduled Functions to rebuild your own site!
+
+## Edit (2022-12-07 14:12)
+
+I noticed that my Scheduled Function ran 3 times, and this was down to Netlify requiring an async function to be passed. I've updated the examples above.
