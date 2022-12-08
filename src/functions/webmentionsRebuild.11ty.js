@@ -45,13 +45,11 @@ class NextBuild {
       { encoding: "utf-8" }
     );
 
-    return (
-      template
-        .replace("<<domain>>", site.domain)
-        .replace("<<token>>", site.webmentionToken)
-        // .replace("<<since>>", webmentionsLastFetched.toISOString())
-        .replace("<<build_hook>>", process.env.BUILD_HOOK)
-    );
+    return template
+      .replace("<<domain>>", site.domain)
+      .replace("<<token>>", site.webmentionToken)
+      .replace("<<since>>", webmentionsLastFetched.toISOString())
+      .replace("<<build_hook>>", process.env.BUILD_HOOK);
   }
 }
 

@@ -4,7 +4,7 @@ const { schedule } = require("@netlify/functions");
 exports.handler = schedule("0 * * * *", async () => {
   const webmentions = await new Promise((resolve, reject) => {
     const req = request(
-      "https://webmention.io/api/mentions.jf2?domain=<<domain>>&token=<<token>>&since=2022-12-08T12:23:43.310Z",
+      "https://webmention.io/api/mentions.jf2?domain=<<domain>>&token=<<token>>&since=<<since>>",
       { method: "get" },
       (res) => {
         console.log("statusCode:", res.statusCode);
@@ -33,6 +33,9 @@ exports.handler = schedule("0 * * * *", async () => {
   });
 
   if (webmentions.children.length > 0) {
+    console.log(
+      `At least ${webmentions.children.length} new webmentions, rebuilding`
+    );
     await new Promise((resolve, reject) => {
       const req = request(
         "https://api.netlify.com/build_hooks/<<build_hook>>",
