@@ -5,7 +5,7 @@ const { zonedTimeToUtc } = require("date-fns-tz");
 class NextBuild {
   data() {
     return {
-      permalink: "netlify/functions/build.js",
+      permalink: "netlify/functions/scheduledRebuild.generated.js",
       permalinkBypassOutputDir: true,
     };
   }
@@ -35,7 +35,13 @@ class NextBuild {
 
   async render({ collections, site }) {
     const template = await readFile(
-      path.join(__dirname, "..", "_scripts", "templates", "buildFunction.js"),
+      path.join(
+        __dirname,
+        "..",
+        "_scripts",
+        "templates",
+        "scheduledRebuild.js"
+      ),
       { encoding: "utf-8" }
     );
 

@@ -122,4 +122,4 @@ _webmentioncache
 
 # Local Netlify folder
 .netlify
-netlify/functions/build.js
+netlify/functions/*.generated.js
