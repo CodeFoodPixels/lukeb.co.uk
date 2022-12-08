@@ -5,7 +5,7 @@ const { zonedTimeToUtc } = require("date-fns-tz");
 class NextBuild {
   data() {
     return {
-      permalink: "netlify/functions/scheduledRebuild.generated.js",
+      permalink: "netlify/functions/scheduledRebuild-generated.js",
       permalinkBypassOutputDir: true,
     };
   }
