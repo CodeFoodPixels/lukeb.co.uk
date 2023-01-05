@@ -1,6 +1,7 @@
 const fs = require("fs").promises;
 const path = require("path");
 const autoprefixer = require("autoprefixer");
+const postcssImport = require("postcss-import");
 const postcss = require("postcss");
 
 module.exports = async () => {
@@ -8,7 +9,7 @@ module.exports = async () => {
     path.join(__dirname, "..", "static", "css", "main.css")
   );
 
-  const result = await postcss([autoprefixer]).process(css, {
+  const result = await postcss([postcssImport, autoprefixer]).process(css, {
     from: path.join(__dirname, "..", "static", "css", "main.css"),
     to: path.join(__dirname, "..", "..", "dist", "static", "css", "dist.css"),
   });

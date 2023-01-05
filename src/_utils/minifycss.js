@@ -5,24 +5,9 @@ const csso = require("csso");
 
 module.exports = async function (content) {
   if (this.outputPath && this.outputPath.endsWith(".html")) {
-    const css = (
-      await Promise.all([
-        fs.readFile(
-          path.join(
-            __dirname,
-            "..",
-            "..",
-            "dist",
-            "static",
-            "css",
-            "prism-a11y-dark.css"
-          )
-        ),
-        fs.readFile(
-          path.join(__dirname, "..", "..", "dist", "static", "css", "dist.css")
-        ),
-      ])
-    ).join(" ");
+    const css = await fs.readFile(
+      path.join(__dirname, "..", "..", "dist", "static", "css", "dist.css")
+    );
 
     const purgeCSSResult = await new PurgeCSS().purge({
       content: [{ raw: content, extension: "html" }],

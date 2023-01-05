@@ -1,13 +1,15 @@
+@import "./prism-a11y-dark.css";
+
 :root {
-  --content-margin: 0rem;
-  --content-max-width: 60rem;
-  --nav__item-flex-basis: 33%;
   --highlight-color--lighter: hsl(0, 65%, 52%);
   --highlight-color: hsl(0, 75%, 42%);
   --highlight-color--darker: hsl(0, 85%, 32%);
   --highlight-color-hover--lighter: hsl(0, 70%, 47%);
   --highlight-color-hover: hsl(0, 80%, 37%);
   --highlight-color-hover--darker: hsl(0, 90%, 27%);
+  --content-margin: 0rem;
+  --content-max-width: 60rem;
+  --nav__item-flex-basis: 33%;
   --button-background: linear-gradient(
       180deg,
       var(--highlight-color--lighter) 0rem,
