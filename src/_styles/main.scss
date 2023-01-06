@@ -1,12 +1,25 @@
-@import "./prism-a11y-dark.css";
+@use "sass:color";
+@use "./prism-a11y-dark.css";
+
+$highlight-color: #bb1b1b;
+$highlight-color: color.scale($highlight-color, $saturation: 20%);
+$highlight-color--lighter: color.scale($highlight-color, $lightness: 20%, $saturation: -20%);
+$highlight-color--darker: color.scale($highlight-color, $lightness: -20%, $saturation: 20%);
+$highlight-color-hover: color.scale($highlight-color, $lightness: -10%, $saturation: 10%);
+$highlight-color-hover--lighter: color.scale($highlight-color-hover, $lightness: 20%, $saturation: -20%);
+$highlight-color-hover--darker: color.scale($highlight-color-hover, $lightness: -20%, $saturation: 20%);
 
 :root {
-  --highlight-color--lighter: hsl(0, 65%, 52%);
-  --highlight-color: hsl(0, 75%, 42%);
-  --highlight-color--darker: hsl(0, 85%, 32%);
-  --highlight-color-hover--lighter: hsl(0, 70%, 47%);
-  --highlight-color-hover: hsl(0, 80%, 37%);
-  --highlight-color-hover--darker: hsl(0, 90%, 27%);
+  --content-background-color: #ffffff;
+  --content-text-color: #000000;
+  --content-link-color: #{$highlight-color};
+  --code-block-background: #2b2b2b;
+  --highlight-color--lighter: #{$highlight-color--lighter};
+  --highlight-color: #{$highlight-color};
+  --highlight-color--darker: #{$highlight-color--darker};
+  --highlight-color-hover--lighter: #{$highlight-color-hover--lighter};
+  --highlight-color-hover: #{$highlight-color-hover};
+  --highlight-color-hover--darker: #{$highlight-color-hover--darker};
   --content-margin: 0rem;
   --content-max-width: 60rem;
   --nav__item-flex-basis: 33%;
@@ -60,6 +73,15 @@
   --laser-width: 0rem;
   --laser-endstop: 0rem;
   --spaceship-entrance-time: 3s;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --content-background-color: #181818;
+    --content-text-color: #ffffff;
+    --content-link-color: #FE1412;
+    --code-block-background: #444444;
+  }
 }
 
 html {
@@ -450,7 +472,7 @@ a:hover {
 }
 
 .content {
-  background: #ffffff;
+  background: var(--content-background-color);
   padding: 1rem;
   position: relative;
   margin: 0 auto 1rem;
@@ -459,7 +481,7 @@ a:hover {
   box-sizing: border-box;
   flex: 1;
   font-family: Courier, monospace;
-  color: #000000;
+  color: var(--content-text-color);
 }
 
 .content:focus {
@@ -467,13 +489,10 @@ a:hover {
 }
 
 .content a,
-.content a:visited {
-  color: var(--highlight-color);
-}
-
+.content a:visited,
 .content a:hover,
 .content a:active {
-  color: var(--highlight-color-hover);
+  color: var(--content-link-color);
 }
 
 .content img,
@@ -537,13 +556,9 @@ a:hover {
 .content__header h2 a:hover,
 .content__header h2 a:visited,
 .content__header h2 a:active {
-  color: #000000;
+  color: var(--content-text-color);
   text-decoration: none;
   display: inline-block;
-}
-
-.content__header a:hover {
-  color: var(--highlight-color);
 }
 
 .content__meta {
@@ -1429,10 +1444,12 @@ img.webmention__author-photo-image {
 }
 
 /* prismjs overrides */
-:not(pre) > code {
-  background: #2b2b2b;
+:not(pre) > code, :not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: var(--code-block-background);
   color: #ffffff;
 }
+:not(pre) > code[class*="language-"], pre[class*="language-"]
 
 pre[class*="language-"],
 :not(pre) > code {

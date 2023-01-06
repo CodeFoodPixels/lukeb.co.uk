@@ -7,8 +7,8 @@ const slugify = require("slugify");
 const prettier = require("prettier");
 const { zonedTimeToUtc } = require("date-fns-tz");
 
-const postcss = require("./src/_utils/postcss.js");
-const minifycss = require("./src/_utils/minifycss.js");
+const processCss = require("./src/_utils/processCss.js");
+const minifyCss = require("./src/_utils/minifyCss.js");
 const {
   imageShortcode,
   svgShortcode,
@@ -24,6 +24,8 @@ const demoImageShortcode = require("./src/_utils/demoImageShortcode.js");
 const webmentions = require("eleventy-plugin-webmentions");
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addWatchTarget("./src/_styles/");
+
   const slug = (input) => {
     const options = {
       replacement: "-",
@@ -53,14 +55,14 @@ module.exports = function (eleventyConfig) {
   });
 
   // Build processes
-  eleventyConfig.on("beforeBuild", postcss);
+  eleventyConfig.on("beforeBuild", processCss);
   eleventyConfig.addTransform("inlinecode", (content) => {
     if (this.outputPath && this.outputPath.endsWith(".html")) {
       return content.replace(/<code>/g, '<code class="language-inline">');
     }
     return content;
   });
-  eleventyConfig.addTransform("minifycss", minifycss);
+  eleventyConfig.addTransform("minifycss", minifyCss);
 
   // Passthrough copy
   eleventyConfig.addPassthroughCopy("src/service-worker.js");
@@ -86,7 +88,7 @@ module.exports = function (eleventyConfig) {
   );
 
   eleventyConfig.addPairedNunjucksShortcode("stripFrontmatter", (content) => {
-    return content.replace(/---((.|\n)*)---/, "");
+    return content.replace(/^---((.|\n)*)---/, "");
   });
 
   // Filters
