@@ -1,4 +1,5 @@
 const site = require("./src/_data/site")();
+const redirects = require("./src/_data/redirects.json");
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const readingTime = require("eleventy-plugin-reading-time");
@@ -150,6 +151,12 @@ module.exports = function (eleventyConfig) {
     token: "pDjIX81PRC-fGTpGYOXOMQ",
     truncationMarker:
       '&hellip; <span class="webmention__truncated">Truncated</span>',
+    pageAliases: Object.keys(redirects).reduce((aliases, key) => {
+      if (key.match(/^\/[0-9]/)) {
+        aliases[redirects[key]] = key;
+      }
+      return aliases;
+    }, {}),
     sanitizeOptions: {
       ...webmentions.defaults.sanitizeOptions,
       allowedAttributes: {

@@ -1,0 +1,7 @@
+---
+permalink: '/_redirects'
+---
+
+{%- for url, redirect in redirects -%}
+  {{ url }}{{ " " }}{{ redirect }} 301!
+{% endfor -%}
