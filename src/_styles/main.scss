@@ -175,10 +175,10 @@ h5::after,
   display: block;
   background: repeating-linear-gradient(
     90deg,
-    #000000 0rem,
-    #000000 0.5rem,
-    #ffffff 0.5rem,
-    #ffffff 1rem
+    var(--content-text-color) 0rem,
+    var(--content-text-color) 0.5rem,
+    transparent 0.5rem,
+    transparent 1rem
   );
   margin-top: 0.5rem;
 }
