@@ -5,7 +5,6 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const readingTime = require("eleventy-plugin-reading-time");
 const nunjucksDate = require("nunjucks-date-filter");
 const slugify = require("slugify");
-const prettier = require("prettier");
 const { zonedTimeToUtc } = require("date-fns-tz");
 
 const processCss = require("./src/_utils/processCss.js");
@@ -21,6 +20,7 @@ const markdownIt = require("markdown-it");
 const markdownItLinkAttributes = require("markdown-it-link-attributes");
 const markdownItAnchor = require("markdown-it-anchor");
 const demoImageShortcode = require("./src/_utils/demoImageShortcode.js");
+const demo = require("demo-plugin");
 
 const webmentions = require("eleventy-plugin-webmentions");
 
@@ -81,16 +81,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksAsyncShortcode("demoImage", demoImageShortcode);
   eleventyConfig.addNunjucksAsyncShortcode("video", videoShortcode);
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
-  eleventyConfig.addPairedNunjucksAsyncShortcode(
-    "prettier",
-    async (code, parser) => {
-      return prettier.format(code, { parser });
-    }
-  );
-
-  eleventyConfig.addPairedNunjucksShortcode("stripFrontmatter", (content) => {
-    return content.replace(/^---((.|\n)*)---/, "");
-  });
 
   // Filters
   eleventyConfig.addFilter("date", nunjucksDate);
@@ -192,6 +182,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(readingTime);
   eleventyConfig.addPlugin(rssPlugin);
+  eleventyConfig.addPlugin(demo, { demoPath: "./src/demos" });
   eleventyConfig.addPlugin(syntaxHighlight, {
     init: ({ Prism }) => {
       Prism.languages.nunjucks = {

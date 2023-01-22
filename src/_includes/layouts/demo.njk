@@ -5,20 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    {% if page.filePathStem | replace("index", "styles.css") | demoFileExists %}
-      <style>
-        {% include "../../" + page.filePathStem | replace("index", "styles.css") %}
-      </style>
-    {% endif %}
+    {% demoCss %}
   </head>
   <body>
     <main id="demo-content" title="{{ title }}">
       {{ content | safe }}
     </main>
-    {% if page.filePathStem | replace("index", "main.js") | demoFileExists %}
-      <script>
-        {% include "../../" + page.filePathStem | replace("index", "main.js") %}
-      </script>
-    {% endif %}
+    {% demoJS %}
   </body>
 </html>

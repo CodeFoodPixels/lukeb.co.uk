@@ -30,28 +30,23 @@ In all of the examples on this page, I'll be using images as they help visualise
 
 The example below shows how we can apply `clip-path` to an image using pixel values to show only a specified area.
 
-{% set demoPath = "clip-path/basic" %}
-{% include "components/demo.njk" %}
+{% demo "clip-path/basic" %}
 
 This is fine if we know the size of our images and want to apply it to images with that particular size, otherwise we'll end up cropping out bits of larger or differently proportioned images. In the below example, the same image and `clip-path` are used, but one image is `300px` and the other is `600px`. As we can see, it shows the same size section of the image, but it shows different parts of the image.
 
-{% set demoPath = "clip-path/basic-wrong-size" %}
-{% include "components/demo.njk" %}
+{% demo "clip-path/basic-wrong-size" %}
 
 If we want to allow the `clip-path` to flex and fit the image that we're applying it to, we can use percentages. This means that the clip path is based on a percentage of the image's dimensions, as can be seen below.
 
-{% set demoPath = "clip-path/basic-percentages" %}
-{% include "components/demo.njk" %}
+{% demo "clip-path/basic-percentages" %}
 
 We can also combine fixed units and percentages to achieve a balance between the look that we want and flexability.
 
-{% set demoPath = "clip-path/combined" %}
-{% include "components/demo.njk" %}
+{% demo "clip-path/combined" %}
 
 Finally, using the CSS `calc` function means that we can achieve offsets from each edge while still staying flexible to different shapes and sizes of image.
 
-{% set demoPath = "clip-path/combined-calc" %}
-{% include "components/demo.njk" %}
+{% demo "clip-path/combined-calc" %}
 
 So now that we have all of the bits of knowledge that we have for the CSS side, lets look at the corner itself.
 
@@ -82,8 +77,7 @@ This gives us the top left corner. By using `calc()` and flipping horizontally a
 
 As you can see in the below demo, while it compares well to the `border-radius` example, it's not very noticable at the current scale because we're doing it on a single pixel basis.
 
-{% set demoPath = "clip-path/rounded-corners" %}
-{% include "components/demo.njk" %}
+{% demo "clip-path/rounded-corners" %}
 
 To make it clearer, we have to scale the pixels up. I personally use a scaling multiplier of 4, so 4 on-screen pixels is one pixel in the design. To actually implement this, we take the fixed values from the previous example and multiply them by our scaling multiplier, so the top left corner would be the following:
 
@@ -104,8 +98,7 @@ clip-path: polygon(
 
 After applying this to the rest of the corners, it looks like the below demo:
 
-{% set demoPath = "clip-path/rounded-corners-scaled" %}
-{% include "components/demo.njk" %}
+{% demo "clip-path/rounded-corners-scaled" %}
 
 We have some nice pixelated rounded corners! I think it looks great and fits in really well on my site. This technique can be used for all sorts of shapes though, and it doesn't have to be pixelated.
 
