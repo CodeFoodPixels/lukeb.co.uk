@@ -14,7 +14,6 @@ const {
   svgShortcode,
 } = require("./src/_utils/imageShortcodes.js");
 const videoShortcode = require("./src/_utils/videoShortcode.js");
-const demoFileExists = require("./src/_utils/demoFileExists.js");
 
 const markdownIt = require("markdown-it");
 const markdownItLinkAttributes = require("markdown-it-link-attributes");
@@ -84,8 +83,6 @@ module.exports = function (eleventyConfig) {
 
   // Filters
   eleventyConfig.addFilter("date", nunjucksDate);
-
-  eleventyConfig.addNunjucksFilter("demoFileExists", demoFileExists);
 
   eleventyConfig.addFilter("debug", (data) => {
     console.log("");
