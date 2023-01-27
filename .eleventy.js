@@ -19,7 +19,7 @@ const markdownIt = require("markdown-it");
 const markdownItLinkAttributes = require("markdown-it-link-attributes");
 const markdownItAnchor = require("markdown-it-anchor");
 const demoImageShortcode = require("./src/_utils/demoImageShortcode.js");
-const demo = require("demo-plugin");
+const demo = require("eleventy-plugin-embedded-demos");
 
 const webmentions = require("eleventy-plugin-webmentions");
 
@@ -179,7 +179,9 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(readingTime);
   eleventyConfig.addPlugin(rssPlugin);
-  eleventyConfig.addPlugin(demo, { demoPath: "./src/demos" });
+  eleventyConfig.addPlugin(demo, {
+    path: "./src/demos",
+  });
   eleventyConfig.addPlugin(syntaxHighlight, {
     init: ({ Prism }) => {
       Prism.languages.nunjucks = {
