@@ -20,6 +20,7 @@ const markdownItLinkAttributes = require("markdown-it-link-attributes");
 const markdownItAnchor = require("markdown-it-anchor");
 const demoImageShortcode = require("./src/_utils/demoImageShortcode.js");
 const demo = require("eleventy-plugin-embedded-demos");
+const avatars = require("./eleventy-plugin-link-avatars");
 
 const webmentions = require("eleventy-plugin-webmentions");
 
@@ -62,7 +63,18 @@ module.exports = function (eleventyConfig) {
     }
     return content;
   });
-  eleventyConfig.addTransform("minifycss", minifyCss);
+
+  eleventyConfig.addPlugin(avatars, {
+    excludedUrls: ["https://lukeb.co.uk"],
+    includeSelectors: ["#main-content"],
+    excludeSelectors: [],
+    outputDir: "./dist/static/images/",
+    urlPath: "/static/images/",
+  });
+
+  eleventyConfig.addPlugin((eleventyConfig) =>
+    eleventyConfig.addTransform("minifycss", minifyCss)
+  );
 
   // Passthrough copy
   eleventyConfig.addPassthroughCopy("src/service-worker.js");
@@ -185,14 +197,18 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight, {
     init: ({ Prism }) => {
       Prism.languages.nunjucks = {
-        keyword: /\b(?:comment|endcomment|if|elsif|else|endif|unless|endunless|for|endfor|case|endcase|when|in|break|assign|continue|limit|offset|range|reversed|raw|endraw|capture|endcapture|tablerow|endtablerow)\b/,
-        number: /\b0b[01]+\b|\b0x(?:\.[\da-fp-]+|[\da-f]+(?:\.[\da-fp-]+)?)\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?[df]?/i,
+        keyword:
+          /\b(?:comment|endcomment|if|elsif|else|endif|unless|endunless|for|endfor|case|endcase|when|in|break|assign|continue|limit|offset|range|reversed|raw|endraw|capture|endcapture|tablerow|endtablerow)\b/,
+        number:
+          /\b0b[01]+\b|\b0x(?:\.[\da-fp-]+|[\da-f]+(?:\.[\da-fp-]+)?)\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?[df]?/i,
         operator: {
-          pattern: /(^|[^.])(?:\+[+=]?|-[-=]?|!=?|<<?=?|>>?>?=?|==?|&[&=]?|\|[|=]?|\*=?|\/=?|%=?|\^=?|[?:~])/m,
+          pattern:
+            /(^|[^.])(?:\+[+=]?|-[-=]?|!=?|<<?=?|>>?>?=?|==?|&[&=]?|\|[|=]?|\*=?|\/=?|%=?|\^=?|[?:~])/m,
           lookbehind: true,
         },
         function: {
-          pattern: /(^|[\s;|&])(?:append|prepend|capitalize|cycle|cols|increment|decrement|abs|at_least|at_most|ceil|compact|concat|date|default|divided_by|downcase|escape|escape_once|first|floor|join|last|lstrip|map|minus|modulo|newline_to_br|plus|remove|remove_first|replace|replace_first|reverse|round|rstrip|size|slice|sort|sort_natural|split|strip|strip_html|strip_newlines|times|truncate|truncatewords|uniq|upcase|url_decode|url_encode|include|paginate)(?=$|[\s;|&])/,
+          pattern:
+            /(^|[\s;|&])(?:append|prepend|capitalize|cycle|cols|increment|decrement|abs|at_least|at_most|ceil|compact|concat|date|default|divided_by|downcase|escape|escape_once|first|floor|join|last|lstrip|map|minus|modulo|newline_to_br|plus|remove|remove_first|replace|replace_first|reverse|round|rstrip|size|slice|sort|sort_natural|split|strip|strip_html|strip_newlines|times|truncate|truncatewords|uniq|upcase|url_decode|url_encode|include|paginate)(?=$|[\s;|&])/,
           lookbehind: true,
         },
       };

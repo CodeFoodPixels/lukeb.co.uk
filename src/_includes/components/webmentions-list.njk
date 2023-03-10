@@ -1,5 +1,5 @@
 {%- set postMentions = webmentions | webmentionsForPage -%}
-<article id="webmentions" class="webmentions">
+<article id="webmentions" class="webmentions eleventy-plugin-link-avatars--optout">
   <header class="webmentions__header">
     <h2>
       {{ postMentions.total }} Response{%- if (postMentions.total !== 1) %}s{% endif %}
