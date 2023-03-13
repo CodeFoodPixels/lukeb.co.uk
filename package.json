@@ -9,7 +9,8 @@
     "netlify-dev": "netlify dev",
     "netlify-build": "netlify build",
     "new": "node ./src/_scripts/new.js",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "postinstall": "cd eleventy-plugin-link-avatars && npm i"
   },
   "repository": {
     "type": "git",
