@@ -1,0 +1,95 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
+p,
+pre[class*="language-"] {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 2rem 0 1.38rem;
+  font-family: "Press Start 2P Modified", Courier, monospace;
+  font-weight: 400;
+  line-height: 0.9;
+  padding: 0;
+  width: fit-content;
+}
+
+.content__header h2 {
+  margin-top: 1.38rem;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 4.209rem;
+}
+
+h2 {
+  font-size: 3.157rem;
+}
+
+h3 {
+  font-size: 2.369rem;
+}
+
+h4 {
+  font-size: 1.777rem;
+}
+
+h5 {
+  font-size: 1.333rem;
+}
+
+small,
+.text_small {
+  font-size: 0.833rem;
+}
+
+.content__header::after,
+h2:not(.content__header h2)::after,
+h3::after,
+h4::after,
+h5::after,
+.content__footer::before,
+.content__footer::after,
+.webmentions::before,
+.webmentions__header::after {
+  content: " ";
+  height: 0.25rem;
+  width: 100%;
+  display: block;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--content-text-color) 0rem,
+    var(--content-text-color) 0.5rem,
+    transparent 0.5rem,
+    transparent 1rem
+  );
+  margin-top: 0.5rem;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  color: #ffffff;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "Press Start 2P Modified";
+  src: url("/static/fonts/pressstart2p.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}

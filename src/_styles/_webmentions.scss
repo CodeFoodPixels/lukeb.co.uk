@@ -1,0 +1,119 @@
+.webmentions__form-label {
+  display: block;
+}
+
+.webmentions__field-wrapper {
+  display: inline-flex;
+}
+
+.webmentions__form-field {
+  border: 0.0625rem solid black;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: Courier, monospace;
+  height: 2rem;
+  box-sizing: border-box;
+  margin-right: 0.5rem;
+}
+
+.webmentions__form-submit {
+  font-size: 1rem;
+  font-family: Courier, monospace;
+  height: 2rem;
+  display: inline-block;
+  border: 0;
+  padding: 0.45rem 1rem 0.55rem;
+  background: var(--button-background);
+  color: #ffffff;
+}
+
+.webmentions__form-submit:active {
+  background: var(--button-background--clicked);
+  padding: 0.55rem 1rem 0.45rem;
+}
+
+.webmentions__facepile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.webmentions__face-link {
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.webmentions__list {
+  list-style: none;
+  padding-left: 0rem;
+}
+
+.webmentions__item {
+  margin-bottom: 2rem;
+}
+
+.webmention__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.webmention__author-photo-wrapper {
+  width: 3rem;
+  height: 3rem;
+  clip-path: polygon(
+    0rem 1rem,
+    0.25rem 1rem,
+    0.25rem 0.5rem,
+    0.5rem 0.5rem,
+    0.5rem 0.25rem,
+    1rem 0.25rem,
+    1rem 0rem,
+    calc(100% - 1rem) 0rem,
+    calc(100% - 1rem) 0.25rem,
+    calc(100% - 0.5rem) 0.25rem,
+    calc(100% - 0.5rem) 0.5rem,
+    calc(100% - 0.25rem) 0.5rem,
+    calc(100% - 0.25rem) 1rem,
+    100% 1rem,
+    100% calc(100% - 1rem),
+    calc(100% - 0.25rem) calc(100% - 1rem),
+    calc(100% - 0.25rem) calc(100% - 0.5rem),
+    calc(100% - 0.5rem) calc(100% - 0.5rem),
+    calc(100% - 0.5rem) calc(100% - 0.25rem),
+    calc(100% - 1rem) calc(100% - 0.25rem),
+    calc(100% - 1rem) 100%,
+    1rem 100%,
+    1rem calc(100% - 0.25rem),
+    0.5rem calc(100% - 0.25rem),
+    0.5rem calc(100% - 0.5rem),
+    0.25rem calc(100% - 0.5rem),
+    0.25rem calc(100% - 1rem),
+    0rem calc(100% - 1rem)
+  );
+  background-image: url("/static/images/webmention-avatar-default.svg");
+  color: transparent;
+}
+
+img.webmention__author-photo-image {
+  object-fit: cover;
+  clip-path: none;
+  width: 3rem;
+  height: 3rem;
+}
+
+.webmention__meta .webmention__author-photo-wrapper {
+  margin-right: 0.5rem;
+}
+
+.webmention__author-name {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.webmention__truncated {
+  padding: 0.125rem 0.25rem;
+  background: #666;
+  color: white;
+}

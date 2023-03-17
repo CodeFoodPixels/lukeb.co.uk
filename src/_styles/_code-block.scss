@@ -1,0 +1,58 @@
+@use "./prism-a11y-dark.css";
+
+:not(pre) > code,
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: var(--code-block-background);
+  color: #ffffff;
+}
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] pre[class*="language-"],
+:not(pre) > code {
+  border-radius: 0;
+}
+
+code,
+pre[class*="language-"] {
+  font-family: Courier, monospace;
+}
+
+:not(pre) > code {
+  padding: 0.25rem 0.5rem;
+}
+
+pre[class*="language-"] {
+  position: relative;
+}
+
+pre[class*="language"]::before {
+  position: relative;
+  top: -0.5rem;
+  left: -0.5rem;
+  display: block;
+  width: min-content;
+  padding: 0.5rem;
+  background: var(--highlight-color);
+}
+
+pre.language-js::before,
+pre.language-javascript::before {
+  content: "JavaScript";
+}
+
+pre.language-css::before {
+  content: "CSS";
+}
+
+pre.language-json::before {
+  content: "JSON";
+}
+
+pre.language-html::before {
+  content: "HTML";
+}
+
+pre.language-njk::before,
+pre.language-nunjucks::before {
+  content: "Nunjucks";
+}

@@ -1,0 +1,44 @@
+.easter {
+  overflow: hidden;
+}
+
+.easter .header__background,
+.easter .header--hero .header__laser,
+.easter .header--hero .header__asteroid,
+.easter .header--hero .header__asteroid::before,
+.easter .header--hero .header__spaceship-wrapper,
+.easter .header--hero .header__spaceship-wrapper svg,
+.easter .header__spaceship-wrapper,
+.easter .header__spaceship-wrapper svg,
+.easter .header__start-text {
+  animation: none;
+}
+
+.easter__overlay {
+  position: fixed;
+  top: 0rem;
+  left: 0rem;
+  bottom: 0rem;
+  right: 0rem;
+  background: #000000;
+  opacity: 0.9;
+}
+
+.easter__close {
+  position: fixed;
+  top: 50%;
+  margin-top: -10rem;
+  right: 50%;
+  font-family: "Press Start 2P Modified", Courier, monospace;
+  color: #ffffff;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+}
+
+.easter__canvas {
+  position: fixed;
+  top: 50%;
+  margin-top: -10rem;
+  left: 50%;
+}

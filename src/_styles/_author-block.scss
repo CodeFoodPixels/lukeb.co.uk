@@ -1,0 +1,50 @@
+.author {
+  display: flex;
+  margin-top: 2rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.author__image {
+  max-width: none;
+  margin-bottom: 1rem;
+}
+
+.author__follow-links {
+  display: block;
+  line-height: 2;
+}
+
+.author__follow-link {
+  padding: 0.5rem;
+  font-family: "Press Start 2P Modified", Courier, monospace;
+  font-size: 1.2em;
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+a.author__follow-link--mastodon,
+a.author__follow-link--mastodon:hover,
+a.author__follow-link--mastodon:visited,
+a.author__follow-link--mastodon:active {
+  background: #563acc;
+  color: #ffffff;
+}
+
+a.author__follow-link--rss,
+a.author__follow-link--rss:hover,
+a.author__follow-link--rss:visited,
+a.author__follow-link--rss:active {
+  background: #ef8021;
+  color: #000000;
+}
+
+@media screen and (min-width: 48rem) {
+  .author {
+    flex-direction: row;
+  }
+
+  .content img.author__image {
+    margin-right: 1rem;
+  }
+}

@@ -1,0 +1,70 @@
+:root {
+  --link-avatar-size: calc(var(--visual-pixel) * 8);
+}
+
+.eleventy-plugin-link-avatars__image {
+  width: var(--link-avatar-size);
+  height: var(--link-avatar-size);
+  vertical-align: middle;
+  margin: var(--visual-pixel);
+  margin-left: calc(var(--visual-pixel) * 2);
+}
+
+.eleventy-plugin-link-avatars__link::after {
+  content: "";
+  clip-path: polygon(
+    0 calc(var(--visual-pixel) * 2),
+    var(--visual-pixel) calc(var(--visual-pixel) * 2),
+    var(--visual-pixel) var(--visual-pixel),
+    calc(var(--visual-pixel) * 2) var(--visual-pixel),
+    calc(var(--visual-pixel) * 2) 0,
+    50% 0,
+    50% var(--visual-pixel),
+    calc(var(--visual-pixel) * 3) var(--visual-pixel),
+    calc(var(--visual-pixel) * 3) calc(var(--visual-pixel) * 2),
+    calc(var(--visual-pixel) * 2) calc(var(--visual-pixel) * 2),
+    calc(var(--visual-pixel) * 2) calc(var(--visual-pixel) * 3),
+    var(--visual-pixel) calc(var(--visual-pixel) * 3),
+    var(--visual-pixel) calc(100% - calc(var(--visual-pixel) * 3)),
+    calc(var(--visual-pixel) * 2) calc(100% - calc(var(--visual-pixel) * 3)),
+    calc(var(--visual-pixel) * 2) calc(100% - calc(var(--visual-pixel) * 2)),
+    calc(var(--visual-pixel) * 3) calc(100% - calc(var(--visual-pixel) * 2)),
+    calc(var(--visual-pixel) * 3) calc(100% - var(--visual-pixel)),
+    calc(100% - calc(var(--visual-pixel) * 3)) calc(100% - var(--visual-pixel)),
+    calc(100% - calc(var(--visual-pixel) * 3))
+      calc(100% - calc(var(--visual-pixel) * 2)),
+    calc(100% - calc(var(--visual-pixel) * 2))
+      calc(100% - calc(var(--visual-pixel) * 2)),
+    calc(100% - calc(var(--visual-pixel) * 2))
+      calc(100% - calc(var(--visual-pixel) * 3)),
+    calc(100% - var(--visual-pixel)) calc(100% - calc(var(--visual-pixel) * 3)),
+    calc(100% - var(--visual-pixel)) calc(var(--visual-pixel) * 3),
+    calc(100% - calc(var(--visual-pixel) * 2)) calc(var(--visual-pixel) * 3),
+    calc(100% - calc(var(--visual-pixel) * 2)) calc(var(--visual-pixel) * 2),
+    calc(100% - calc(var(--visual-pixel) * 3)) calc(var(--visual-pixel) * 2),
+    calc(100% - calc(var(--visual-pixel) * 3)) var(--visual-pixel),
+    50% var(--visual-pixel),
+    50% 0,
+    calc(100% - calc(var(--visual-pixel) * 2)) 0,
+    calc(100% - calc(var(--visual-pixel) * 2)) var(--visual-pixel),
+    calc(100% - var(--visual-pixel)) var(--visual-pixel),
+    calc(100% - var(--visual-pixel)) calc(var(--visual-pixel) * 2),
+    100% calc(var(--visual-pixel) * 2),
+    100% calc(100% - calc(var(--visual-pixel) * 2)),
+    calc(100% - var(--visual-pixel)) calc(100% - calc(var(--visual-pixel) * 2)),
+    calc(100% - var(--visual-pixel)) calc(100% - var(--visual-pixel)),
+    calc(100% - calc(var(--visual-pixel) * 2)) calc(100% - var(--visual-pixel)),
+    calc(100% - calc(var(--visual-pixel) * 2)) 100%,
+    calc(var(--visual-pixel) * 2) 100%,
+    calc(var(--visual-pixel) * 2) calc(100% - var(--visual-pixel)),
+    var(--visual-pixel) calc(100% - var(--visual-pixel)),
+    var(--visual-pixel) calc(100% - calc(var(--visual-pixel) * 2)),
+    0 calc(100% - calc(var(--visual-pixel) * 2))
+  );
+  display: inline-block;
+  width: calc(var(--link-avatar-size) + 0.5rem);
+  height: calc(var(--link-avatar-size) + 0.5rem);
+  background: var(--content-link-color);
+  margin-left: calc(calc(var(--link-avatar-size) + 0.5rem) * -1);
+  vertical-align: middle;
+}

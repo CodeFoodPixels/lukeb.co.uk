@@ -1,0 +1,272 @@
+:root {
+  --header-name-text-size: 3.2rem;
+  --header-start-text-size: 1.6rem;
+  --spaceship-height: calc(var(--visual-pixel) * 20);
+  --spaceship-movement: var(--visual-pixel);
+  --header-background-size: calc(var(--visual-pixel) * 100);
+  --header-line-width: var(--visual-pixel);
+  --header-line-spacing: calc(var(--visual-pixel) * 2);
+  --spaceship-container-height: calc(var(--visual-pixel) * 20);
+  --header-content-width: max(100vw, var(--header-background-size));
+  --asteroid-position: 0rem;
+  --asteroid-size: 0rem;
+  --laser-height: 0rem;
+  --laser-width: 0rem;
+  --laser-endstop: 0rem;
+}
+
+.header {
+  position: relative;
+  overflow: hidden;
+  line-height: 0.7;
+}
+
+.header__background {
+  position: absolute;
+  width: calc(200vw + var(--header-background-size));
+  height: 100%;
+  top: 0rem;
+  left: 0rem;
+  background: url("/static/images/stars.svg"), #000000;
+  background-size: var(--header-background-size);
+  will-change: transform;
+  z-index: -1;
+}
+
+.header__content {
+  min-height: 12.5rem;
+  width: calc(100vw - (var(--content-margin) * 2));
+  max-width: var(--content-max-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+  padding: calc(var(--spaceship-movement) * 2) 0rem;
+  box-sizing: border-box;
+}
+
+.header__content::after {
+  content: " ";
+  flex: var(--header-flex);
+}
+
+.header__spaceship {
+  display: flex;
+  align-items: center;
+  flex: var(--header-flex);
+}
+
+.header__spaceship-wrapper svg {
+  height: var(--spaceship-height);
+  width: calc(var(--spaceship-height) * 2);
+  will-change: transform;
+  display: block;
+}
+
+.header__text {
+  font-family: "Press Start 2P Modified", Courier, monospace;
+  color: #ffffff;
+  text-align: center;
+  width: min-content;
+  height: min-content;
+  user-select: none;
+  margin-top: 0.5rem;
+  perspective: calc(var(--header-name-text-size) * 0.75);
+  line-height: 0.7;
+}
+
+.header__name {
+  font-size: var(--header-name-text-size);
+  text-transform: uppercase;
+  transform: rotateX(5deg);
+  transform-origin: 100% 100%;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: #ffffff;
+  display: block;
+}
+
+.header__start {
+  display: flex;
+  font-size: var(--header-start-text-size);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.header__start-text {
+  opacity: 1;
+  will-change: opacity;
+}
+
+.header__start:before,
+.header__start:after {
+  content: "";
+  flex: 1;
+  height: var(--header-line-width);
+  background: #ffffff;
+}
+
+.header__start:before {
+  margin-right: var(--header-line-spacing);
+}
+
+.header__start:after {
+  margin-left: var(--header-line-spacing);
+}
+
+.header--hero {
+  --header-name-text-size: min(14.4vw, 16vh);
+  --header-start-text-size: min(7.2vw, 8vh);
+  --header-line-width: min(0.5625vw, 0.625vh);
+  --header-line-spacing: min(2.25vw, 2.5vh);
+
+  /*
+    Pixel art scaling
+    1px = 0.1875vh
+  */
+  --spaceship-container-height: max(10.75rem, 45vh);
+  --spaceship-height: max(calc(var(--visual-pixel) * 20), 15vh);
+  --spaceship-movement: max(calc(var(--visual-pixel) * 4), 3vh);
+  --asteroid-size: max(calc(var(--visual-pixel) * 10), 7.875vh);
+  --laser-height: max(var(--visual-pixel), 1.125vh);
+  --laser-width: max(calc(var(--visual-pixel) * 9), 7.125vh);
+  --header-background-size: max(25rem, 75vh);
+  --asteroid-position: calc(
+    ((50% - (var(--spaceship-height) / 2) - var(--asteroid-size)) / 2) -
+      var(--spaceship-movement)
+  );
+  --laser-endstop: max(calc(100vw + (var(--laser-width) / 2)), calc(36.625rem));
+
+  & .header__content {
+    min-height: calc(100vh - 5rem);
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+  }
+
+  & .header__spaceship {
+    justify-content: center;
+    width: 100%;
+    flex: 1 1 var(--spaceship-container-height);
+    position: relative;
+  }
+
+  & .header__laser {
+    position: absolute;
+    width: var(--laser-width);
+    height: var(--laser-height);
+    background-image: url("/static/images/laser.svg");
+    background-size: var(--laser-width);
+    left: calc(50% - (var(--laser-width) / 2));
+    top: calc(50% + (var(--laser-height) / 2));
+    will-change: transform, opacity;
+    transform: translateX(
+      calc(
+        var(--spaceship-height) + calc(var(--laser-width) / 2) +
+          calc(var(--laser-endstop) * 0.05)
+      )
+    );
+    opacity: 1;
+  }
+
+  & .header__asteroid {
+    position: absolute;
+    width: var(--asteroid-size);
+    height: var(--asteroid-size);
+    left: var(--header-content-width);
+    will-change: transform;
+
+    overflow: hidden;
+  }
+
+  & .header__asteroid::before {
+    content: " ";
+    display: block;
+    background-image: url("/static/images/asteroid.svg");
+    background-size: auto var(--asteroid-size);
+    width: calc(var(--asteroid-size) * 20);
+    height: var(--asteroid-size);
+    will-change: transform;
+  }
+
+  & .header__asteroid--1,
+  & .header__asteroid--2,
+  & .header__asteroid--3 {
+    top: var(--asteroid-position);
+  }
+
+  & .header__asteroid--4,
+  & .header__asteroid--5,
+  & .header__asteroid--6 {
+    bottom: var(--asteroid-position);
+  }
+
+  & .header__asteroid--1 {
+    transform: translateX(calc(var(--header-content-width) * -0.87));
+  }
+
+  & .header__asteroid--2 {
+    transform: translateX(
+      calc(
+        calc(var(--header-content-width) - calc(var(--asteroid-size) * 1)) *
+          -0.49
+      )
+    );
+  }
+
+  & .header__asteroid--3 {
+    transform: translateX(
+      calc(
+        calc(var(--header-content-width) - calc(var(--asteroid-size) * 2)) *
+          -0.27
+      )
+    );
+  }
+
+  & .header__asteroid--4 {
+    transform: translateX(calc(var(--header-content-width) * -0.95));
+  }
+
+  & .header__asteroid--5 {
+    transform: translateX(
+      calc(
+        calc(var(--header-content-width) - calc(var(--asteroid-size) * 1)) *
+          -0.69
+      )
+    );
+  }
+
+  & .header__asteroid--6 {
+    transform: translateX(
+      calc(
+        calc(var(--header-content-width) - calc(var(--asteroid-size) * 2)) *
+          -0.21
+      )
+    );
+  }
+}
+
+@media screen and (min-width: 43.75rem) {
+  :root {
+    --header-flex: 1 1 50%;
+  }
+
+  .header__content {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  :root {
+    --header-flex: 1 1 50%;
+  }
+}
+
+@media screen and (min-width: 53.125rem) {
+  :root {
+    --header-name-text-size: 4.8rem;
+  }
+}

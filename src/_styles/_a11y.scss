@@ -1,0 +1,27 @@
+*:focus {
+  outline: 0.25rem solid var(--highlight-color);
+  outline-offset: 0.25rem;
+  z-index: 1;
+}
+
+.skip-link:not(:focus) {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.9em;
+  border: 0.25rem solid #ffffff;
+  background: #000000;
+  padding: 0.25rem;
+}

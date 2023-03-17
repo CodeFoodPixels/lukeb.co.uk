@@ -1,0 +1,36 @@
+.eleventy-plugin-embedded-demo__container {
+  background: #000000;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.eleventy-plugin-embedded-demo__result-iframe {
+  width: 100%;
+  min-height: 15.625rem;
+  max-height: 25rem;
+  height: 75vh;
+  border: none;
+}
+
+.eleventy-plugin-embedded-demo__result {
+  flex: 1;
+  background-color: #ffffff;
+}
+
+.eleventy-plugin-embedded-demo__code {
+  margin-bottom: 0.75rem;
+}
+
+.eleventy-plugin-embedded-demo__code-toggle,
+.eleventy-plugin-embedded-demo__result-toggle {
+  padding: 0.5rem;
+  position: relative;
+  z-index: 1;
+  background-color: var(--highlight-color);
+  color: #ffffff;
+}
+
+.eleventy-plugin-embedded-demo__code pre[class*="language-"] {
+  margin-bottom: 0;
+  padding-top: 1.25rem;
+}
