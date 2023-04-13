@@ -11,8 +11,7 @@ module.exports = () => {
   }
   const dayAfterCssNakedDay = new Date(nextCssNakedDay);
   dayAfterCssNakedDay.setDate(dayAfterCssNakedDay.getDate() + 1);
-  console.log(nextCssNakedDay);
-  console.log(dayAfterCssNakedDay);
+
   return {
     name: "Luke Bonaccorsi",
     description:
