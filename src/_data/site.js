@@ -3,13 +3,16 @@ module.exports = () => {
   const month = today.getMonth();
   const day = today.getDate();
 
-  const nextCssNakedDay = new Date(`${today.getFullYear()}-04-09 00:00:00`);
+  const nextCssNakedDay = new Date(
+    Date.UTC(today.getFullYear(), 3, 9, 0, 0, 0)
+  );
   if (nextCssNakedDay < today) {
     nextCssNakedDay.setFullYear(nextCssNakedDay.getFullYear() + 1);
   }
   const dayAfterCssNakedDay = new Date(nextCssNakedDay);
   dayAfterCssNakedDay.setDate(dayAfterCssNakedDay.getDate() + 1);
-
+  console.log(nextCssNakedDay);
+  console.log(dayAfterCssNakedDay);
   return {
     name: "Luke Bonaccorsi",
     description:

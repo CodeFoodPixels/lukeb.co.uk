@@ -10,29 +10,6 @@ class NextBuild {
     };
   }
 
-  dateToCron(date) {
-    const minutes = date.getMinutes();
-    const hours = date.getHours();
-    const days = date.getDate();
-    const months = date.getMonth() + 1;
-    const dayOfWeek = date.getDay();
-
-    return `${minutes} ${hours} ${days} ${months} ${dayOfWeek}`;
-  }
-
-  getUTCPostDate(date, timezone) {
-    const padded = (val) => val.toString().padStart(2, "0");
-
-    return zonedTimeToUtc(
-      `${date.getFullYear()}-${padded(date.getMonth() + 1)}-${padded(
-        date.getDate()
-      )} ${padded(date.getHours())}:${padded(date.getMinutes())}:${padded(
-        date.getSeconds()
-      )}`,
-      timezone
-    );
-  }
-
   async render({ site, webmentionsLastFetched }) {
     const template = await readFile(
       path.join(
