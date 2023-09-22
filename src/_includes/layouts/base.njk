@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <link rel="preload" href="/static/fonts/pressstart2p.woff2" as="font" type="font/woff2" crossorigin="crossorigin">
-    <title>{{ renderData.title or title or site.title }} // Luke Bonaccorsi - Web Developer</title>
+    <title>{{ renderData.title or title or site.title }} // {{ site.name }} - Web Developer</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ page.excerpt | md | striptags or renderData.description or description or site.description }}">
@@ -24,8 +24,8 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="apple-mobile-web-app-title" content="Luke Bonaccorsi">
-    <meta name="application-name" content="Luke Bonaccorsi">
+    <meta name="apple-mobile-web-app-title" content="{{ site.name }}">
+    <meta name="application-name" content="{{ site.name }}">
     <meta name="theme-color" content="#000000">
     {% if site.isCssNakedDay === false %}
       <link rel="stylesheet" href="/static/css/dist.css">
@@ -58,7 +58,7 @@
           {% endif %}
         </div>
         <div class="header__text">
-          <a href="{{ site.url }}" class="header__name h-card p-author" rel="me author">Luke Bonaccorsi</a>
+          <a href="{{ site.url }}" class="header__name h-card p-author" rel="me author">{{ site.name }}</a>
           <div class="header__start js-start">
             <span class="header__start-text">Press Start</span>
           </div>
@@ -96,7 +96,7 @@
       {{ content | safe }}
     </main>
     <footer class="footer">
-      <p>&copy; Luke Bonaccorsi 2017 - {% year %}</p>
+      <p>&copy; {{ site.name }} 2017 - {% year %}</p>
       <p>
         <a href="https://github.com/codefoodpixels/website-11ty" target="_blank" rel="external noopener noreferrer">
           View website source on GitHub

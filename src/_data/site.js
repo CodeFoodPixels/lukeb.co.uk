@@ -12,15 +12,17 @@ module.exports = () => {
   const dayAfterCssNakedDay = new Date(nextCssNakedDay);
   dayAfterCssNakedDay.setDate(dayAfterCssNakedDay.getDate() + 1);
 
-	const domain = "codefoodpixels.com";
+  const married = Date.now() >= Date.parse("31 October 2023 13:30:00 GMT");
+  const domain = "codefoodpixels.com";
+  const name = married ? "Luke Morrigan" : "Luke Bonaccorsi";
 
   return {
-    name: "Luke Bonaccorsi",
+    name,
     description:
       "Hi, I'm Luke! I'm a self-taught web developer/software engineer with expertise in building scalable, performant websites using HTML, CSS and JavaScript",
     domain,
     url: `https://${domain}`,
-    authorName: "Luke Bonaccorsi",
+    authorName: name,
     authorEmail: `luke@${domain}`,
     maxPostsPerPage: 10,
     webmentionToken: "pDjIX81PRC-fGTpGYOXOMQ",

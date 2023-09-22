@@ -17,7 +17,7 @@ permalink: /speaking/info/
 ### Pictures
 
 <figure>
-  {% image "./src/static/images/luke-bonaccorsi-cropped.jpg", "Luke Bonaccorsi eating a large baguette", "(min-width: 664px) 600px, 250px" %}
+  {% image "./src/static/images/luke-bonaccorsi-cropped.jpg", "{{ site.name }} eating a large baguette", "(min-width: 664px) 600px, 250px" %}
   <figcaption>
 
 Cropped headshot. [Download high-res jpg version](/static/images/luke-bonaccorsi-cropped.jpg)
@@ -26,7 +26,7 @@ Cropped headshot. [Download high-res jpg version](/static/images/luke-bonaccorsi
 </figure>
 
 <figure>
-  {% image "./src/static/images/luke-bonaccorsi.jpg", "Luke Bonaccorsi sat on a red chair, eating a large baguette", "(min-width: 664px) 600px, 250px" %}
+  {% image "./src/static/images/luke-bonaccorsi.jpg", "{{ site.name }} sat on a red chair, eating a large baguette", "(min-width: 664px) 600px, 250px" %}
   <figcaption>
 
 Full photo. [Download high-res jpg version](/static/images/luke-bonaccorsi.jpg)

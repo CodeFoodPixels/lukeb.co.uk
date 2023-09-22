@@ -5,7 +5,7 @@ heroHeader: true
 permalink: /
 ---
 
-{% image "./src/static/images/luke-bonaccorsi.jpg", "Luke Bonaccorsi sat on a red chair, eating a large baguette", "(min-width: 864px) 800px, (min-width: 664px) 600px, 250px" %}
+{% image "./src/static/images/luke-bonaccorsi.jpg", "{{ site.name }} sat on a red chair, eating a large baguette", "(min-width: 864px) 800px, (min-width: 664px) 600px, 250px" %}
 
 I'm a self-taught web developer/software engineer with expertise in building scalable, performant websites using HTML, CSS and JavaScript, as well as a myriad of other technologies. Currently I live near Ayr, Scotland and work for [Pod Point](https://pod-point.com), but have previously worked for [AND Digital](https://and.digital/), [Sky Betting & Gaming](https://www.skybetcareers.com/) and [Frog Education](https://www.frogeducation.com/).
 
