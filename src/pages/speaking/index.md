@@ -8,6 +8,6 @@ I'm an experienced public speaker, having spoken at multiple international confe
 
 <!-- excerpt -->
 
-If you'd like me to speak at or MC your conference or event, please get in touch with me either through [Mastodon](https://indieweb.social/@CodeFoodPixels) or by email at [luke@lukeb.co.uk](mailto:luke@lukeb.co.uk).
+If you'd like me to speak at or MC your conference or event, please get in touch with me either through [Mastodon](https://indieweb.social/@CodeFoodPixels) or by email at [{{site.authorEmail}}](mailto:{{site.authorEmail}}).
 
 You can find my bio, photos and links on [my speaker info page](/speaking/info).

@@ -43,8 +43,8 @@ Once signed in, you can find the tags you'll need to add to your `head` tag that
 In my case, the tags look like this:
 
 ```html
-<link rel="webmention" href="https://webmention.io/lukeb.co.uk/webmention" />
-<link rel="pingback" href="https://webmention.io/lukeb.co.uk/xmlrpc" />
+<link rel="webmention" href="https://webmention.io/{{site.domain}}/webmention" />
+<link rel="pingback" href="https://webmention.io/{{site.domain}}/xmlrpc" />
 ```
 
 Now your website can get Webmentions!

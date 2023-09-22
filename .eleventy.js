@@ -24,6 +24,10 @@ const avatars = require("./eleventy-plugin-link-avatars");
 
 const webmentions = require("eleventy-plugin-webmentions");
 
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/_styles/");
 
@@ -36,8 +40,9 @@ module.exports = function (eleventyConfig) {
     return slugify(input, options);
   };
 
+  const linkRegex = new RegExp(`^(?!(${escapeRegExp(site.url)}|#|\/)).*$`);
   const linkAttributes = {
-    pattern: /^(?!(https:\/\/lukeb\.co.uk|#|\/)).*$/,
+    pattern: linkRegex,
     attrs: {
       target: "_blank",
       rel: "external noopener noreferrer",
@@ -65,7 +70,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPlugin(avatars, {
-    excludedUrls: ["https://lukeb.co.uk"],
+    excludedUrls: ["https://lukeb.co.uk", site.url],
     includeSelectors: ["#main-content"],
     excludeSelectors: [],
     outputDir: "./dist/static/images/",
@@ -146,8 +151,8 @@ module.exports = function (eleventyConfig) {
 
   // Plugins
   eleventyConfig.addPlugin(webmentions, {
-    domain: site.domain,
-    token: "pDjIX81PRC-fGTpGYOXOMQ",
+    domain: ["lukeb.co.uk", site.domain],
+    token: ["pDjIX81PRC-fGTpGYOXOMQ", "cIsyUadBGmlYmU069BrhQQ"],
     truncationMarker:
       '&hellip; <span class="webmention__truncated">Truncated</span>',
     pageAliases: Object.keys(redirects).reduce((aliases, key) => {

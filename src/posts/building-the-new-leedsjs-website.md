@@ -61,8 +61,8 @@ This contains information about a speaker. This is the file for me on the new si
   "picture": "luke-bonaccorsi.jpg",
   "twitter": "CodeFoodPixels",
   "links": {
-    "Website": "https://lukeb.co.uk",
-    "GitHub": "https://github.com/lukeb-uk"
+    "Website": "{{site.url}}",
+    "GitHub": "https://github.com/codefoodpixels"
   }
 }
 ```

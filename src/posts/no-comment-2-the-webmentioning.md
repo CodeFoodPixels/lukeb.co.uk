@@ -23,7 +23,7 @@ const Webmentions = require("eleventy-plugin-webmentions");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(Webmentions, {
-    domain: "lukeb.co.uk",
+    domain: "{{site.domain}}",
     token: "ABC123XYZ987",
   });
 };

@@ -39,9 +39,9 @@ A huge milestone was releasing the responsive site to 100% of customers. My team
 
 ## Personal Projects
 
-Earlier in this year I released [jscad-includify](https://github.com/lukeb-uk/jscad-includify) which is a Node module that builds the includes for a [JSCAD](https://openjscad.org/) project into one file. This was a great opportunity to learn more about ASTs as well as having a go at building a utility that works as both a cli tool and a Node module.
+Earlier in this year I released [jscad-includify](https://github.com/codefoodpixels/jscad-includify) which is a Node module that builds the includes for a [JSCAD](https://openjscad.org/) project into one file. This was a great opportunity to learn more about ASTs as well as having a go at building a utility that works as both a cli tool and a Node module.
 
-As a result of the work I did on jscad-includify, I got interested in snapshot testing. As I couldn't find a tool that would let me do snapshot testing with TAP (the Node test framework that I like), I ended up writing [tapshot](https://github.com/lukeb-uk/tapshot). This was an interesting challenge as I learned a lot about snapshot testing and had to ensure it was well tested itself.
+As a result of the work I did on jscad-includify, I got interested in snapshot testing. As I couldn't find a tool that would let me do snapshot testing with TAP (the Node test framework that I like), I ended up writing [tapshot](https://github.com/codefoodpixels/tapshot). This was an interesting challenge as I learned a lot about snapshot testing and had to ensure it was well tested itself.
 
 I also rebuilt this website with the aim of keeping it more up to date and to blog more. You can read more about the website [here](/blog/2017/11/12/New-Website/).
 

@@ -12,14 +12,16 @@ module.exports = () => {
   const dayAfterCssNakedDay = new Date(nextCssNakedDay);
   dayAfterCssNakedDay.setDate(dayAfterCssNakedDay.getDate() + 1);
 
+	const domain = "codefoodpixels.com";
+
   return {
     name: "Luke Bonaccorsi",
     description:
       "Hi, I'm Luke! I'm a self-taught web developer/software engineer with expertise in building scalable, performant websites using HTML, CSS and JavaScript",
-    domain: "lukeb.co.uk",
-    url: "https://lukeb.co.uk",
+    domain,
+    url: `https://${domain}`,
     authorName: "Luke Bonaccorsi",
-    authorEmail: "luke@lukeb.co.uk",
+    authorEmail: `luke@${domain}`,
     maxPostsPerPage: 10,
     webmentionToken: "pDjIX81PRC-fGTpGYOXOMQ",
     isCssNakedDay: month === 3 && day === 9,
