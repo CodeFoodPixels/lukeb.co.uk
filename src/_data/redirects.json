@@ -20,5 +20,7 @@
   "/2017/11/12/New-Website/": "/blog/2017/11/12/new-website/",
   "/tags/*": "/blog/tag/:splat",
   "/page/*": "/blog/page/:splat",
-  "/about": "/"
+  "/about": "/",
+  "https://lukeb.co.uk/*": "https://codefoodpixels.com/:splat",
+  "https://www.lukeb.co.uk/*": "https://codefoodpixels.com/:splat"
 }
