@@ -6,11 +6,14 @@ module.exports = () => {
   const nextCssNakedDay = new Date(
     Date.UTC(today.getFullYear(), 3, 9, 0, 0, 0)
   );
-  if (nextCssNakedDay < today) {
-    nextCssNakedDay.setFullYear(nextCssNakedDay.getFullYear() + 1);
-  }
   const dayAfterCssNakedDay = new Date(nextCssNakedDay);
   dayAfterCssNakedDay.setDate(dayAfterCssNakedDay.getDate() + 1);
+  if (nextCssNakedDay <= today) {
+    nextCssNakedDay.setFullYear(nextCssNakedDay.getFullYear() + 1);
+  }
+  if (dayAfterCssNakedDay <= today) {
+    dayAfterCssNakedDay.setFullYear(dayAfterCssNakedDay.getFullYear() + 1);
+  }
 
   const married = Date.now() >= Date.parse("31 October 2023 13:30:00 GMT");
   const domain = "codefoodpixels.com";
